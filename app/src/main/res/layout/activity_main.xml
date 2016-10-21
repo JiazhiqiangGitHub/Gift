@@ -22,29 +22,48 @@
      android:layout_height="0dp"
      android:layout_weight="1"
      android:orientation="horizontal">
+
      <RadioButton
      android:layout_width="0dp"
      android:layout_height="match_parent"
      android:layout_weight="1"
-         android:id="@+id/btn_main_guide"
+     android:button="@null"
+     android:gravity="center"
+     android:id="@+id/btn_main_guide"
+     android:text="指南"
+     android:drawableTop="@drawable/guide_button"
+     />
      />
      <RadioButton
          android:layout_width="0dp"
          android:layout_height="match_parent"
          android:layout_weight="1"
+         android:button="@null"
+         android:gravity="center"
          android:id="@+id/btn_main_hot"
+         android:text="热门"
+         android:drawableTop="@drawable/hot_botton"
          />
      <RadioButton
          android:layout_width="0dp"
          android:layout_height="match_parent"
          android:layout_weight="1"
+         android:button="@null"
+         android:gravity="center"
          android:id="@+id/btn_main_class"
+         android:text="分类"
+         android:drawableTop="@drawable/class_botton"
+
          />
      <RadioButton
          android:layout_width="0dp"
          android:layout_height="match_parent"
          android:layout_weight="1"
+         android:button="@null"
+         android:gravity="center"
          android:id="@+id/btn_main_mine"
+         android:text="我的"
+         android:drawableTop="@drawable/mine_botton"
          />
  </LinearLayout>
 

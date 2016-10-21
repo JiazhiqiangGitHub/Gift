@@ -18,6 +18,7 @@ public class startActivity extends BaseActivity{
     private boolean actived = true;
     @Override
     protected int getLayout() {
+        //布局文件中 注册以及调换activity的位置
         return R.layout.activity_start;
     }
 
@@ -30,6 +31,7 @@ public class startActivity extends BaseActivity{
 
     @Override
     protected void initData() {
+        //计时器
         intent = new Intent(startActivity.this,MainActivity.class);
         CountDownTimer countDownTimer = new CountDownTimer(6000,1000) {
             @Override
