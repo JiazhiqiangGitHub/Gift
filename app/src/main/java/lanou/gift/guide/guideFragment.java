@@ -1,17 +1,13 @@
 package lanou.gift.guide;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
 import lanou.gift.R;
+import lanou.gift.base.BaseFragment;
 import lanou.gift.guideHead.accessoryFragment;
 import lanou.gift.guideHead.birthdayFragment;
 import lanou.gift.guideHead.chooseFragment;
@@ -23,17 +19,13 @@ import lanou.gift.guideHead.matchClothesFragment;
 /**
  * Created by dllo on 16/10/21.
  */
-public class guideFragment extends Fragment {
+public class guideFragment extends BaseFragment {
 
     private ArrayList<Fragment> fragments;
-
-    @Nullable
+    private TabLayout tbHead;
+    private ViewPager vp;
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.guide_fragment, null);
-        //布局中为首页创建TabLayout和ViewPager
-        TabLayout tbHead = (TabLayout) v.findViewById(R.id.tb_guide_head);
-        ViewPager vp = (ViewPager) v.findViewById(R.id.vp_guide);
+    protected void initDate() {
         //创建ViewPager需要滑动的fragment
         fragments = new ArrayList<>();
         fragments.add(new christmasFragment());
@@ -49,18 +41,19 @@ public class guideFragment extends Fragment {
         vp.setAdapter(adapter);
         tbHead.setupWithViewPager(vp);
 
-        return v;
+    }
+    @Override
+    protected void initView() {
+        //布局中为首页创建TabLayout和ViewPager
+        tbHead = bindView(R.id.tb_guide_head);
+        vp = bindView(R.id.vp_guide);
     }
 
-
-
-
-
-
-
-
-
-
+    @Override
+    protected int getLayout() {
+        //布局
+        return R.layout.guide_fragment;
+    }
 
 
 }
