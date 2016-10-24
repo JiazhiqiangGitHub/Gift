@@ -1,9 +1,26 @@
 package lanou.gift.mine;
 
-import android.support.v4.app.Fragment;
+import lanou.gift.R;
+import lanou.gift.base.BaseFragment;
 
 /**
  * Created by dllo on 16/10/21.
  */
-public class mineFragment extends Fragment {
+public class mineFragment extends BaseFragment {
+
+
+    @Override
+    protected void initDate() {
+
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.mine_fragment;
+    }
 }
