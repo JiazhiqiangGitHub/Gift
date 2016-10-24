@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="#ED1B29">
+    <ImageButton
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@mipmap/back"
+        android:background="@null"
+        android:id="@+id/btn_search_title_back"/>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="5">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/edit_text"
+        android:layout_margin="4dp"
+        android:hint="搜索单品、攻略"
+        android:id="@+id/et_search_title"/>
+
+</RelativeLayout>
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="搜索"
+        android:background="@null"
+        android:layout_weight="1"
+        android:textColor="#FFFFFF"
+        android:id="@+id/btn_search_title_search"/>
+
+
+</LinearLayout>

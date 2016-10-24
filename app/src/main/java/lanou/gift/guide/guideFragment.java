@@ -1,8 +1,11 @@
 package lanou.gift.guide;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.ImageButton;
 
 import java.util.ArrayList;
 
@@ -15,17 +18,22 @@ import lanou.gift.guideHead.christmas.christmasFragment;
 import lanou.gift.guideHead.girlFriend.girlFriendFragment;
 import lanou.gift.guideHead.grow.growFragment;
 import lanou.gift.guideHead.matchClothes.matchClothesFragment;
+import lanou.gift.search.searchActivity;
 
 /**
  * Created by dllo on 16/10/21.
  */
-public class guideFragment extends BaseFragment {
+public class guideFragment extends BaseFragment implements View.OnClickListener {
 
     private ArrayList<Fragment> fragments;
     private TabLayout tbHead;
     private ViewPager vp;
+    private ImageButton btnSearch;
+    Intent intent = null;
     @Override
     protected void initDate() {
+//        //添加点击事件
+        btnSearch.setOnClickListener(this);
         //创建ViewPager需要滑动的fragment
         fragments = new ArrayList<>();
         fragments.add(new christmasFragment());
@@ -47,6 +55,7 @@ public class guideFragment extends BaseFragment {
         //布局中为首页创建TabLayout和ViewPager
         tbHead = bindView(R.id.tb_guide_head);
         vp = bindView(R.id.vp_guide);
+        btnSearch = bindView(R.id.btn_guide_title_search);
     }
 
     @Override
@@ -56,4 +65,9 @@ public class guideFragment extends BaseFragment {
     }
 
 
+    @Override
+    public void onClick(View view) {
+        intent = new Intent(getActivity(),searchActivity.class);
+        startActivity(intent);
+    }
 }

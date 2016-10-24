@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".main.MainActivity"/>
-<activity android:name=".enter.enterActivity"/>
+        <activity android:name=".enter.enterActivity"/>
+        <activity android:name=".search.searchActivity"/>
     </application>
 
 </manifest>
