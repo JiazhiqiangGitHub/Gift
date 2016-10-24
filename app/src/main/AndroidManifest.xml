@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".main.MainActivity"/>
-
+<activity android:name=".enter.enterActivity"/>
     </application>
 
 </manifest>
