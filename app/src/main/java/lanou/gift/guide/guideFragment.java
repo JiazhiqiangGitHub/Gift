@@ -8,13 +8,13 @@ import java.util.ArrayList;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
-import lanou.gift.guideHead.accessoryFragment;
-import lanou.gift.guideHead.birthdayFragment;
-import lanou.gift.guideHead.chooseFragment;
-import lanou.gift.guideHead.christmasFragment;
-import lanou.gift.guideHead.girlFriendFragment;
-import lanou.gift.guideHead.growFragment;
-import lanou.gift.guideHead.matchClothesFragment;
+import lanou.gift.guideHead.accessory.accessoryFragment;
+import lanou.gift.guideHead.birthday.birthdayFragment;
+import lanou.gift.guideHead.choose.chooseFragment;
+import lanou.gift.guideHead.christmas.christmasFragment;
+import lanou.gift.guideHead.girlFriend.girlFriendFragment;
+import lanou.gift.guideHead.grow.growFragment;
+import lanou.gift.guideHead.matchClothes.matchClothesFragment;
 
 /**
  * Created by dllo on 16/10/21.

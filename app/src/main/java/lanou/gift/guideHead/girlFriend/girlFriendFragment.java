@@ -1,4 +1,4 @@
-package lanou.gift.guideHead;
+package lanou.gift.guideHead.girlFriend;
 
 import android.support.v4.app.Fragment;
 

@@ -1,4 +1,4 @@
-package lanou.gift.guideHead;
+package lanou.gift.guideHead.matchClothes;
 
 import android.support.v4.app.Fragment;
 
