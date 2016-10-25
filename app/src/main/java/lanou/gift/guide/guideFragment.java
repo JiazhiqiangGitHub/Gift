@@ -8,16 +8,10 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
-import lanou.gift.guideHead.accessory.AccessoryFragment;
-import lanou.gift.guideHead.birthday.BirthdayFragment;
-import lanou.gift.guideHead.choose.ChooseFragment;
-import lanou.gift.guideHead.christmas.ChristmasFragment;
-import lanou.gift.guideHead.girlFriend.GirlFriendFragment;
-import lanou.gift.guideHead.grow.GrowFragment;
-import lanou.gift.guideHead.matchClothes.MatchClothesFragment;
 import lanou.gift.search.SearchActivity;
 
 /**
@@ -30,25 +24,23 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
     private ViewPager vp;
     private ImageButton btnSearch;
     Intent intent = null;
+    public static final String [] tabTitle = new String[]{"精选","关注","送女票","海淘","科技范",
+            "美食","送基友","送爸妈","送同事","送宝贝"};
     @Override
     protected void initDate() {
 //        //添加点击事件
         btnSearch.setOnClickListener(this);
-        //创建ViewPager需要滑动的fragment
-        fragments = new ArrayList<>();
-        fragments.add(new ChristmasFragment());
-        fragments.add(new MatchClothesFragment());
-        fragments.add(new ChooseFragment());
-        fragments.add(new BirthdayFragment());
-        fragments.add(new GrowFragment());
-        fragments.add(new GirlFriendFragment());
-        fragments.add(new AccessoryFragment());
+
+        List<Fragment> fragments = new ArrayList<>();
+        for (int i = 0; i < tabTitle.length; i++) {
+            fragments.add(TabLayoutFragment.newInstance(i + 1));
+        }
         //创建适配器.把ViewPager和适配器 以及TabLayout绑定
-        GuideAdapter adapter = new GuideAdapter(getChildFragmentManager());
-        adapter.setFragments(fragments);
+        GuideAdapter adapter = new GuideAdapter(getChildFragmentManager(),fragments);
         vp.setAdapter(adapter);
         tbHead.setupWithViewPager(vp);
-
+        //控制TabLayout滑动
+        tbHead.setTabMode(TabLayout.MODE_SCROLLABLE);
     }
     @Override
     protected void initView() {

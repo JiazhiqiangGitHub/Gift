@@ -36,9 +36,6 @@ public class HotFragment extends BaseFragment implements View.OnClickListener {
             bean.setPeople("675");
             mArrayList.add(bean);
         }
-
-
-
         adapter = new HotAdapter(getActivity());
 
 //        HotAsyncTask asyncTask = new HotAsyncTask();

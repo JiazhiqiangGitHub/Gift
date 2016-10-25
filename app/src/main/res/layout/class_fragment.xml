@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <!--<include layout="@layout/class_title"-->
         <!--android:id="@+id/tb_class_head"-->
         <!--/>-->
@@ -11,7 +10,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/tb_class_head"
         android:background="#ED1E2B"
-        
+
         >
     </android.support.design.widget.TabLayout>
     <Button

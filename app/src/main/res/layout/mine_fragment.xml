@@ -9,6 +9,46 @@
     android:layout_height="0dp"
     android:layout_weight="3"
     android:background="@mipmap/signin_bg_night">
+    <ImageButton
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/icon_message"
+        android:background="@null"
+        android:layout_margin="20dp"
+        android:id="@+id/btn_mine_message"/>
+    <ImageButton
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/me_settings"
+        android:background="@null"
+        android:layout_margin="20dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/btn_mine_settings"/>
+
+    <ImageButton
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/btn_signin"
+        android:background="@null"
+        android:layout_margin="20dp"
+        android:id="@+id/btn_mine_signin"
+        android:layout_toRightOf="@+id/btn_mine_message"/>
+
+    <ImageButton
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/icon_scan"
+        android:background="@null"
+        android:layout_margin="20dp"
+        android:layout_toLeftOf="@+id/btn_mine_settings"
+        android:id="@+id/btn_mine_scan"/>
+
+
+
 <ImageButton
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"

@@ -4,22 +4,18 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by dllo on 16/10/21.
  */
 public class GuideAdapter extends FragmentPagerAdapter {
-    ArrayList<Fragment> fragments;
-    //定义 数组 名称
-    String [] strings = {"圣诞节","穿搭","海淘","生日","涨姿势","送闺蜜","饰品"};
 
-    public void setFragments(ArrayList<Fragment> fragments) {
-        this.fragments = fragments;
-    }
+    private List<Fragment> fragments;
 
-    public GuideAdapter(FragmentManager fm) {
+    public GuideAdapter(FragmentManager fm,List<Fragment> fragments) {
         super(fm);
+        this.fragments = fragments;
     }
 
     @Override
@@ -33,6 +29,6 @@ public class GuideAdapter extends FragmentPagerAdapter {
     }
     //调用标题
     public CharSequence getPageTitle(int position){
-        return strings[position];
+        return GuideFragment.tabTitle[position];
     }
 }
