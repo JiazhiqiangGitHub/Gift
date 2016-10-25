@@ -10,7 +10,7 @@ import lanou.gift.base.BaseActivity;
 /**
  * Created by dllo on 16/10/24.
  */
-public class enterActivity extends BaseActivity implements View.OnClickListener {
+public class EnterActivity extends BaseActivity implements View.OnClickListener {
     private ImageButton btnBack;
     Intent intent = null;
     @Override

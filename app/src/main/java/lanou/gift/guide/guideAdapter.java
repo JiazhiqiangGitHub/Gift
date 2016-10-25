@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Created by dllo on 16/10/21.
  */
-public class guideAdapter extends FragmentPagerAdapter {
+public class GuideAdapter extends FragmentPagerAdapter {
     ArrayList<Fragment> fragments;
     //定义 数组 名称
     String [] strings = {"圣诞节","穿搭","海淘","生日","涨姿势","送闺蜜","饰品"};
@@ -18,7 +18,7 @@ public class guideAdapter extends FragmentPagerAdapter {
         this.fragments = fragments;
     }
 
-    public guideAdapter(FragmentManager fm) {
+    public GuideAdapter(FragmentManager fm) {
         super(fm);
     }
 

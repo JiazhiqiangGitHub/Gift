@@ -11,19 +11,19 @@ import java.util.ArrayList;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
-import lanou.gift.guideHead.accessory.accessoryFragment;
-import lanou.gift.guideHead.birthday.birthdayFragment;
-import lanou.gift.guideHead.choose.chooseFragment;
-import lanou.gift.guideHead.christmas.christmasFragment;
-import lanou.gift.guideHead.girlFriend.girlFriendFragment;
-import lanou.gift.guideHead.grow.growFragment;
-import lanou.gift.guideHead.matchClothes.matchClothesFragment;
-import lanou.gift.search.searchActivity;
+import lanou.gift.guideHead.accessory.AccessoryFragment;
+import lanou.gift.guideHead.birthday.BirthdayFragment;
+import lanou.gift.guideHead.choose.ChooseFragment;
+import lanou.gift.guideHead.christmas.ChristmasFragment;
+import lanou.gift.guideHead.girlFriend.GirlFriendFragment;
+import lanou.gift.guideHead.grow.GrowFragment;
+import lanou.gift.guideHead.matchClothes.MatchClothesFragment;
+import lanou.gift.search.SearchActivity;
 
 /**
  * Created by dllo on 16/10/21.
  */
-public class guideFragment extends BaseFragment implements View.OnClickListener {
+public class GuideFragment extends BaseFragment implements View.OnClickListener {
 
     private ArrayList<Fragment> fragments;
     private TabLayout tbHead;
@@ -36,15 +36,15 @@ public class guideFragment extends BaseFragment implements View.OnClickListener 
         btnSearch.setOnClickListener(this);
         //创建ViewPager需要滑动的fragment
         fragments = new ArrayList<>();
-        fragments.add(new christmasFragment());
-        fragments.add(new matchClothesFragment());
-        fragments.add(new chooseFragment());
-        fragments.add(new birthdayFragment());
-        fragments.add(new growFragment());
-        fragments.add(new girlFriendFragment());
-        fragments.add(new accessoryFragment());
+        fragments.add(new ChristmasFragment());
+        fragments.add(new MatchClothesFragment());
+        fragments.add(new ChooseFragment());
+        fragments.add(new BirthdayFragment());
+        fragments.add(new GrowFragment());
+        fragments.add(new GirlFriendFragment());
+        fragments.add(new AccessoryFragment());
         //创建适配器.把ViewPager和适配器 以及TabLayout绑定
-        guideAdapter adapter = new guideAdapter(getChildFragmentManager());
+        GuideAdapter adapter = new GuideAdapter(getChildFragmentManager());
         adapter.setFragments(fragments);
         vp.setAdapter(adapter);
         tbHead.setupWithViewPager(vp);
@@ -67,7 +67,7 @@ public class guideFragment extends BaseFragment implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
-        intent = new Intent(getActivity(),searchActivity.class);
+        intent = new Intent(getActivity(),SearchActivity.class);
         startActivity(intent);
     }
 }

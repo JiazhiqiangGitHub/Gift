@@ -8,10 +8,10 @@ import android.widget.RadioButton;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseActivity;
-import lanou.gift.guide.guideFragment;
-import lanou.gift.hot.hotFragment;
-import lanou.gift.mine.mineFragment;
-import lanou.gift.sort.classFragment;
+import lanou.gift.guide.GuideFragment;
+import lanou.gift.hot.HotFragment;
+import lanou.gift.mine.MineFragment;
+import lanou.gift.sort.ClassFragment;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -43,7 +43,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         btnGuide.setChecked(true);
         manager = getSupportFragmentManager();
         transaction = manager.beginTransaction();
-        transaction.replace(R.id.lb_main, new guideFragment());
+        transaction.replace(R.id.lb_main, new GuideFragment());
         transaction.commit();
         //设置监听
         btnGuide.setOnClickListener(this);
@@ -57,16 +57,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         transaction = manager.beginTransaction();
         switch (view.getId()){
             case R.id.btn_main_guide:
-                transaction.replace(R.id.lb_main,new guideFragment());
+                transaction.replace(R.id.lb_main,new GuideFragment());
                 break;
             case R.id.btn_main_hot:
-                transaction.replace(R.id.lb_main,new hotFragment());
+                transaction.replace(R.id.lb_main,new HotFragment());
                 break;
             case R.id.btn_main_class:
-                transaction.replace(R.id.lb_main,new classFragment());
+                transaction.replace(R.id.lb_main,new ClassFragment());
                 break;
             case R.id.btn_main_mine:
-                transaction.replace(R.id.lb_main,new mineFragment());
+                transaction.replace(R.id.lb_main,new MineFragment());
                 break;
         }
         transaction.commit();

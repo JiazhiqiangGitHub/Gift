@@ -6,7 +6,7 @@ import lanou.gift.base.BaseFragment;
 /**
  * Created by dllo on 16/10/21.
  */
-public class classFragment extends BaseFragment {
+public class ClassFragment extends BaseFragment {
     @Override
     protected void initDate() {
 

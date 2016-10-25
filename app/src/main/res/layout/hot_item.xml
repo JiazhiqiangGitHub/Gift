@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="6"
+    android:src="@mipmap/ic_launcher"
+    android:id="@+id/iv_hot_rv_picture"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:layout_weight="2"
+        android:id="@+id/tv_hot_rv_name"
+        />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:textSize="30dp"
+        android:textColor="#EA1022"
+        android:id="@+id/tv_hot_rv_price"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_action_compact_favourite_normal"
+        android:background="@null"
+        android:layout_toLeftOf="@+id/tv_hot_rv_people"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/iv_hot_rv_love"
+
+        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7746"
+            android:textSize="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:id="@+id/tv_hot_rv_people"
+            />
+
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

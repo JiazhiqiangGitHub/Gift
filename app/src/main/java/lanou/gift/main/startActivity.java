@@ -11,7 +11,7 @@ import lanou.gift.base.BaseActivity;
 /**
  * Created by dllo on 16/10/21.
  */
-public class startActivity extends BaseActivity{
+public class StartActivity extends BaseActivity{
     private ImageView iv;
     private TextView tv;
     Intent intent = null;
@@ -32,7 +32,7 @@ public class startActivity extends BaseActivity{
     @Override
     protected void initData() {
         //计时器
-        intent = new Intent(startActivity.this,MainActivity.class);
+        intent = new Intent(StartActivity.this,MainActivity.class);
         CountDownTimer countDownTimer = new CountDownTimer(6000,1000) {
             @Override
             public void onTick(long l) {
