@@ -44,7 +44,7 @@ public class guideFragment extends BaseFragment implements View.OnClickListener 
         fragments.add(new girlFriendFragment());
         fragments.add(new accessoryFragment());
         //创建适配器.把ViewPager和适配器 以及TabLayout绑定
-        guideAdapter adapter = new guideAdapter(getFragmentManager());
+        guideAdapter adapter = new guideAdapter(getChildFragmentManager());
         adapter.setFragments(fragments);
         vp.setAdapter(adapter);
         tbHead.setupWithViewPager(vp);
