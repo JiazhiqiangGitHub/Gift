@@ -22,6 +22,7 @@
         <activity android:name=".main.MainActivity"/>
         <activity android:name=".enter.EnterActivity"/>
         <activity android:name=".search.SearchActivity"/>
+        <activity android:name=".setting.SettingActivity"/>
     </application>
 
 </manifest>

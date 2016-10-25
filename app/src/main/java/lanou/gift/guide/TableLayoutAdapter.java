@@ -15,6 +15,7 @@ import lanou.gift.R;
  * Created by dllo on 16/10/25.
  */
 public class TableLayoutAdapter extends BaseAdapter{
+    //listView的适配器
     private ArrayList<GuideBean> bean;
     private Context mContext;
 

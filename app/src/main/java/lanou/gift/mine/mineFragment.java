@@ -8,6 +8,7 @@ import android.widget.RadioButton;
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
 import lanou.gift.enter.EnterActivity;
+import lanou.gift.setting.SettingActivity;
 
 
 /**
@@ -15,7 +16,7 @@ import lanou.gift.enter.EnterActivity;
  */
 public class MineFragment extends BaseFragment implements View.OnClickListener {
     private RadioButton btnCart,btnOrder,btnCoupon,btnService;
-    private ImageButton btnSex;
+    private ImageButton btnSex,btnSetting;
     Intent intent = null;
 
     @Override
@@ -25,6 +26,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     btnCoupon.setOnClickListener(this);
     btnOrder.setOnClickListener(this);
     btnSex.setOnClickListener(this);
+    btnSetting.setOnClickListener(this);
     }
 
     @Override
@@ -34,6 +36,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     btnCoupon = bindView(R.id.btn_mine_coupon);
     btnService = bindView(R.id.btn_mine_service);
     btnSex = bindView(R.id.iv_mine_boy);
+    btnSetting = bindView(R.id.btn_mine_settings);
     }
 
     @Override
@@ -62,6 +65,10 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.iv_mine_boy:
                 intent = new Intent(getActivity(),EnterActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_mine_settings:
+                intent = new Intent(getActivity(),SettingActivity.class);
                 startActivity(intent);
                 break;
         }
