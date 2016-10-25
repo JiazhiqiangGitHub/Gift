@@ -27,9 +27,18 @@ public class HotFragment extends BaseFragment implements View.OnClickListener {
     protected void initDate() {
 
 
-        bean = new HotBean();
         mArrayList = new ArrayList<>();
-        mArrayList.add(bean);
+        for (int i = 0; i < 20; i++) {
+
+            bean = new HotBean();
+            bean.setName("天然草木制作的手工信纸");
+            bean.setPrice("19.00");
+            bean.setPeople("675");
+            mArrayList.add(bean);
+        }
+
+
+
         adapter = new HotAdapter(getActivity());
 
 //        HotAsyncTask asyncTask = new HotAsyncTask();

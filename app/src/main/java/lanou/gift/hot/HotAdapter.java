@@ -36,10 +36,10 @@ public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(HotAdapter.ViewHolder holder, int position) {
-        holder.picture.setImageBitmap(arrayList.get(position).getPicture());
+        holder.picture.setImageResource(R.mipmap.testpicture);
         holder.name.setText(arrayList.get(position).getName());
         holder.price.setText(arrayList.get(position).getPrice());
-        holder.love.setImageBitmap(arrayList.get(position).getLove());
+        holder.love.setImageResource(R.mipmap.ic_action_compact_favourite_normal);
         holder.people.setText(arrayList.get(position).getPeople());
 
     }

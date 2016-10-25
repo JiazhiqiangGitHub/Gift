@@ -33,7 +33,7 @@ public class StartActivity extends BaseActivity{
     protected void initData() {
         //计时器
         intent = new Intent(StartActivity.this,MainActivity.class);
-        CountDownTimer countDownTimer = new CountDownTimer(6000,1000) {
+        CountDownTimer countDownTimer = new CountDownTimer(2000,1000) {
             @Override
             public void onTick(long l) {
                 tv.setText("广告剩余时间"+(l/1000)+"s");
