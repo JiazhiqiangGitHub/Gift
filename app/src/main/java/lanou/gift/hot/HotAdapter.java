@@ -10,23 +10,22 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
-
 import lanou.gift.R;
+import lanou.gift.textBean.TextHotBean;
 
 /**
  * Created by dllo on 16/10/25.
  */
 public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder> {
-    ArrayList<HotBean> arrayList;
+    TextHotBean bean;
     private Context mContext;
 
     public HotAdapter(Context mContext) {
         this.mContext = mContext;
     }
 
-    public void setArrayList(ArrayList<HotBean> arrayList) {
-        this.arrayList = arrayList;
+    public void setBean(TextHotBean bean) {
+        this.bean = bean;
     }
 
     @Override
@@ -38,17 +37,19 @@ public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(HotAdapter.ViewHolder holder, int position) {
-        Picasso.with(mContext).load(arrayList.get(position).getPicture()).into(holder.picture);
-        holder.name.setText(arrayList.get(position).getName());
-        holder.price.setText(arrayList.get(position).getPrice());
+        //一顿点找到解析出的相对的东西
+        Picasso.with(mContext).load(bean.getData().getItems().get(position).getData().getCover_image_url()).into(holder.picture);
+        holder.name.setText(bean.getData().getItems().get(position).getData().getShort_description());
+        holder.price.setText(bean.getData().getItems().get(position).getData().getPrice());
+        holder.body.setText(bean.getData().getItems().get(position).getData().getName());
         holder.love.setImageResource(R.mipmap.ic_action_compact_favourite_normal);
-        holder.people.setText(arrayList.get(position).getPeople());
+//        holder.people.setText(arrayList.get(position).getPeople());
 
     }
 
     @Override
     public int getItemCount() {
-        return arrayList == null?0:arrayList.size();
+        return bean.getData().getItems().size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -58,6 +59,7 @@ public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder> {
         private final TextView price;
         private final ImageView picture;
         private final ImageView love;
+        private final TextView body;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -66,7 +68,7 @@ public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder> {
             price = (TextView) itemView.findViewById(R.id.tv_hot_rv_price);
             picture = (ImageView) itemView.findViewById(R.id.iv_hot_rv_picture);
             love = (ImageView) itemView.findViewById(R.id.iv_hot_rv_love);
-
+            body = (TextView) itemView.findViewById(R.id.tv_hot_rv_body);
 
         }
     }
