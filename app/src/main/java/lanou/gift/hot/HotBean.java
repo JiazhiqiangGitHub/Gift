@@ -9,7 +9,7 @@ public class HotBean {
     String name;
     String price;
     String people;
-    Bitmap picture;
+    String picture;
     Bitmap love;
 
     public String getName() {
@@ -36,11 +36,11 @@ public class HotBean {
         this.people = people;
     }
 
-    public Bitmap getPicture() {
+    public String getPicture() {
         return picture;
     }
 
-    public void setPicture(Bitmap picture) {
+    public void setPicture(String picture) {
         this.picture = picture;
     }
 

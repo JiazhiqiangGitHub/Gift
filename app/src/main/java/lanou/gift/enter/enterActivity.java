@@ -2,6 +2,7 @@ package lanou.gift.enter;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 import lanou.gift.R;
@@ -12,7 +13,10 @@ import lanou.gift.base.BaseActivity;
  */
 public class EnterActivity extends BaseActivity implements View.OnClickListener {
     private ImageButton btnBack;
+    private EditText number;
+    private EditText password;
     Intent intent = null;
+
     @Override
     protected int getLayout() {
         return R.layout.activity_enter;
@@ -21,11 +25,14 @@ public class EnterActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void initViews() {
        btnBack = bindView(R.id.btn_enter_back);
+        number = bindView(R.id.et_enter_number);
+        password = bindView(R.id.et_enter_password);
     }
 
     @Override
     protected void initData() {
         btnBack.setOnClickListener(this);
+
     }
 
     @Override

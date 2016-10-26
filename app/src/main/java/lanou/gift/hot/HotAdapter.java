@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 import lanou.gift.R;
@@ -36,7 +38,7 @@ public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(HotAdapter.ViewHolder holder, int position) {
-        holder.picture.setImageResource(R.mipmap.testpicture);
+        Picasso.with(mContext).load(arrayList.get(position).getPicture()).into(holder.picture);
         holder.name.setText(arrayList.get(position).getName());
         holder.price.setText(arrayList.get(position).getPrice());
         holder.love.setImageResource(R.mipmap.ic_action_compact_favourite_normal);

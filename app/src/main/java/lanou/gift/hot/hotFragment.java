@@ -38,8 +38,6 @@ public class HotFragment extends BaseFragment implements View.OnClickListener {
         }
         adapter = new HotAdapter(getActivity());
 
-//        HotAsyncTask asyncTask = new HotAsyncTask();
-//        asyncTask.execute("http://api.liwushuo.com/v2/items?gender=1&generation=4&limit=50&oddset=0");
 
         adapter.setArrayList(mArrayList);
         rc.setAdapter(adapter);
@@ -67,53 +65,6 @@ public class HotFragment extends BaseFragment implements View.OnClickListener {
         startActivity(intent);
     }
 
-//    private class HotAsyncTask extends AsyncTask<String,Integer,ArrayList<HotBean>>{
-//        @Override
-//        protected ArrayList<HotBean> doInBackground(String... params) {
-//            try {
-//                URL url = new URL(params[0]);
-//                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-//                if (connection.getResponseCode() == HttpURLConnection.HTTP_OK){
-//                    InputStream is = connection.getInputStream();
-//                    InputStreamReader reader = new InputStreamReader(is);
-//                    BufferedReader bufferedReader = new BufferedReader(reader);
-//                    String line = "";
-//                    String result = "";
-//                    while((line = bufferedReader.readLine()) != null){
-//                        result += line;
-//                    }
-//                    JSONArray jsonArray = new JSONArray((result));
-//                    if(jsonArray != null){
-//                        for (int i = 0; i < jsonArray.length(); i++) {
-//                            JSONObject object = jsonArray.getJSONObject(i);
-//                            HotBean bean = new HotBean();
-//                            if (object.has("title")){
-//                                bean.setName(object.getString("title"));
-//                            }
-//                            if (object.has("price")){
-//                                bean.setPrice(object.getString("price"));
-//                            }
-//                            if (object.has("")){
-//
-//                            }
-//                            mArrayList.add(bean);
-//                        }
-//                    }
-//                    bufferedReader.close();
-//                    reader.close();
-//                    is.close();
-//                    connection.disconnect();
-//                }
-//            } catch (MalformedURLException e) {
-//                e.printStackTrace();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-//
-//            return mArrayList;
-//        }
-//
-//    }
+
+
 }

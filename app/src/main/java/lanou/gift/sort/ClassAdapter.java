@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class ClassAdapter extends FragmentPagerAdapter {
     ArrayList<Fragment> fragments;
-    String [] string = {"攻略","单品"};
+    String [] string = {"单品","攻略"};
     public void setFragments(ArrayList<Fragment> fragments) {
         this.fragments = fragments;
     }
