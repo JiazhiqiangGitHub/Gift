@@ -1,55 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:background="#ffffff"
+    >
 
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4"
+        android:layout_height="170dp"
         android:scaleType="fitXY"
+        android:layout_margin="10dp"
         android:src="@mipmap/testpicture"
         android:id="@+id/iv_guide_fragment_item_picture"/>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="40dp"
         android:text="你好"
-        android:textSize="30dp"
+        android:textSize="18dp"
+        android:layout_margin="5dp"
+        android:textColor="#000000"
         android:id="@+id/tv_guide_fragment_item_name"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
         android:id="@+id/tv_guide_fragment_item_body"
-        android:text="oo"/>
+        android:text="oo"
+        android:textSize="13dp"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:scaleType="fitXY"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/abcline3"
+        android:background="#FFFFFF"
+        android:layout_margin="10dp"
+        />
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="栏目"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/tv_guide_fragment_item_class"
-        android:layout_margin="5dp"/>
+        android:layout_height="40dp"
+>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="最佳礼物"
-            android:layout_toRightOf="@+id/tv_guide_fragment_item_class"
+            android:text="栏目"
+            android:textSize="11dp"
             android:layout_alignParentBottom="true"
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
+            android:id="@+id/tv_item_left"
             />
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="栏目1"
+            android:textSize="12dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/tv_item_left"
+        android:id="@+id/tv_guide_fragment_item_class"
+        android:layout_margin="10dp"
+            android:textColor="#000000"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/tv_guide_fragment_item_people"
             android:src="@mipmap/ic_action_compact_favourite_normal"
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
             android:layout_alignParentBottom="true"/>
         <TextView
             android:layout_width="wrap_content"
@@ -58,13 +77,17 @@
             android:text="121321"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="5dp"/>
+            android:layout_margin="10dp"/>
 
 
 
     </RelativeLayout>
 
-
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:layout_height="10dp"-->
+        <!--android:src="@mipmap/abcline3"/>-->
 
 
 

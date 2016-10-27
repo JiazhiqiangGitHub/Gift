@@ -33,8 +33,8 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
         List<Fragment> fragments = new ArrayList<>();
         for (int i = 0; i < tabTitle.length; i++) {
             if (i == 0){
-              fragments.add(new HeadFragment());
-            }else {
+             fragments.add(new HeadFragment());
+           }else {
                 fragments.add(TabLayoutFragment.newInstance(i + 1));
             }
         }
