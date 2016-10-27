@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import lanou.gift.R;
-import lanou.gift.textBean.TextHotBean;
+import lanou.gift.textbean.TextHotBean;
 
 /**
  * Created by dllo on 16/10/25.

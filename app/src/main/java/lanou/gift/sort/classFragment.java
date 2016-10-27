@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
-import lanou.gift.sortHead.one.OneFragment;
-import lanou.gift.sortHead.raiders.RaidersFragment;
+import lanou.gift.sorthead.one.OneFragment;
+import lanou.gift.sorthead.raiders.RaidersFragment;
 
 /**
  * Created by dllo on 16/10/21.

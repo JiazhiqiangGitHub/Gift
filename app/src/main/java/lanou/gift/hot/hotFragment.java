@@ -10,12 +10,10 @@ import android.widget.ImageView;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.util.ArrayList;
-
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
 import lanou.gift.search.SearchActivity;
-import lanou.gift.textBean.TextHotBean;
+import lanou.gift.textbean.TextHotBean;
 import lanou.gift.volley.GsonRequest;
 import lanou.gift.volley.VolleySingleton;
 
@@ -25,9 +23,6 @@ import lanou.gift.volley.VolleySingleton;
 public class HotFragment extends BaseFragment implements View.OnClickListener {
     private ImageButton btnSearch;
     private RecyclerView rc;
-    Intent intent = null;
-    private HotBean bean;
-    private ArrayList<HotBean> mArrayList;
     private HotAdapter adapter;
 
     private String url = "http://api.liwushuo.com/v2/items?limit=20&offset=0&gender=2&generation=1";
@@ -75,7 +70,7 @@ public class HotFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        intent = new Intent(getActivity(),SearchActivity.class);
+        Intent intent = new Intent(getActivity(),SearchActivity.class);
         startActivity(intent);
     }
 

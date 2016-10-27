@@ -23,7 +23,6 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
     private TabLayout tbHead;
     private ViewPager vp;
     private ImageButton btnSearch;
-    Intent intent = null;
     public static final String [] tabTitle = new String[]{"精选","关注","送女票","海淘","科技范",
             "美食","送基友","送爸妈","送同事","送宝贝"};
     @Override
@@ -59,7 +58,7 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
-        intent = new Intent(getActivity(),SearchActivity.class);
+        Intent intent = new Intent(getActivity(),SearchActivity.class);
         startActivity(intent);
     }
 }

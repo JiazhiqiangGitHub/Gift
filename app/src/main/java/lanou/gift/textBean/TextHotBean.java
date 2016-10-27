@@ -1,4 +1,4 @@
-package lanou.gift.textBean;
+package lanou.gift.textbean;
 
 import java.util.List;
 

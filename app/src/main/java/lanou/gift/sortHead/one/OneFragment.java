@@ -1,4 +1,4 @@
-package lanou.gift.sortHead.one;
+package lanou.gift.sorthead.one;
 
 import android.view.View;
 import android.widget.AbsListView;

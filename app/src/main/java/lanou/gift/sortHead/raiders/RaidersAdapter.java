@@ -1,4 +1,4 @@
-package lanou.gift.sorthead.one;
+package lanou.gift.sorthead.raiders;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,29 +12,28 @@ import java.util.ArrayList;
 import lanou.gift.R;
 
 /**
- * Created by dllo on 16/10/26.
+ * Created by dllo on 16/10/27.
  */
-public class LeftAdapter extends BaseAdapter {
-
+public class RaidersAdapter extends BaseAdapter{
     private Context context;
-    private ArrayList<String> list;
+    private ArrayList<RaidersBean>arrayList;
 
-    public LeftAdapter(Context context) {
+    public RaidersAdapter(Context context) {
         this.context = context;
     }
 
-    public void setList(ArrayList<String> list) {
-        this.list = list;
+    public void setArrayList(ArrayList<RaidersBean> arrayList) {
+        this.arrayList = arrayList;
     }
 
     @Override
     public int getCount() {
-        return list==null?0:list.size();
+        return arrayList == null?0:arrayList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return list.get(i);
+        return arrayList.get(i);
     }
 
     @Override
@@ -44,28 +43,27 @@ public class LeftAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-
         ViewHolder viewHolder = null;
         if (view == null){
-            view = LayoutInflater.from(context).inflate(R.layout.one_item_left,null);
+            view = LayoutInflater.from(context).inflate(R.layout.raiders_item,null);
             viewHolder = new ViewHolder(view);
             view.setTag(viewHolder);
         }else{
             viewHolder = (ViewHolder) view.getTag();
         }
 
-        viewHolder.textView.setText(list.get(i));
-
-
-        return view;
+            viewHolder.body.setText(arrayList.get(i).getBody());
+            return view;
     }
+
 
     private class ViewHolder {
 
-        private final TextView textView;
+
+        private final TextView body;
 
         public ViewHolder(View view) {
-            textView = (TextView) view.findViewById(R.id.one_text_left);
+            body = (TextView) view.findViewById(R.id.tv_class_raiders_item);
         }
     }
 }

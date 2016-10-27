@@ -1,4 +1,4 @@
-package lanou.gift.sortHead.one;
+package lanou.gift.sorthead.one;
 
 import android.content.Context;
 import android.view.LayoutInflater;
