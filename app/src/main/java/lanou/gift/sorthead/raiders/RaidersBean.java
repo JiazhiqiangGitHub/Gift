@@ -1,11 +1,10 @@
-package lanou.gift.guide;
+package lanou.gift.sorthead.raiders;
 
 /**
- * Created by dllo on 16/10/25.
+ * Created by dllo on 16/10/27.
  */
-public class GuideBean {
-//假数据
-String body;
+public class RaidersBean {
+    String body;
 
     public String getBody() {
         return body;

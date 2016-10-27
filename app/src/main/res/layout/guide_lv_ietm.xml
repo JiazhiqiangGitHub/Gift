@@ -7,11 +7,10 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5"
+        android:layout_weight="4"
         android:scaleType="fitXY"
-        android:src="@mipmap/testpicture"/>
-
-
+        android:src="@mipmap/testpicture"
+        android:id="@+id/iv_guide_fragment_item_picture"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -19,21 +18,51 @@
         android:layout_weight="1"
         android:text="你好"
         android:textSize="30dp"
-        android:id="@+id/tv_guide_fragment_item"/>
+        android:id="@+id/tv_guide_fragment_item_name"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"/>
-    <LinearLayout
+        android:layout_weight="1.5"
+        android:id="@+id/tv_guide_fragment_item_body"
+        android:text="oo"/>
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="栏目"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/tv_guide_fragment_item_class"
+        android:layout_margin="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="最佳礼物"
+            android:layout_toRightOf="@+id/tv_guide_fragment_item_class"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="5dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/tv_guide_fragment_item_people"
+            android:src="@mipmap/ic_action_compact_favourite_normal"
+            android:layout_margin="5dp"
+            android:layout_alignParentBottom="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_guide_fragment_item_people"
+            android:text="121321"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="5dp"/>
 
 
 
-
-
-    </LinearLayout>
+    </RelativeLayout>
 
 
 

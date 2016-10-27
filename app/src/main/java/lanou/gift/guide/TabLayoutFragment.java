@@ -2,26 +2,35 @@ package lanou.gift.guide;
 
 import android.os.Bundle;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
+import lanou.gift.guide.adapter.ChooseAdapter;
+import lanou.gift.guide.adapter.OriginalityAdapter;
+import lanou.gift.guide.adapter.TableLayoutAdapter;
+import lanou.gift.textbean.ChooseBean;
+import lanou.gift.textbean.GuideGirlFriendBean;
+import lanou.gift.textbean.OriginalityBean;
+import lanou.gift.volley.GsonRequest;
+import lanou.gift.volley.VolleySingleton;
 
 /**
  * Created by dllo on 16/10/25.
  */
 public class TabLayoutFragment extends BaseFragment{
     public static String TABLAYOUT_FRAGMENT = "tab_fragment";
-    private TextView tv;
     private int type;
     private ListView lv;
-    private ArrayList<GuideBean> arrayList;
-    private TableLayoutAdapter adapter;
-    private GuideBean bean;
-
-
+    private TableLayoutAdapter girlAdapter;
+    private ChooseAdapter chooseAdapter;
+    private OriginalityAdapter originalityAdapter;
+    private String url = "";
+    private String urlGirl = "http://api.liwushuo.com/v2/channels/10/items_v2?gender=1&limit=20&offset=0&generation=2";
+    private String urlChoose = "http://api.liwushuo.com/v2/channels/129/items_v2?gender=1&limit=20&offset=0&generation=2";
+    private String urlOriginality = "http://api.liwushuo.com/v2/channels/125/items_v2?gender=1&limit=20&offset=0&generation=2";
     public static TabLayoutFragment newInstance(int type) {
 
         TabLayoutFragment fragment = new TabLayoutFragment();
@@ -43,52 +52,84 @@ public class TabLayoutFragment extends BaseFragment{
     protected void initDate() {
         switch (type) {
             case 1:
-                tv.setText("这是精选Fragment");
                 break;
             case 2:
-                tv.setText("这是关注Fragment");
-                break;
+                GsonRequest<GuideGirlFriendBean> gsonRequest2 =
+                        new GsonRequest<GuideGirlFriendBean>(GuideGirlFriendBean.class,
+                                urlGirl, new Response.Listener<GuideGirlFriendBean>() {
+                            @Override
+                            public void onResponse(GuideGirlFriendBean response2) {
+                                //请求成功的方法内 绑定布局
+                                girlAdapter = new TableLayoutAdapter(getActivity());
+                                girlAdapter.setBeanGirl(response2);
+                                lv.setAdapter(girlAdapter);
+
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        });
+                //发送网络请求
+                VolleySingleton.getInstance().addRequest(gsonRequest2);
+
+            break;
             case 3:
-                tv.setText("这是送女票Fragment");
+                GsonRequest<ChooseBean> gsonRequest3 =
+                        new GsonRequest<ChooseBean>(ChooseBean.class,
+                                urlChoose, new Response.Listener<ChooseBean>() {
+                            @Override
+                            public void onResponse(ChooseBean response3) {
+                                //请求成功的方法内 绑定布局
+                                chooseAdapter = new ChooseAdapter(getActivity());
+                                chooseAdapter.setBeanChoose(response3);
+                                lv.setAdapter(chooseAdapter);
+
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        });
+                //发送网络请求
+                VolleySingleton.getInstance().addRequest(gsonRequest3);
                 break;
             case 4:
-                tv.setText("这是海掏Fragment");
+                GsonRequest<OriginalityBean> gsonRequest4 =
+                        new GsonRequest<OriginalityBean>(OriginalityBean.class,
+                                urlOriginality, new Response.Listener<OriginalityBean>() {
+                            @Override
+                            public void onResponse(OriginalityBean response4) {
+                                //请求成功的方法内 绑定布局
+                                originalityAdapter = new OriginalityAdapter(getActivity());
+                                originalityAdapter.setOriginalityBean(response4);
+                                lv.setAdapter(originalityAdapter);
+
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        });
+                //发送网络请求
+                VolleySingleton.getInstance().addRequest(gsonRequest4);
+
                 break;
             case 5:
-                tv.setText("这是科技范Fragment");
+
                 break;
             case 6:
-                tv.setText("这是美食Fragment");
+
                 break;
             case 7:
-                tv.setText("这是送基友Fragment");
-                break;
-            case 8:
-                tv.setText("这是送爸妈Fragment");
-                break;
-            case 9:
-                tv.setText("这是送同事Fragment");
-                break;
-            case 10:
-                tv.setText("这是送宝贝Fragment");
                 break;
         }
-        arrayList = new ArrayList<>();
-        for (int i = 0; i < 50; i++) {
-            bean = new GuideBean();
-            bean.setBody("嘿嘿嘿");
-            arrayList.add(bean);
-        }
-        adapter = new TableLayoutAdapter(getActivity());
-        adapter.setBean(arrayList);
-        lv.setAdapter(adapter);
-
-
     }
-
     @Override
     protected void initView() {
-        tv = bindView(R.id.tv_guide_fragment);
         lv = bindView(R.id.lv_fragment);
     }
 
