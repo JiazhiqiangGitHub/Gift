@@ -12,6 +12,7 @@ import java.util.List;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
+import lanou.gift.guide.firstFragment.HeadFragment;
 import lanou.gift.search.SearchActivity;
 
 /**
@@ -51,6 +52,7 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
         tbHead = bindView(R.id.tb_guide_head);
         vp = bindView(R.id.vp_guide);
         btnSearch = bindView(R.id.btn_guide_title_search);
+
     }
 
     @Override

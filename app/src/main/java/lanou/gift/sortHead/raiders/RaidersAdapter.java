@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import lanou.gift.R;
+import lanou.gift.textbean.RaidersBean;
 
 /**
  * Created by dllo on 16/10/27.

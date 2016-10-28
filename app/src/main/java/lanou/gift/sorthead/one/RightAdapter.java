@@ -92,7 +92,7 @@ public class RightAdapter extends BaseAdapter implements StickyListHeadersAdapte
 
     private class HeadViewHolder {
 
-        private final TextView tvhead;
+        private  TextView tvhead;
 
         public HeadViewHolder(View view1) {
             tvhead = (TextView) view1.findViewById(R.id.tv_head_one);

@@ -67,11 +67,11 @@ public class TableLayoutAdapter extends BaseAdapter{
 
     private class ViewHolder {
 
-        private final TextView name;
-        private final ImageView picture;
-        private final TextView body;
-        private final TextView title;
-        private final TextView people;
+        private TextView name;
+        private ImageView picture;
+        private TextView body;
+        private TextView title;
+        private TextView people;
 
         public ViewHolder(View convertView) {
             name = (TextView) convertView.findViewById(R.id.tv_guide_fragment_item_name);

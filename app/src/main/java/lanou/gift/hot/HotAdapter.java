@@ -54,12 +54,12 @@ public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView people;
-        private final TextView name;
-        private final TextView price;
-        private final ImageView picture;
-        private final ImageView love;
-        private final TextView body;
+        private  TextView people;
+        private  TextView name;
+        private  TextView price;
+        private  ImageView picture;
+        private  ImageView love;
+        private  TextView body;
 
         public ViewHolder(View itemView) {
             super(itemView);

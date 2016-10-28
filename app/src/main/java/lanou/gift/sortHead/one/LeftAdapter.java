@@ -62,7 +62,7 @@ public class LeftAdapter extends BaseAdapter {
 
     private class ViewHolder {
 
-        private final TextView textView;
+        private  TextView textView;
 
         public ViewHolder(View view) {
             textView = (TextView) view.findViewById(R.id.one_text_left);
