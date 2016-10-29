@@ -3,7 +3,6 @@ package lanou.gift.guide.firstFragment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +17,8 @@ import java.util.List;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
+import lanou.gift.main.Values;
+import lanou.gift.textbean.GuideBean;
 import lanou.gift.textbean.SelectionBean;
 import lanou.gift.volley.GsonRequest;
 import lanou.gift.volley.VolleySingleton;
@@ -26,15 +27,9 @@ import lanou.gift.volley.VolleySingleton;
  * Created by dllo on 16/10/27.
  */
 public class HeadFragment extends BaseFragment {
-    private String[] pics = {"http://img02.liwushuo.com/image/161025/4j8uoe9zy.jpg-w720",
-            "http://img03.liwushuo.com/image/161027/jlw86rxck.jpg-w720",
-            "http://img01.liwushuo.com/image/161027/t21sqabnw.jpg-w720",
-            "http://img01.liwushuo.com/image/161026/dxhiii89e.jpg-w720",
-            "http://img02.liwushuo.com/image/160929/68bib1c1a.jpg-w720",
-            "http://img02.liwushuo.com/image/161028/v577ul0un.jpg-w720",
-    };
+    private String urlHead = Values.URL_RCHEAD;
     private SelectionAdapter selectionAdapter;
-    private String url = "http://api.liwushuo.com/v2/channels/101/items_v2?ad=2&gender=1&generation=2&limit=20&offset=0";
+    private String url = Values.URL_HEAD;
     private ListView lv;
     private ViewPager vp;
     private View headView;
@@ -42,16 +37,12 @@ public class HeadFragment extends BaseFragment {
     private HeadViewPagerAdapter headAdapter;
     private List<Point1> points;
     private LinearLayout pointLayout;
+
+
     @Override
     protected void initDate() {
-
-        headAdapter = new HeadViewPagerAdapter();
-        headAdapter.setUrl(pics);
-        Log.d("zzz", "pics:" + pics);
-        vp.setAdapter(headAdapter);
-
-        //调用
-        initPoints();
+        //解析轮播图的网址
+        initGson();
         //自动的方法
         mHandler = new Handler(){
             @Override
@@ -88,10 +79,6 @@ public class HeadFragment extends BaseFragment {
 
             }
         });
-
-
-
-
         GsonRequest<SelectionBean> gsonRequest =
                 new GsonRequest<SelectionBean>(SelectionBean.class,
                         url, new Response.Listener<SelectionBean>() {
@@ -112,24 +99,58 @@ public class HeadFragment extends BaseFragment {
         //发送网络请求
         VolleySingleton.getInstance().addRequest(gsonRequest);
 
-    }
-    //把点加进去
-    private void initPoints() {
-        //调用adapter里的获得数量的方法
-        //最好不要写Point的类跟系统的重名自己改
-        points = new ArrayList<>();
-        for (int i = 0; i < headAdapter.getImgCount(); i++) {
-            Point1 point =  new Point1(getContext());
-            points.add(point);//加到集合里
-            //选线性布局里的那个
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                    0, ViewGroup.LayoutParams.MATCH_PARENT,1
-            );//宽,高,权重
-            pointLayout.addView(point,layoutParams);
-        }
+
 
 
     }
+
+    private void initGson() {
+
+        GsonRequest<GuideBean> guideBeanGsonRequest = new GsonRequest<GuideBean>(GuideBean.class, urlHead,
+                new Response.Listener<GuideBean>() {
+
+                    @Override
+                    public void onResponse(GuideBean response) {
+                        ArrayList<String> arrayList = new ArrayList<>();
+                        int urlSize = response.getData().getBanners().size();
+                        for (int i = 0; i < urlSize; i++) {
+                            String urlimg = response.getData().getBanners().get(i).getImage_url();
+                            arrayList.add(urlimg);
+                        }
+
+                        headAdapter = new HeadViewPagerAdapter();
+                        headAdapter.setUrls(arrayList);
+                        vp.setAdapter(headAdapter);
+
+                        //把点加进去
+                        points = new ArrayList<>();
+                        for (int i = 0; i < urlSize; i++) {
+                            Point1 point =  new Point1(getContext());
+                            points.add(point);//加到集合里
+                            //选线性布局里的那个
+                            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                                    0, ViewGroup.LayoutParams.MATCH_PARENT,1
+                            );//宽,高,权重
+                            pointLayout.addView(point,layoutParams);
+                        }
+
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+
+
+            }
+        });
+        VolleySingleton.getInstance().addRequest(guideBeanGsonRequest);
+    }
+
+
+
+
+
 
     @Override
     protected void initView() {

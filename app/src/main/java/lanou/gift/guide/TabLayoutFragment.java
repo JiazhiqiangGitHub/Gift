@@ -8,6 +8,7 @@ import com.android.volley.VolleyError;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
+import lanou.gift.main.Values;
 import lanou.gift.textbean.GuideGirlFriendBean;
 import lanou.gift.volley.GsonRequest;
 import lanou.gift.volley.VolleySingleton;
@@ -21,12 +22,12 @@ public class TabLayoutFragment extends BaseFragment{
     private int type;
     private ListView lv;
     private TableLayoutAdapter adapter;
-    private String urlGirl = "http://api.liwushuo.com/v2/channels/10/items_v2?gender=1&limit=20&offset=0&generation=2";
-    private String urlChoose = "http://api.liwushuo.com/v2/channels/129/items_v2?gender=1&limit=20&offset=0&generation=2";
-    private String urlOriginality = "http://api.liwushuo.com/v2/channels/125/items_v2?gender=1&limit=20&offset=0&generation=2";
-    private String urlFriend ="http://api.liwushuo.com/v2/channels/26/items_v2?gender=1&limit=20&offset=0&generation=2";
-    private String urlParent ="http://api.liwushuo.com/v2/channels/6/items_v2?gender=1&limit=20&offset=0&generation=2";
-    private String urlWorker ="http://api.liwushuo.com/v2/channels/17/items_v2?gender=1&limit=20&offset=0&generation=2";
+    private String urlGirl = Values.URL_GIRL;
+    private String urlChoose = Values.URL_CHOOSE;
+    private String urlOriginality = Values.URL_ORIGINALITY ;
+    private String urlFriend = Values.URL_FRIEND;
+    private String urlParent = Values.URL_PARENT;
+    private String urlWorker = Values.URL_WORKER;
     public static TabLayoutFragment newInstance(int type) {
 
         TabLayoutFragment fragment = new TabLayoutFragment();

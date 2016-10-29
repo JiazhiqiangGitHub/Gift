@@ -38,13 +38,13 @@ public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(HotAdapter.ViewHolder holder, int position) {
         //一顿点找到解析出的相对的东西
-        Picasso.with(mContext).load(bean.getData().getItems().get(position).getData().getCover_image_url()).into(holder.picture);
-        holder.name.setText(bean.getData().getItems().get(position).getData().getShort_description());
-        holder.price.setText(bean.getData().getItems().get(position).getData().getPrice());
-        holder.body.setText(bean.getData().getItems().get(position).getData().getName());
+        Picasso.with(mContext).load(bean.getData().getItems().get(position).getCover_image_url()).into(holder.picture);
+        holder.name.setText(bean.getData().getItems().get(position).getShort_description());
+        holder.price.setText(bean.getData().getItems().get(position).getPrice());
+        holder.body.setText(bean.getData().getItems().get(position).getName());
         holder.love.setImageResource(R.mipmap.ic_action_compact_favourite_normal);
-//        holder.people.setText(arrayList.get(position).getPeople());
-
+        holder.people.setText(String.valueOf(bean.getData().getItems().get(position).getFavorites_count()));
+        Picasso.with(mContext).load(bean.getData().getCover_image()).into(holder.head);
     }
 
     @Override
@@ -60,6 +60,7 @@ public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder> {
         private  ImageView picture;
         private  ImageView love;
         private  TextView body;
+        private  ImageView head;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -69,6 +70,8 @@ public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder> {
             picture = (ImageView) itemView.findViewById(R.id.iv_hot_rv_picture);
             love = (ImageView) itemView.findViewById(R.id.iv_hot_rv_love);
             body = (TextView) itemView.findViewById(R.id.tv_hot_rv_body);
+            View v = LayoutInflater.from(mContext).inflate(R.layout.hot_fragment,null);
+            head = (ImageView) v.findViewById(R.id.iv_hot_head);
 
         }
     }

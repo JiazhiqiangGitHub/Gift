@@ -1,27 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ECECEC">
-<RelativeLayout
-    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    >
+    android:background="#ECECEC">
+
     <include layout="@layout/hot_title"
         android:id="@+id/tv_hot_title"
         />
-    <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@mipmap/abc_ic_search"
-        android:layout_alignParentRight="true"
-        android:background="@null"
-        android:id="@+id/btn_hot_title_search"/>
-</RelativeLayout>
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/rc_hot">
 
-    </android.support.v7.widget.RecyclerView>
+    <!--<ImageButton-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:src="@mipmap/abc_ic_search"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:background="@null"-->
+        <!--android:id="@+id/btn_hot_title_search"/>-->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rc_hot"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+        <com.bartoszlipinski.recyclerviewheader.RecyclerViewHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/rc_hot_head">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:id="@+id/iv_hot_head"
+                android:src="@mipmap/ic_launcher"/>
+
+        </com.bartoszlipinski.recyclerviewheader.RecyclerViewHeader>
+    </RelativeLayout>
 </LinearLayout>
