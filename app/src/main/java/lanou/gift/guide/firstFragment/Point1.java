@@ -12,7 +12,7 @@ import android.view.View;
 public class Point1 extends View {
     //自定义view 选前三个
     //自定义宽高
-    private int r = 10;
+    private int r = 8;
     //给钟状态 好变色 默认未选中的状态
     private boolean isSelected = false;
     public Point1(Context context) {
@@ -40,7 +40,7 @@ public class Point1 extends View {
         if (isSelected){
             paint.setColor(0xFFFF0000);
         }else{
-            paint.setColor(0xFFEC8602);
+            paint.setColor(0xFFFFFFFF);
         }
         //画圆
         canvas.drawCircle(getWidth()/2,getHeight()/2,r,paint);

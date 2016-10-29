@@ -5,10 +5,16 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+
 import java.util.ArrayList;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
+import lanou.gift.textbean.OneBean;
+import lanou.gift.volley.GsonRequest;
+import lanou.gift.volley.VolleySingleton;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 /**
@@ -20,30 +26,39 @@ public class OneFragment extends BaseFragment {
     private RightAdapter rightAdapter;
     private LeftAdapter leftAdapter;
     private ArrayList<String> headlist,bodylist;
-
+    private String urlOne="http://api.liwushuo.com/v2/item_categories/tree";
 
 
 
     @Override
     protected void initDate() {
-        rightAdapter = new RightAdapter(getActivity());
-        leftAdapter = new LeftAdapter(getActivity());
 
-        headlist = new ArrayList<>();
-        bodylist = new ArrayList<>();
 
-       //假数据
-        for (int i = 0; i < 40; i++) {
-            headlist.add("情趣用品"+i);
-            bodylist.add("充气小娃娃"+i);
-        }
-        leftAdapter.setList(headlist);
-        rightAdapter.setHeadlist(headlist);
+        GsonRequest<OneBean> gsonRequest =
+                new GsonRequest<OneBean>(OneBean.class,
+                        urlOne, new Response.Listener<OneBean>() {
+                    @Override
+                    public void onResponse(OneBean response) {
+                        //请求成功的方法内 绑定布局
+                        leftAdapter = new LeftAdapter(getActivity());
+                        leftAdapter.setBean(response);
+                        leftListView.setAdapter(leftAdapter);
 
-        rightAdapter.setBodylist(bodylist);
+                        rightAdapter = new RightAdapter(getActivity());
+                        rightAdapter.setBody(response);
+                        rightAdapter.setHead(response);
+                        rightListView.setAdapter(rightAdapter);
 
-        leftListView.setAdapter(leftAdapter);
-        rightListView.setAdapter(rightAdapter);
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+        //发送网络请求
+        VolleySingleton.getInstance().addRequest(gsonRequest);
 
         leftListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

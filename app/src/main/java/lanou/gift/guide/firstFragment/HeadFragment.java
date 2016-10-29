@@ -6,14 +6,18 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
-import lanou.gift.guide.adapter.SelectionAdapter;
 import lanou.gift.textbean.SelectionBean;
 import lanou.gift.volley.GsonRequest;
 import lanou.gift.volley.VolleySingleton;
@@ -22,11 +26,13 @@ import lanou.gift.volley.VolleySingleton;
  * Created by dllo on 16/10/27.
  */
 public class HeadFragment extends BaseFragment {
-    private String[] pics = {"http://img.boqiicdn.com/Data/BK/A/1411/26/img77931416972193.jpg",
-            "http://h.hiphotos.baidu.com/zhidao/pic/item/6d81800a19d8bc3ed69473cb848ba61ea8d34516.jpg",
-            "http://f.hiphotos.baidu.com/zhidao/pic/item/d50735fae6cd7b89535b1a450d2442a7d8330ec4.jpg",
-            "http://pic29.nipic.com/20130506/3822951_102005116000_2.jpg",
-            "http://pic36.nipic.com/20131125/8821914_090743677000_2.jpg"};
+    private String[] pics = {"http://img02.liwushuo.com/image/161025/4j8uoe9zy.jpg-w720",
+            "http://img03.liwushuo.com/image/161027/jlw86rxck.jpg-w720",
+            "http://img01.liwushuo.com/image/161027/t21sqabnw.jpg-w720",
+            "http://img01.liwushuo.com/image/161026/dxhiii89e.jpg-w720",
+            "http://img02.liwushuo.com/image/160929/68bib1c1a.jpg-w720",
+            "http://img02.liwushuo.com/image/161028/v577ul0un.jpg-w720",
+    };
     private SelectionAdapter selectionAdapter;
     private String url = "http://api.liwushuo.com/v2/channels/101/items_v2?ad=2&gender=1&generation=2&limit=20&offset=0";
     private ListView lv;
@@ -34,6 +40,8 @@ public class HeadFragment extends BaseFragment {
     private View headView;
     private Handler mHandler;
     private HeadViewPagerAdapter headAdapter;
+    private List<Point1> points;
+    private LinearLayout pointLayout;
     @Override
     protected void initDate() {
 
@@ -41,6 +49,9 @@ public class HeadFragment extends BaseFragment {
         headAdapter.setUrl(pics);
         Log.d("zzz", "pics:" + pics);
         vp.setAdapter(headAdapter);
+
+        //调用
+        initPoints();
         //自动的方法
         mHandler = new Handler(){
             @Override
@@ -54,6 +65,30 @@ public class HeadFragment extends BaseFragment {
                 mHandler.sendEmptyMessageDelayed(1,2000);
             }
         };
+        //让点跟着一起动
+        vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+            //当前选中的是哪一个
+            @Override
+            public void onPageSelected(int position) {
+                //当前显示的是第几页也就是第几张图
+                int currentPage = position % headAdapter.getImgCount();
+
+                for (Point1 point : points) {
+                    point.setSelected(false);//所有点弄成不选中
+                }
+                points.get(currentPage).setSelected(true);//再把当前页的选中
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
 
 
 
@@ -78,6 +113,23 @@ public class HeadFragment extends BaseFragment {
         VolleySingleton.getInstance().addRequest(gsonRequest);
 
     }
+    //把点加进去
+    private void initPoints() {
+        //调用adapter里的获得数量的方法
+        //最好不要写Point的类跟系统的重名自己改
+        points = new ArrayList<>();
+        for (int i = 0; i < headAdapter.getImgCount(); i++) {
+            Point1 point =  new Point1(getContext());
+            points.add(point);//加到集合里
+            //选线性布局里的那个
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                    0, ViewGroup.LayoutParams.MATCH_PARENT,1
+            );//宽,高,权重
+            pointLayout.addView(point,layoutParams);
+        }
+
+
+    }
 
     @Override
     protected void initView() {
@@ -89,6 +141,8 @@ public class HeadFragment extends BaseFragment {
         vp = bindView(headView,R.id.vp_guide_head);
         //吧布局设置成头布局
         lv.addHeaderView(headView);
+        //点的ID 是个线性布局
+        pointLayout = bindView(headView,R.id.guide_point);
     }
 
     @Override

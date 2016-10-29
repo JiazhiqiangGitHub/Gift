@@ -1,4 +1,4 @@
-package lanou.gift.guide.adapter;
+package lanou.gift.guide.firstFragment;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,32 +11,32 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import lanou.gift.R;
-import lanou.gift.textbean.OriginalityBean;
+import lanou.gift.textbean.SelectionBean;
 
 /**
  * Created by dllo on 16/10/27.
  */
-public class OriginalityAdapter extends BaseAdapter {
+public class SelectionAdapter extends BaseAdapter {
 
     private Context mContext;
-    OriginalityBean originalityBean;
+    SelectionBean selectionBean;
 
-    public OriginalityAdapter(Context mContext) {
+    public SelectionAdapter(Context mContext) {
         this.mContext = mContext;
     }
 
-    public void setOriginalityBean(OriginalityBean originalityBean) {
-        this.originalityBean = originalityBean;
+    public void setSelectionBean(SelectionBean selectionBean) {
+        this.selectionBean = selectionBean;
     }
 
     @Override
     public int getCount() {
-        return originalityBean.getData().getItems().size();
+        return selectionBean.getData().getItems().size();
     }
 
     @Override
     public Object getItem(int i) {
-        return originalityBean.getData().getItems().get(i);
+        return selectionBean.getData().getItems().get(i);
     }
 
 
@@ -55,11 +55,11 @@ public class OriginalityAdapter extends BaseAdapter {
         }else{
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        Picasso.with(mContext).load(originalityBean.getData().getItems().get(i).getCover_image_url()).into(viewHolder.picture);
-        viewHolder.name.setText(originalityBean.getData().getItems().get(i).getTitle());
-        viewHolder.body.setText(originalityBean.getData().getItems().get(i).getIntroduction());
-        viewHolder.title.setText(originalityBean.getData().getItems().get(i).getColumn().getTitle());
-        viewHolder.people.setText(String.valueOf(originalityBean.getData().getItems().get(i).getLikes_count()));
+        Picasso.with(mContext).load(selectionBean.getData().getItems().get(i).getCover_image_url()).into(viewHolder.picture);
+        viewHolder.name.setText(selectionBean.getData().getItems().get(i).getTitle());
+        viewHolder.body.setText(selectionBean.getData().getItems().get(i).getIntroduction());
+//        viewHolder.title.setText(selectionBean.getData().getItems().get(i).getColumn().getClass());
+        viewHolder.people.setText(String.valueOf(selectionBean.getData().getItems().get(i).getLikes_count()));
 
         return convertView;
     }
@@ -80,4 +80,5 @@ public class OriginalityAdapter extends BaseAdapter {
             people = (TextView) convertView.findViewById(R.id.tv_guide_fragment_item_people);
         }
     }
+
 }

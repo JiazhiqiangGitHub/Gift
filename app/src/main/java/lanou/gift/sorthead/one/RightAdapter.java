@@ -5,11 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import lanou.gift.R;
+import lanou.gift.textbean.OneBean;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 
 /**
@@ -17,28 +17,29 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
  */
 public class RightAdapter extends BaseAdapter implements StickyListHeadersAdapter{
     private Context context;
-    private ArrayList<String> headlist,bodylist;
+    OneBean head,body;
+
+
+    public void setHead(OneBean head) {
+        this.head = head;
+    }
+
+    public void setBody(OneBean body) {
+        this.body = body;
+    }
 
     public RightAdapter(Context context) {
         this.context = context;
     }
 
-    public void setHeadlist(ArrayList<String> headlist) {
-        this.headlist = headlist;
-    }
-
-    public void setBodylist(ArrayList<String> bodylist) {
-        this.bodylist = bodylist;
-    }
-
     @Override
     public int getCount() {
-        return headlist == null?0:headlist.size();
+        return head == null?0:head.getData().getCategories().size();
     }
 
     @Override
     public Object getItem(int i) {
-        return bodylist.get(i);
+        return body.getData().getCategories().get(i);
     }
 
     @Override
@@ -56,7 +57,12 @@ public class RightAdapter extends BaseAdapter implements StickyListHeadersAdapte
         }else{
             bodyViewHolder = (BodyViewHolder) view.getTag();
         }
-        bodyViewHolder.tvbody.setText(bodylist.get(i));
+
+//        数组越界
+//        Picasso.with(context).load(body.getData().getCategories().get(i).
+//                getSubcategories().get(i).getIcon_url()).into(bodyViewHolder.ivbody);
+//        bodyViewHolder.tvbody.setText(body.getData().getCategories().get(i).getSubcategories().
+//                get(i).getName());
 
 
         return view;
@@ -71,7 +77,7 @@ public class RightAdapter extends BaseAdapter implements StickyListHeadersAdapte
         }else{
             headViewHolder = (HeadViewHolder) convertView.getTag();
         }
-        headViewHolder.tvhead.setText(bodylist.get(position));
+        headViewHolder.tvhead.setText(head.getData().getCategories().get(position).getName());
         return convertView;
     }
 
@@ -82,11 +88,13 @@ public class RightAdapter extends BaseAdapter implements StickyListHeadersAdapte
     private class BodyViewHolder {
 
 
-        private final TextView tvbody;
+        private TextView tvbody;
+        private ImageView ivbody;
 
         public BodyViewHolder(View view) {
 
             tvbody = (TextView) view.findViewById(R.id.tv_body_one);
+            ivbody = (ImageView) view.findViewById(R.id.iv_body_one);
         }
     }
 

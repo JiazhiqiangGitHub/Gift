@@ -7,9 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import lanou.gift.R;
+import lanou.gift.textbean.OneBean;
 
 /**
  * Created by dllo on 16/10/26.
@@ -17,24 +16,25 @@ import lanou.gift.R;
 public class LeftAdapter extends BaseAdapter {
 
     private Context context;
-    private ArrayList<String> list;
+    OneBean bean;
+
+    public void setBean(OneBean bean) {
+        this.bean = bean;
+    }
 
     public LeftAdapter(Context context) {
         this.context = context;
     }
 
-    public void setList(ArrayList<String> list) {
-        this.list = list;
-    }
 
     @Override
     public int getCount() {
-        return list==null?0:list.size();
+        return bean==null?0:bean.getData().getCategories().size();
     }
 
     @Override
     public Object getItem(int i) {
-        return list.get(i);
+        return bean.getData().getCategories().get(i);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class LeftAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
 
-        viewHolder.textView.setText(list.get(i));
+        viewHolder.textView.setText(bean.getData().getCategories().get(i).getName());
 
 
         return view;

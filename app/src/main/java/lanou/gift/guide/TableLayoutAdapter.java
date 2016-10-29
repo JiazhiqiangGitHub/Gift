@@ -1,4 +1,4 @@
-package lanou.gift.guide.adapter;
+package lanou.gift.guide;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -19,11 +19,11 @@ import lanou.gift.textbean.GuideGirlFriendBean;
 public class TableLayoutAdapter extends BaseAdapter{
     //listView的适配器
     private Context mContext;
-    GuideGirlFriendBean beanGirl;
-    public void setBeanGirl(GuideGirlFriendBean beanGirl) {
-        this.beanGirl = beanGirl;
-    }
+    GuideGirlFriendBean bean;
 
+    public void setBean(GuideGirlFriendBean bean) {
+        this.bean = bean;
+    }
 
     public TableLayoutAdapter(Context mContext) {
         this.mContext = mContext;
@@ -32,12 +32,12 @@ public class TableLayoutAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {
-        return beanGirl.getData().getItems().size();
+        return bean.getData().getItems().size();
     }
 
     @Override
     public Object getItem(int i) {
-        return beanGirl.getData().getItems().get(i);
+        return bean.getData().getItems().get(i);
     }
 
 
@@ -56,11 +56,11 @@ public class TableLayoutAdapter extends BaseAdapter{
         }else{
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        Picasso.with(mContext).load(beanGirl.getData().getItems().get(i).getCover_image_url()).into(viewHolder.picture);
-        viewHolder.name.setText(beanGirl.getData().getItems().get(i).getTitle());
-        viewHolder.body.setText(beanGirl.getData().getItems().get(i).getIntroduction());
-        viewHolder.title.setText(beanGirl.getData().getItems().get(i).getColumn().getTitle());
-        viewHolder.people.setText(String.valueOf(beanGirl.getData().getItems().get(i).getLikes_count()));
+        Picasso.with(mContext).load(bean.getData().getItems().get(i).getCover_image_url()).into(viewHolder.picture);
+        viewHolder.name.setText(bean.getData().getItems().get(i).getTitle());
+        viewHolder.body.setText(bean.getData().getItems().get(i).getIntroduction());
+        viewHolder.title.setText(bean.getData().getItems().get(i).getColumn().getTitle());
+        viewHolder.people.setText(String.valueOf(bean.getData().getItems().get(i).getLikes_count()));
 
         return convertView;
     }
