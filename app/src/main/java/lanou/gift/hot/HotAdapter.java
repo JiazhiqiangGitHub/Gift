@@ -44,7 +44,6 @@ public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder> {
         holder.body.setText(bean.getData().getItems().get(position).getName());
         holder.love.setImageResource(R.mipmap.ic_action_compact_favourite_normal);
         holder.people.setText(String.valueOf(bean.getData().getItems().get(position).getFavorites_count()));
-        Picasso.with(mContext).load(bean.getData().getCover_image()).into(holder.head);
     }
 
     @Override
@@ -70,8 +69,6 @@ public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder> {
             picture = (ImageView) itemView.findViewById(R.id.iv_hot_rv_picture);
             love = (ImageView) itemView.findViewById(R.id.iv_hot_rv_love);
             body = (TextView) itemView.findViewById(R.id.tv_hot_rv_body);
-            View v = LayoutInflater.from(mContext).inflate(R.layout.hot_fragment,null);
-            head = (ImageView) v.findViewById(R.id.iv_hot_head);
 
         }
     }

@@ -2,8 +2,8 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <item android:drawable="@mipmap/guide_on"
+    <item android:drawable="@mipmap/ic_tab_home_selected"
         android:state_checked="true"/>
-    <item android:drawable="@mipmap/guide_off"/>
+    <item android:drawable="@mipmap/ic_tab_home_normal"/>
 
 </selector>

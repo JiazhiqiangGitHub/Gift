@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.bartoszlipinski.recyclerviewheader.RecyclerViewHeader;
+import com.squareup.picasso.Picasso;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
@@ -35,16 +36,18 @@ public class HotFragment extends BaseFragment implements View.OnClickListener {
         GsonRequest<TextHotBean> gsonRequest =
                 new GsonRequest<TextHotBean>(TextHotBean.class,
                         urlHot, new Response.Listener<TextHotBean>() {
-
                     @Override
                     public void onResponse(TextHotBean response) {
-//                        Picasso.with(getActivity()).load(response.getData().getCover_image()).into(ivPicture);
+                        Picasso.with(getActivity()).load(response.getData().getCover_image()).into(ivPicture);
                     //请求成功的方法内 绑定布局
                         adapter = new HotAdapter(getActivity());
                         adapter.setBean(response);
                         rc.setAdapter(adapter);
-
-
+                        //绑定RecyclerView的布局
+                        GridLayoutManager manager = new GridLayoutManager(getActivity(),2);
+                        rc.setLayoutManager(manager);
+                        //添加头布局 别忘记写true
+                        rcHead.attachTo(rc,true);
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -54,19 +57,14 @@ public class HotFragment extends BaseFragment implements View.OnClickListener {
                 });
                 //发送网络请求
                 VolleySingleton.getInstance().addRequest(gsonRequest);
-        //绑定RecyclerView的布局
-        GridLayoutManager manager = new GridLayoutManager(getActivity(),2);
-        rc.setLayoutManager(manager);
-        //添加头布局 别忘记写true
-        rcHead.attachTo(rc,true);
-//        btnSearch.setOnClickListener(this);
+        btnSearch.setOnClickListener(this);
     }
 
     @Override
     protected void initView() {
-//        btnSearch = bindView(R.id.btn_hot_title_search);
+        btnSearch = bindView(R.id.btn_hot_title_search);
         rc = bindView(R.id.rc_hot);
-        ivPicture = bindView(R.id.iv_hot_rv_picture);
+        ivPicture = bindView(R.id.iv_hot_head);
         rcHead = bindView(R.id.rc_hot_head);
     }
 
