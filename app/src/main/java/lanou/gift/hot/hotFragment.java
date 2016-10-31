@@ -30,24 +30,29 @@ public class HotFragment extends BaseFragment implements View.OnClickListener {
     private RecyclerViewHeader rcHead;
     private String urlHot = Values.URL_HOT;
     private ImageView ivPicture;
+    private GridLayoutManager manager;
     @Override
     protected void initDate() {
 
         GsonRequest<TextHotBean> gsonRequest =
                 new GsonRequest<TextHotBean>(TextHotBean.class,
                         urlHot, new Response.Listener<TextHotBean>() {
+
+
+
                     @Override
-                    public void onResponse(TextHotBean response) {
+                    public void onResponse(final TextHotBean response) {
                         Picasso.with(getActivity()).load(response.getData().getCover_image()).into(ivPicture);
                     //请求成功的方法内 绑定布局
                         adapter = new HotAdapter(getActivity());
                         adapter.setBean(response);
                         rc.setAdapter(adapter);
                         //绑定RecyclerView的布局
-                        GridLayoutManager manager = new GridLayoutManager(getActivity(),2);
+                        manager = new GridLayoutManager(getActivity(),2);
                         rc.setLayoutManager(manager);
                         //添加头布局 别忘记写true
                         rcHead.attachTo(rc,true);
+
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -57,6 +62,8 @@ public class HotFragment extends BaseFragment implements View.OnClickListener {
                 });
                 //发送网络请求
                 VolleySingleton.getInstance().addRequest(gsonRequest);
+
+
         btnSearch.setOnClickListener(this);
     }
 

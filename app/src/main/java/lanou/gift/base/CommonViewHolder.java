@@ -3,6 +3,7 @@ package lanou.gift.base;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -46,7 +47,7 @@ public class CommonViewHolder extends RecyclerView.ViewHolder{
         if (itemView == null){
             //获得对象
             Context context = parent.getContext();
-//            itemView = LayoutInflater.from(context).inflate(R.layout.item,parent,false);
+            itemView = LayoutInflater.from(context).inflate(itemId,parent,false);
             viewHolder = new CommonViewHolder(itemView);
             itemView.setTag(viewHolder);
         }else{

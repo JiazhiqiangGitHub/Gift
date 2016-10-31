@@ -5,6 +5,8 @@ import android.widget.ListView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
@@ -20,7 +22,7 @@ public class TabLayoutFragment extends BaseFragment{
     public static String TABLAYOUT_FRAGMENT = "tab_fragment";
     //其余6页公用一个adapter bean fragment
     private int type;
-    private ListView lv;
+    private PullToRefreshListView lv;
     private TableLayoutAdapter adapter;
     private String urlGirl = Values.URL_GIRL;
     private String urlChoose = Values.URL_CHOOSE;
@@ -43,8 +45,25 @@ public class TabLayoutFragment extends BaseFragment{
             type = (int) getArguments().getSerializable(TABLAYOUT_FRAGMENT);
         }
     }
+
     @Override
     protected void initDate() {
+        lv.setMode(PullToRefreshBase.Mode.BOTH);
+        lv.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
+            @Override
+            public void onPullDownToRefresh(PullToRefreshBase<ListView> pullToRefreshBase) {
+                adapter.notifyDataSetChanged();
+                lv.onRefreshComplete();
+            }
+
+            @Override
+            public void onPullUpToRefresh(PullToRefreshBase<ListView> pullToRefreshBase) {
+                adapter.notifyDataSetChanged();
+                lv.onRefreshComplete();
+            }
+        });
+
+
         switch (type) {
             case 2:
                 GsonRequest<GuideGirlFriendBean> gsonRequest2 =
@@ -56,6 +75,7 @@ public class TabLayoutFragment extends BaseFragment{
                                 adapter = new TableLayoutAdapter(getActivity());
                                 adapter.setBean(response);
                                 lv.setAdapter(adapter);
+
 
                             }
                         }, new Response.ErrorListener() {
@@ -163,6 +183,7 @@ public class TabLayoutFragment extends BaseFragment{
                                 adapter.setBean(response);
                                 lv.setAdapter(adapter);
 
+
                             }
                         }, new Response.ErrorListener() {
                             @Override
@@ -173,8 +194,11 @@ public class TabLayoutFragment extends BaseFragment{
                 //发送网络请求
                 VolleySingleton.getInstance().addRequest(gsonRequest7);
                 break;
+
         }
+
     }
+
     @Override
     protected void initView() {
         lv = bindView(R.id.lv_fragment);
@@ -184,4 +208,9 @@ public class TabLayoutFragment extends BaseFragment{
     protected int getLayout() {
         return R.layout.guide_fragment_item;
     }
+
+
+
+
+
 }

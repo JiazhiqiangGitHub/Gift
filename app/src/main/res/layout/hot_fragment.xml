@@ -3,6 +3,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#ECECEC">
+
+
 <RelativeLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
@@ -26,11 +28,12 @@
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/rc_hot"
             >
 
         </android.support.v7.widget.RecyclerView>
+
         <com.bartoszlipinski.recyclerviewheader.RecyclerViewHeader
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,5 +46,7 @@
                 android:src="@mipmap/ic_launcher"/>
 
         </com.bartoszlipinski.recyclerviewheader.RecyclerViewHeader>
+
     </RelativeLayout>
+
 </LinearLayout>
