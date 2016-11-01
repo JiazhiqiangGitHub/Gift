@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="......"
-        android:id="@+id/tv_class_raiders_item"/>
+        android:background="#FFFFFF"
+        android:layout_marginTop="15dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="heihei"
+            android:id="@+id/tv_raiders_title"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="查看全部"
+            android:id="@+id/tv_raiders_click"
+            />
+        
+    </RelativeLayout>
+    
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rc_raiders"
+        android:background="#FFFFFF">
+
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

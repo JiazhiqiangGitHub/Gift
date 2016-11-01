@@ -17,7 +17,6 @@ public class ClassAdapter extends FragmentPagerAdapter {
     }
 
     public ClassAdapter(FragmentManager fm) {
-
         super(fm);
     }
 

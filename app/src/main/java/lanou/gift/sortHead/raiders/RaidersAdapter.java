@@ -1,13 +1,14 @@
 package lanou.gift.sorthead.raiders;
 
 import android.content.Context;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 import lanou.gift.R;
 import lanou.gift.textbean.RaidersBean;
@@ -17,24 +18,25 @@ import lanou.gift.textbean.RaidersBean;
  */
 public class RaidersAdapter extends BaseAdapter{
     private Context context;
-    private ArrayList<RaidersBean>arrayList;
+    private RaidersBean bean;
+    private RaidersItemAdapter adapter;
 
     public RaidersAdapter(Context context) {
         this.context = context;
     }
 
-    public void setArrayList(ArrayList<RaidersBean> arrayList) {
-        this.arrayList = arrayList;
+    public void setBean(RaidersBean bean) {
+        this.bean = bean;
     }
 
     @Override
     public int getCount() {
-        return arrayList == null?0:arrayList.size();
+        return bean == null?0:bean.getData().getChannel_groups().size();
     }
 
     @Override
     public Object getItem(int i) {
-        return arrayList.get(i);
+        return bean.getData().getChannel_groups().get(i);
     }
 
     @Override
@@ -52,8 +54,11 @@ public class RaidersAdapter extends BaseAdapter{
         }else{
             viewHolder = (ViewHolder) view.getTag();
         }
-
-            viewHolder.body.setText(arrayList.get(i).getBody());
+            //recyclerView创建适配器
+            viewHolder.title.setText(bean.getData().getChannel_groups().get(i).getName());
+            adapter = new RaidersItemAdapter(context,i);
+            viewHolder.rc.setAdapter(adapter);
+            adapter.setBean(bean);
             return view;
     }
 
@@ -61,10 +66,16 @@ public class RaidersAdapter extends BaseAdapter{
     private class ViewHolder {
 
 
-        private final TextView body;
+        private RecyclerView rc;
+        private TextView title;
 
         public ViewHolder(View view) {
-            body = (TextView) view.findViewById(R.id.tv_class_raiders_item);
+            title = (TextView) view.findViewById(R.id.tv_raiders_title);
+            rc = (RecyclerView) view.findViewById(R.id.rc_raiders);
+            //攻略listView的item 是recyclerView的网格布局
+            //布局竖向拉 2行
+            RecyclerView.LayoutManager manager = new GridLayoutManager(context,2, LinearLayoutManager.VERTICAL,false);
+            rc.setLayoutManager(manager);
         }
     }
 }

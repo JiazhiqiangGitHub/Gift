@@ -98,10 +98,6 @@ public class HeadFragment extends BaseFragment {
                 });
         //发送网络请求
         VolleySingleton.getInstance().addRequest(gsonRequest);
-
-
-
-
     }
 
     private void initGson() {

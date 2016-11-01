@@ -31,7 +31,7 @@ public class OneFragment extends BaseFragment {
     @Override
     protected void initDate() {
 
-
+        //相同的url 一起请求
         GsonRequest<OneBean> gsonRequest =
                 new GsonRequest<OneBean>(OneBean.class,
                         urlOne, new Response.Listener<OneBean>() {
