@@ -1,11 +1,13 @@
 package lanou.gift.sorthead.one;
 
 import android.content.Context;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import lanou.gift.R;
@@ -18,7 +20,7 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 public class RightAdapter extends BaseAdapter implements StickyListHeadersAdapter{
     private Context context;
     OneBean head,body;
-
+    private RightItemAdapter adapter;
 
     public void setHead(OneBean head) {
         this.head = head;
@@ -57,14 +59,10 @@ public class RightAdapter extends BaseAdapter implements StickyListHeadersAdapte
         }else{
             bodyViewHolder = (BodyViewHolder) view.getTag();
         }
-
-//        数组越界
-//        Picasso.with(context).load(body.getData().getCategories().get(i).
-//                getSubcategories().get(i).getIcon_url()).into(bodyViewHolder.ivbody);
-//        bodyViewHolder.tvbody.setText(body.getData().getCategories().get(i).getSubcategories().
-//                get(i).getName());
-
-
+        //给RecyclerView创建适配器 然后把数据传给body
+        adapter = new RightItemAdapter(context,i);
+        bodyViewHolder.recycleView.setAdapter(adapter);
+        adapter.setBean(body);
         return view;
     }
     @Override
@@ -88,13 +86,14 @@ public class RightAdapter extends BaseAdapter implements StickyListHeadersAdapte
     private class BodyViewHolder {
 
 
-        private TextView tvbody;
-        private ImageView ivbody;
+        private RecyclerView recycleView;
 
         public BodyViewHolder(View view) {
 
-            tvbody = (TextView) view.findViewById(R.id.tv_body_one);
-            ivbody = (ImageView) view.findViewById(R.id.iv_body_one);
+            //右面布局是个RecyclerView 给他设置网格布局 以及竖向排列
+            recycleView = (RecyclerView) view.findViewById(R.id.rc_sort_one_body);
+            RecyclerView.LayoutManager manager = new GridLayoutManager(context,3, LinearLayoutManager.VERTICAL,false);
+            recycleView.setLayoutManager(manager);
         }
     }
 

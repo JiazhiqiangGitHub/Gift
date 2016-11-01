@@ -11,12 +11,13 @@
     android:layout_height="match_parent"
     android:layout_weight="1"
     android:id="@+id/lv_class_one_left"/>
-
+<!--顶部停靠-->
 <se.emilsjolander.stickylistheaders.StickyListHeadersListView
     android:layout_width="0dp"
     android:layout_height="match_parent"
     android:layout_weight="3"
-    android:id="@+id/lv_class_one_right">
+    android:id="@+id/lv_class_one_right"
+    android:background="#FFFFFF">
 
 
 

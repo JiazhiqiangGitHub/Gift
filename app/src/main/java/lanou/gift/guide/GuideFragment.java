@@ -28,7 +28,7 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
             "送基友","送爸妈","送同事"};
     @Override
     protected void initDate() {
-//        //添加点击事件
+        //添加点击事件
         btnSearch.setOnClickListener(this);
 
         List<Fragment> fragments = new ArrayList<>();

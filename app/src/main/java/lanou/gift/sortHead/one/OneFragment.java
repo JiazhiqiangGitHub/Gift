@@ -8,12 +8,11 @@ import android.widget.ListView;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.util.ArrayList;
-
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
 import lanou.gift.textbean.OneBean;
 import lanou.gift.volley.GsonRequest;
+import lanou.gift.volley.Values;
 import lanou.gift.volley.VolleySingleton;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
@@ -25,8 +24,7 @@ public class OneFragment extends BaseFragment {
     private StickyListHeadersListView rightListView;
     private RightAdapter rightAdapter;
     private LeftAdapter leftAdapter;
-    private ArrayList<String> headlist,bodylist;
-    private String urlOne="http://api.liwushuo.com/v2/item_categories/tree";
+    private String urlOne= Values.URL_ONE;
 
 
 

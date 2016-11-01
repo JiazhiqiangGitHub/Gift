@@ -10,7 +10,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
-import lanou.gift.main.Values;
+import lanou.gift.volley.Values;
 import lanou.gift.textbean.GuideGirlFriendBean;
 import lanou.gift.volley.GsonRequest;
 import lanou.gift.volley.VolleySingleton;

@@ -14,7 +14,7 @@ import com.squareup.picasso.Picasso;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
-import lanou.gift.main.Values;
+import lanou.gift.volley.Values;
 import lanou.gift.search.SearchActivity;
 import lanou.gift.textbean.TextHotBean;
 import lanou.gift.volley.GsonRequest;

@@ -17,7 +17,7 @@ import java.util.List;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
-import lanou.gift.main.Values;
+import lanou.gift.volley.Values;
 import lanou.gift.textbean.GuideBean;
 import lanou.gift.textbean.SelectionBean;
 import lanou.gift.volley.GsonRequest;
@@ -145,12 +145,9 @@ public class HeadFragment extends BaseFragment {
             }
         });
         VolleySingleton.getInstance().addRequest(guideBeanGsonRequest);
+
+
     }
-
-
-
-
-
 
     @Override
     protected void initView() {
