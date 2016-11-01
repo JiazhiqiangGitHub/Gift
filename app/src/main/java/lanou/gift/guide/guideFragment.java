@@ -46,6 +46,7 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
         //控制TabLayout滑动
         tbHead.setTabMode(TabLayout.MODE_SCROLLABLE);
     }
+
     @Override
     protected void initView() {
         //布局中为首页创建TabLayout和ViewPager
