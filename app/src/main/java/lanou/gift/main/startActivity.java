@@ -31,6 +31,9 @@ public class StartActivity extends BaseActivity{
 
     @Override
     protected void initData() {
+
+
+
         //计时器
         intent = new Intent(StartActivity.this,MainActivity.class);
         CountDownTimer countDownTimer = new CountDownTimer(2000,1000) {

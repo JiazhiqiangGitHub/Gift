@@ -16,5 +16,8 @@ public class Values {
     public static final String URL_RCHEAD = "http://api.liwushuo.com/v2/banners";
     public static final String URL_ONE = "http://api.liwushuo.com/v2/item_categories/tree";
     public static final String URL_RAIDERS = "http://api.liwushuo.com/v2/channel_groups/all";
+    public static final String URL_TABLAYOUT = "http://api.liwushuo.com/v2/channels/preset?gender=1&generation=4";
     public static final String URL_RAIDERS_HEAD = "http://api.liwushuo.com/v2/columns?limit=20&offset=0 ";
+    public static final String URL_TABLAYOUT_A = "http://api.liwushuo.com/v2/channels/";
+    public static final String URL_TABLAYOUT_B = "/items?ad=2&gender=1&generation=4&limit=20&set=0";
 }

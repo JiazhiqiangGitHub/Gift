@@ -64,6 +64,7 @@ public class HotFragment extends BaseFragment implements View.OnClickListener {
                 VolleySingleton.getInstance().addRequest(gsonRequest);
 
 
+
         btnSearch.setOnClickListener(this);
     }
 

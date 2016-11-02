@@ -59,7 +59,9 @@ public class TableLayoutAdapter extends BaseAdapter{
         Picasso.with(mContext).load(bean.getData().getItems().get(i).getCover_image_url()).into(viewHolder.picture);
         viewHolder.name.setText(bean.getData().getItems().get(i).getTitle());
         viewHolder.body.setText(bean.getData().getItems().get(i).getIntroduction());
-        viewHolder.title.setText(bean.getData().getItems().get(i).getColumn().getTitle());
+
+//            viewHolder.title.setText(bean.getData().getItems().get(i).getColumn().getTitle());
+
         viewHolder.people.setText(String.valueOf(bean.getData().getItems().get(i).getLikes_count()));
 
         return convertView;

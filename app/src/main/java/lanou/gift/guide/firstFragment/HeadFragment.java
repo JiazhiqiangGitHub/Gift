@@ -1,5 +1,6 @@
 package lanou.gift.guide.firstFragment;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
@@ -17,10 +18,10 @@ import java.util.List;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
-import lanou.gift.volley.Values;
 import lanou.gift.textbean.GuideBean;
 import lanou.gift.textbean.SelectionBean;
 import lanou.gift.volley.GsonRequest;
+import lanou.gift.volley.Values;
 import lanou.gift.volley.VolleySingleton;
 
 /**
@@ -41,6 +42,14 @@ public class HeadFragment extends BaseFragment {
 
     @Override
     protected void initDate() {
+
+
+
+
+
+
+
+
         //解析轮播图的网址
         initGson();
         //自动的方法
@@ -176,4 +185,23 @@ public class HeadFragment extends BaseFragment {
         //开始轮播 延时发送一个空的消息 只执行一次回到回调的下面
         mHandler.sendEmptyMessageDelayed(1,2000);
     }
+    //实现Fragment的复用
+    public static HeadFragment newInstance(int position){
+        Bundle args = new Bundle();
+        args.putInt("position",position);
+        HeadFragment fragment = new HeadFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+//    private  int getPosition(){
+//        int position;
+//        Bundle args = getArguments();
+//        //获得传入Bunndle的位置信息 并取出
+//        if (args != null){
+//            position = args.getInt("position");
+//            return position;
+//        }else return 0;
+//    }
+
+
 }
