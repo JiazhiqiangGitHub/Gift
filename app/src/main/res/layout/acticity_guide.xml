@@ -14,60 +14,17 @@
             android:id="@+id/iv_guide_activity_back"
             android:src="@mipmap/button_back_white"/>
 </RelativeLayout>
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="9"
-        android:id="@+id/lv_guide_activity">
+
+    <WebView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/wv_guide">
+
+    </WebView>
 
 
-    </ListView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="10dp"
-        android:layout_height="30dp"
-        android:src="@mipmap/icon_heart_unselected"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:layout_height="match_parent"
-            android:text="11"
-            android:id="@+id/tv_guide_activity_favour"/>
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="10dp"
-            android:layout_height="30dp"
-            android:src="@mipmap/icon_share_up"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:layout_height="match_parent"
-            android:text="11"
-            android:id="@+id/tv_guide_activity_share"/>
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="10dp"
-            android:layout_height="30dp"
-            android:src="@mipmap/ic_action_comment_normal"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:layout_height="match_parent"
-            android:text="11"
-            android:id="@+id/tv_guide_activity_speak"/>
 
-    </LinearLayout>
+
 
 </LinearLayout>

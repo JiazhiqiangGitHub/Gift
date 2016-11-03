@@ -1,4 +1,4 @@
-package lanou.gift.sorthead.raiders;
+package lanou.gift.activity;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseActivity;

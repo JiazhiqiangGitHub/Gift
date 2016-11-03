@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import lanou.gift.R;
+import lanou.gift.activity.RaidersHeadActivity;
 import lanou.gift.textbean.RaidersHeadBean;
 import lanou.gift.volley.CommonViewHolder;
 

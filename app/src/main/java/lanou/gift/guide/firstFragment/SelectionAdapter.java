@@ -2,11 +2,9 @@ package lanou.gift.guide.firstFragment;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Toast;
 
 import lanou.gift.R;
 import lanou.gift.activity.GuideActivity;
@@ -46,7 +44,7 @@ public class SelectionAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View convertView, ViewGroup viewGroup) {
+    public View getView(final int i, View convertView, ViewGroup viewGroup) {
 
 
         CommonViewHolder viewHolder = CommonViewHolder.getViewHolder(convertView, viewGroup,
@@ -63,9 +61,9 @@ public class SelectionAdapter extends BaseAdapter {
                         (new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Log.d("TableLayoutAdapter", "哦哦");
-                                Toast.makeText(mContext, "i", Toast.LENGTH_SHORT).show();
+
                                 Intent intent = new Intent(mContext, GuideActivity.class);
+                                intent.putExtra("second",selectionBean.getData().getItems().get(i).getUrl());
                                 mContext.startActivity(intent);
                             }
                         });

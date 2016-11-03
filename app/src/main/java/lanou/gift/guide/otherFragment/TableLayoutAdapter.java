@@ -14,10 +14,11 @@ import lanou.gift.volley.CommonViewHolder;
 /**
  * Created by dllo on 16/10/25.
  */
-public class TableLayoutAdapter extends BaseAdapter {
+public class TableLayoutAdapter extends BaseAdapter{
     //listView的适配器
     private Context mContext;
     GuideGirlFriendBean bean;
+
 
     public void setBean(GuideGirlFriendBean bean) {
         this.bean = bean;
@@ -45,7 +46,7 @@ public class TableLayoutAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View convertView, ViewGroup viewGroup) {
+    public View getView(final int i, View convertView, ViewGroup viewGroup) {
 
         CommonViewHolder viewHolder = CommonViewHolder.getViewHolder(convertView, viewGroup,
                 R.layout.guide_lv_ietm);
@@ -62,6 +63,7 @@ public class TableLayoutAdapter extends BaseAdapter {
                             @Override
                             public void onClick(View view) {
                                 Intent intent = new Intent(mContext,GuideActivity.class);
+                                intent.putExtra("second",bean.getData().getItems().get(i).getUrl());
                                 mContext.startActivity(intent);
                             }
                         });
@@ -70,5 +72,6 @@ public class TableLayoutAdapter extends BaseAdapter {
 
 
     }
+
 
 }
