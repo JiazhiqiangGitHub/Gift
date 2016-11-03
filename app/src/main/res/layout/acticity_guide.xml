@@ -16,13 +16,68 @@
 </RelativeLayout>
 
     <WebView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
         android:id="@+id/wv_guide">
 
     </WebView>
 
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="40dp"
+        android:src="@mipmap/ic_action_compact_favourite_normal"
+        android:id="@+id/iv_test1"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="1"
+        android:layout_toRightOf="@+id/iv_test1"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/tv_guide_second_favour"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_share_up"
+        android:layout_centerInParent="true"
+        android:id="@+id/iv_test2"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="1"
+        android:layout_toRightOf="@+id/iv_test2"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/tv_guide_second_share"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_action_compact_comment"
+        android:layout_marginLeft="310dp"
+        android:layout_centerVertical="true"
+
+        android:id="@+id/iv_test3"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="1"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/iv_test3"
+        android:id="@+id/tv_guide_second_speak"
+       />
+
+
+
+</RelativeLayout>
 
 
 

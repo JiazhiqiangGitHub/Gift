@@ -33,7 +33,7 @@ public class HotAdapter extends RecyclerView.Adapter<CommonViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(CommonViewHolder holder, int position) {
+    public void onBindViewHolder(CommonViewHolder holder, final int position) {
         //一顿点找到解析出的相对的东西
             holder.setText(R.id.tv_hot_rv_name,bean.getData().getItems().get(position).getShort_description()).
                     setText(R.id.tv_hot_rv_body,bean.getData().getItems().get(position).getName()).
@@ -44,6 +44,7 @@ public class HotAdapter extends RecyclerView.Adapter<CommonViewHolder> {
                         @Override
                         public void onClick(View view) {
                             Intent intent = new Intent(mContext,HotActivity.class);
+                            intent.putExtra("secondHot",bean.getData().getItems().get(position).getUrl());
                             mContext.startActivity(intent);
                         }
                     });

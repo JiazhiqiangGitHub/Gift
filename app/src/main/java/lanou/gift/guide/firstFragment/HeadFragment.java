@@ -18,8 +18,9 @@ import java.util.List;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
+import lanou.gift.guide.otherFragment.TableLayoutAdapter;
+import lanou.gift.textbean.GirlFriend;
 import lanou.gift.textbean.GuideBean;
-import lanou.gift.textbean.SelectionBean;
 import lanou.gift.volley.GsonRequest;
 import lanou.gift.volley.Point1;
 import lanou.gift.volley.Values;
@@ -30,7 +31,7 @@ import lanou.gift.volley.VolleySingleton;
  */
 public class HeadFragment extends BaseFragment {
     private String urlHead = Values.URL_RCHEAD;
-    private SelectionAdapter selectionAdapter;
+    private TableLayoutAdapter adapter;
     private String url = Values.URL_HEAD;
     private ListView lv;
     private ViewPager vp;
@@ -80,15 +81,15 @@ public class HeadFragment extends BaseFragment {
 
             }
         });
-        GsonRequest<SelectionBean> gsonRequest =
-                new GsonRequest<SelectionBean>(SelectionBean.class,
-                        url, new Response.Listener<SelectionBean>() {
+        GsonRequest<GirlFriend> gsonRequest =
+                new GsonRequest<GirlFriend>(GirlFriend.class,
+                        url, new Response.Listener<GirlFriend>() {
                     @Override
-                    public void onResponse(SelectionBean response) {
+                    public void onResponse(GirlFriend response) {
                         //请求成功的方法内 绑定布局
-                        selectionAdapter = new SelectionAdapter(getActivity());
-                        selectionAdapter.setSelectionBean(response);
-                        lv.setAdapter(selectionAdapter);
+                        adapter = new TableLayoutAdapter(getActivity());
+                        adapter.setBean(response);
+                        lv.setAdapter(adapter);
 
                     }
                 }, new Response.ErrorListener() {

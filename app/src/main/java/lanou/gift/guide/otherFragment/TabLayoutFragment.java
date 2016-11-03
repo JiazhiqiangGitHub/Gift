@@ -11,10 +11,11 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
 import lanou.gift.guide.GuideAdapter;
-import lanou.gift.textbean.GuideGirlFriendBean;
+import lanou.gift.textbean.GirlFriend;
 import lanou.gift.volley.GsonRequest;
 import lanou.gift.volley.Values;
 import lanou.gift.volley.VolleySingleton;
+
 
 /**
  * Created by dllo on 16/10/25.
@@ -103,11 +104,11 @@ public class TabLayoutFragment extends BaseFragment{
     }
     //封装的listView解析方法
     private void Gson() {
-        GsonRequest<GuideGirlFriendBean> gsonRequest2 =
-                new GsonRequest<GuideGirlFriendBean>(GuideGirlFriendBean.class,
-                        urlA+ GuideAdapter.getId(getPosition())+urlB, new Response.Listener<GuideGirlFriendBean>() {
+        GsonRequest<GirlFriend> gsonRequest2 =
+                new GsonRequest<GirlFriend>(GirlFriend.class,
+                        urlA+ GuideAdapter.getId(getPosition())+urlB, new Response.Listener<GirlFriend>() {
                     @Override
-                    public void onResponse(GuideGirlFriendBean response) {
+                    public void onResponse(GirlFriend response) {
                         //请求成功的方法内 绑定布局
                         adapter = new TableLayoutAdapter(getActivity());
                         adapter.setBean(response);
