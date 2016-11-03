@@ -98,16 +98,7 @@ public class TabLayoutFragment extends BaseFragment{
                 Gson();
                 break;
         }
-//        //TODO listView的item点击
-//        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//            Toast.makeText(getActivity(), "position"+i, Toast.LENGTH_SHORT).show();
-//
-//
-//            }
-//        });
+
 
     }
     //封装的listView解析方法
@@ -153,6 +144,7 @@ public class TabLayoutFragment extends BaseFragment{
             position = args.getInt("position");
             return position;
         }else return 0;
+
     }
 
 

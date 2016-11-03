@@ -1,22 +1,19 @@
 package lanou.gift.sorthead.raiders;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.squareup.picasso.Picasso;
 
 import lanou.gift.R;
 import lanou.gift.textbean.RaidersHeadBean;
+import lanou.gift.volley.CommonViewHolder;
 
 /**
  * Created by dllo on 16/11/1.
  */
-public class RaidersHeadAdapter extends RecyclerView.Adapter<RaidersHeadAdapter.ViewHolder>{
+public class RaidersHeadAdapter extends RecyclerView.Adapter<CommonViewHolder>{
     private Context context;
     private RaidersHeadBean bean;
 
@@ -29,17 +26,22 @@ public class RaidersHeadAdapter extends RecyclerView.Adapter<RaidersHeadAdapter.
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.raiders_head_item,parent,false);
-        ViewHolder holder = new ViewHolder(v);
-        return holder;
+    public CommonViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return CommonViewHolder.getViewHolder(parent,R.layout.raiders_head_item);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        Picasso.with(context).load(bean.getData().getColumns().get(position).getBanner_image_url()).into(holder.picture);
-        holder.title.setText(bean.getData().getColumns().get(position).getTitle());
-        holder.author.setText(bean.getData().getColumns().get(position).getAuthor());
+    public void onBindViewHolder(CommonViewHolder holder, int position) {
+        holder.setText(R.id.tv_raiders_head_title,bean.getData().getColumns().get(position).getTitle()).
+                setText(R.id.tv_raiders_head_author,bean.getData().getColumns().get(position).getAuthor()).setImage(
+                R.id.iv_raiders_head,bean.getData().getColumns().get(position).getBanner_image_url()
+        ).setItemClick(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,RaidersHeadActivity.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -47,17 +49,4 @@ public class RaidersHeadAdapter extends RecyclerView.Adapter<RaidersHeadAdapter.
         return bean == null?0:bean.getData().getColumns().size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-
-        private ImageView picture;
-        private TextView title;
-        private TextView author;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            picture = (ImageView) itemView.findViewById(R.id.iv_raiders_head);
-            title = (TextView) itemView.findViewById(R.id.tv_raiders_head_title);
-            author = (TextView) itemView.findViewById(R.id.tv_raiders_head_author);
-        }
-    }
 }

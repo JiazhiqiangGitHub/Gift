@@ -1,21 +1,20 @@
 package lanou.gift.sorthead.raiders;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-
-import com.squareup.picasso.Picasso;
 
 import lanou.gift.R;
+import lanou.gift.activity.RaidersActivity;
 import lanou.gift.textbean.RaidersBean;
+import lanou.gift.volley.CommonViewHolder;
 
 /**
  * Created by dllo on 16/11/1.
  */
-public class RaidersItemAdapter extends RecyclerView.Adapter<RaidersItemAdapter.ViewHolder> {
+public class RaidersItemAdapter extends RecyclerView.Adapter<CommonViewHolder> {
     private Context context;
     private int i;
     private RaidersBean bean;
@@ -30,16 +29,20 @@ public class RaidersItemAdapter extends RecyclerView.Adapter<RaidersItemAdapter.
     }
     //创建布局
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.raiders_item_item,parent,false);
-        ViewHolder holder = new ViewHolder(view);
-        return holder;
+    public CommonViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return CommonViewHolder.getViewHolder(parent,R.layout.raiders_item_item);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        Picasso.with(context).load(bean.getData().getChannel_groups().get(i).getChannels().
-                get(position).getCover_image_url()).into(holder.picture);
+    public void onBindViewHolder(CommonViewHolder holder, int position) {
+        holder.setImage(R.id.iv_raiders_rc_picture,bean.getData().getChannel_groups().get(i).getChannels().
+                get(position).getCover_image_url()).setItemClick(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,RaidersActivity.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -47,14 +50,4 @@ public class RaidersItemAdapter extends RecyclerView.Adapter<RaidersItemAdapter.
         return bean.getData().getChannel_groups().get(i).getChannels().size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-
-        private ImageView picture;
-
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            picture = (ImageView) itemView.findViewById(R.id.iv_raiders_rc_picture);
-        }
-    }
 }

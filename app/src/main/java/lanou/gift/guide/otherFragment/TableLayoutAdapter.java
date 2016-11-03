@@ -2,11 +2,9 @@ package lanou.gift.guide.otherFragment;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Toast;
 
 import lanou.gift.R;
 import lanou.gift.activity.GuideActivity;
@@ -63,8 +61,6 @@ public class TableLayoutAdapter extends BaseAdapter {
                         (new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Log.d("TableLayoutAdapter", "哦哦");
-                                Toast.makeText(mContext, "i", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(mContext,GuideActivity.class);
                                 mContext.startActivity(intent);
                             }

@@ -27,6 +27,9 @@
         <activity android:name=".activity.SearchActivity"/>
         <activity android:name=".activity.SettingActivity"/>
         <activity android:name=".activity.HotActivity"/>
+        <activity android:name=".activity.OneActivity"/>
+        <activity android:name=".activity.RaidersActivity"/>
+        <activity android:name=".sorthead.raiders.RaidersHeadActivity"/>
     </application>
 
 </manifest>
