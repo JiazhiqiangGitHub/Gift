@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context=".main.MainActivity">
+    tools:context=".activity.MainActivity">
     <!--创建一个布局给上ID 在主Activity中通过更换布局ID 改变fragment-->
     <LinearLayout
         android:layout_width="match_parent"

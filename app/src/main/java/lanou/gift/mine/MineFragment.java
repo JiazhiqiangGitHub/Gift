@@ -7,8 +7,8 @@ import android.widget.RadioButton;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
-import lanou.gift.enter.EnterActivity;
-import lanou.gift.setting.SettingActivity;
+import lanou.gift.activity.EnterActivity;
+import lanou.gift.activity.SettingActivity;
 
 
 /**

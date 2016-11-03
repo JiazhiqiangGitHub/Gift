@@ -1,4 +1,4 @@
-package lanou.gift.main;
+package lanou.gift.activity;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;

@@ -1,4 +1,4 @@
-package lanou.gift.base;
+package lanou.gift.volley;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -84,7 +84,8 @@ public class CommonViewHolder extends RecyclerView.ViewHolder{
     }
     public CommonViewHolder setImage(int id,String url){
         ImageView imageView = getView(id);
-        //TODO 网络请求图片
+        VolleySingleton.getInstance().getImage
+                (url,imageView);
         return this;
     }
     //一个item里对应的东西的点击事件

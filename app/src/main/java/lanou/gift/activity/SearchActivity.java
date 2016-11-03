@@ -1,4 +1,4 @@
-package lanou.gift.search;
+package lanou.gift.activity;
 
 import android.view.View;
 import android.widget.ImageButton;

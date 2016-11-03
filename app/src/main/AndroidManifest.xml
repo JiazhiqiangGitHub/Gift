@@ -14,17 +14,19 @@
 
 
 
-        <activity android:name=".main.StartActivity">
+        <activity android:name=".activity.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.MainActivity"/>
-        <activity android:name=".enter.EnterActivity"/>
-        <activity android:name=".search.SearchActivity"/>
-        <activity android:name=".setting.SettingActivity"/>
+        <activity android:name=".activity.GuideActivity"/>
+        <activity android:name=".activity.MainActivity"/>
+        <activity android:name=".activity.EnterActivity"/>
+        <activity android:name=".activity.SearchActivity"/>
+        <activity android:name=".activity.SettingActivity"/>
+        <activity android:name=".activity.HotActivity"/>
     </application>
 
 </manifest>

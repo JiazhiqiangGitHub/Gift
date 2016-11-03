@@ -21,6 +21,7 @@ import lanou.gift.base.BaseFragment;
 import lanou.gift.textbean.GuideBean;
 import lanou.gift.textbean.SelectionBean;
 import lanou.gift.volley.GsonRequest;
+import lanou.gift.volley.Point1;
 import lanou.gift.volley.Values;
 import lanou.gift.volley.VolleySingleton;
 
@@ -39,17 +40,8 @@ public class HeadFragment extends BaseFragment {
     private List<Point1> points;
     private LinearLayout pointLayout;
 
-
     @Override
     protected void initDate() {
-
-
-
-
-
-
-
-
         //解析轮播图的网址
         initGson();
         //自动的方法
@@ -193,15 +185,4 @@ public class HeadFragment extends BaseFragment {
         fragment.setArguments(args);
         return fragment;
     }
-//    private  int getPosition(){
-//        int position;
-//        Bundle args = getArguments();
-//        //获得传入Bunndle的位置信息 并取出
-//        if (args != null){
-//            position = args.getInt("position");
-//            return position;
-//        }else return 0;
-//    }
-
-
 }

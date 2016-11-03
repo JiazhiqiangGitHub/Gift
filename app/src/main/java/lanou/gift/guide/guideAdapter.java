@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import lanou.gift.guide.firstFragment.HeadFragment;
+import lanou.gift.guide.otherFragment.TabLayoutFragment;
 import lanou.gift.textbean.TabLayoutBean;
 
 /**

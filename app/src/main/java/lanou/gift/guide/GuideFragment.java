@@ -11,7 +11,7 @@ import com.android.volley.VolleyError;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
-import lanou.gift.search.SearchActivity;
+import lanou.gift.activity.SearchActivity;
 import lanou.gift.textbean.TabLayoutBean;
 import lanou.gift.volley.GsonRequest;
 import lanou.gift.volley.Values;

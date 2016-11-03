@@ -1,4 +1,4 @@
-package lanou.gift.main;
+package lanou.gift.activity;
 
 import android.content.Intent;
 import android.os.CountDownTimer;

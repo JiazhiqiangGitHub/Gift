@@ -1,8 +1,6 @@
-package lanou.gift.guide;
+package lanou.gift.guide.otherFragment;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.android.volley.Response;
@@ -12,6 +10,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
+import lanou.gift.guide.GuideAdapter;
 import lanou.gift.textbean.GuideGirlFriendBean;
 import lanou.gift.volley.GsonRequest;
 import lanou.gift.volley.Values;
@@ -99,22 +98,23 @@ public class TabLayoutFragment extends BaseFragment{
                 Gson();
                 break;
         }
-        //TODO listView的item点击
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-
-
-            }
-        });
+//        //TODO listView的item点击
+//        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//            Toast.makeText(getActivity(), "position"+i, Toast.LENGTH_SHORT).show();
+//
+//
+//            }
+//        });
 
     }
     //封装的listView解析方法
     private void Gson() {
         GsonRequest<GuideGirlFriendBean> gsonRequest2 =
                 new GsonRequest<GuideGirlFriendBean>(GuideGirlFriendBean.class,
-                        urlA+GuideAdapter.getId(getPosition())+urlB, new Response.Listener<GuideGirlFriendBean>() {
+                        urlA+ GuideAdapter.getId(getPosition())+urlB, new Response.Listener<GuideGirlFriendBean>() {
                     @Override
                     public void onResponse(GuideGirlFriendBean response) {
                         //请求成功的方法内 绑定布局
