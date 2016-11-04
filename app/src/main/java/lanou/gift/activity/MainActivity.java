@@ -9,7 +9,7 @@ import android.widget.RadioButton;
 import lanou.gift.R;
 import lanou.gift.base.BaseActivity;
 import lanou.gift.guide.GuideFragment;
-import lanou.gift.hot.HotFragment;
+import lanou.gift.hot.HotFirstFragment;
 import lanou.gift.mine.MineFragment;
 import lanou.gift.sort.ClassFragment;
 
@@ -60,7 +60,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 transaction.replace(R.id.lb_main,new GuideFragment());
                 break;
             case R.id.btn_main_hot:
-                transaction.replace(R.id.lb_main,new HotFragment());
+                transaction.replace(R.id.lb_main,new HotFirstFragment());
                 break;
             case R.id.btn_main_class:
                 transaction.replace(R.id.lb_main,new ClassFragment());

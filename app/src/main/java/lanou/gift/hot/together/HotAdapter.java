@@ -1,4 +1,4 @@
-package lanou.gift.hot;
+package lanou.gift.hot.together;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +14,9 @@ import lanou.gift.volley.CommonViewHolder;
 /**
  * Created by dllo on 16/10/25.
  */
+//// TODO: 16/11/4 = =
 public class HotAdapter extends RecyclerView.Adapter<CommonViewHolder> {
-    TextHotBean bean;
+    private TextHotBean bean;
     private Context mContext;
 
     public HotAdapter(Context mContext) {
@@ -35,7 +36,7 @@ public class HotAdapter extends RecyclerView.Adapter<CommonViewHolder> {
     @Override
     public void onBindViewHolder(CommonViewHolder holder, final int position) {
         //一顿点找到解析出的相对的东西
-            holder.setText(R.id.tv_hot_rv_name,bean.getData().getItems().get(position).getShort_description()).
+            holder.setText(R.id.tv_hot_rv_name,bean.getData().getItems().get(position).getDescription()).
                     setText(R.id.tv_hot_rv_body,bean.getData().getItems().get(position).getName()).
                     setText(R.id.tv_hot_rv_price,bean.getData().getItems().get(position).getPrice()).
                     setText(R.id.tv_hot_rv_people,String.valueOf(bean.getData().getItems().get(position).getFavorites_count())).

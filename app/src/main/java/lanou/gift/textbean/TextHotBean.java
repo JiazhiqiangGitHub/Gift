@@ -3,7 +3,7 @@ package lanou.gift.textbean;
 import java.util.List;
 
 /**
- * Created by dllo on 16/11/3.
+ * Created by dllo on 16/11/4.
  */
 public class TextHotBean {
 

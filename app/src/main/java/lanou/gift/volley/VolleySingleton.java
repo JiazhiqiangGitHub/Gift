@@ -8,6 +8,7 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 
 import lanou.gift.R;
+import lanou.gift.base.MyApp;
 
 /**
  * Created by dllo on 16/10/24.

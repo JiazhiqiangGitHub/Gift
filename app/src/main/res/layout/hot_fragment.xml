@@ -5,21 +5,7 @@
     android:background="#ECECEC">
 
 
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
 
-    <include layout="@layout/hot_title"
-        android:id="@+id/tv_hot_title"
-        />
-    <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@mipmap/abc_ic_search"
-        android:layout_alignParentRight="true"
-        android:background="@null"
-        android:id="@+id/btn_hot_title_search"/>
-</RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"

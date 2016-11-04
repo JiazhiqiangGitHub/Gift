@@ -137,16 +137,16 @@ public class TabLayoutFragment extends BaseFragment{
         return R.layout.guide_fragment_item;
     }
     //获取tablayout的对应位置信息
-    private  int getPosition(){
-        int position;
-        Bundle args = getArguments();
-        //获得传入Bunndle的位置信息 并取出
-        if (args != null){
-            position = args.getInt("position");
-            return position;
-        }else return 0;
+        private  int getPosition(){
+            int position;
+            Bundle args = getArguments();
+            //获得传入Bunndle的位置信息 并取出
+            if (args != null){
+                position = args.getInt("position");
+                return position;
+            }else return 0;
 
-    }
+        }
 
 
 
