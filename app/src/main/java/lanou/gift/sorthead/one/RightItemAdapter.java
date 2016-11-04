@@ -35,7 +35,7 @@ public class RightItemAdapter extends RecyclerView.Adapter<CommonViewHolder> {
     }
     //这里的i是先去找相应的集合 然后再在集合中找到对应position的数据
     @Override
-    public void onBindViewHolder(CommonViewHolder holder, int position) {
+    public void onBindViewHolder(CommonViewHolder holder, final int position) {
 
         holder.setText(R.id.tv_one_right_body,bean.getData().getCategories().get(i).getSubcategories().
                get(position).getName()).setImage(R.id.iv_one_right_body,bean.getData().getCategories().get(i).getSubcategories().
@@ -43,6 +43,7 @@ public class RightItemAdapter extends RecyclerView.Adapter<CommonViewHolder> {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context,OneActivity.class);
+//                intent.putExtra("secondOne",bean.getData().getCategories().get(i))
                 context.startActivity(intent);
 
             }

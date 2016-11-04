@@ -40,6 +40,7 @@ public class RaidersItemAdapter extends RecyclerView.Adapter<CommonViewHolder> {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context,RaidersActivity.class);
+
                 context.startActivity(intent);
             }
         });

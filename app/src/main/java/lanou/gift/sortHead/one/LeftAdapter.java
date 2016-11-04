@@ -1,10 +1,12 @@
 package lanou.gift.sorthead.one;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import lanou.gift.R;
@@ -17,6 +19,13 @@ public class LeftAdapter extends BaseAdapter {
     //左面的listView
     private Context context;
     OneBean bean;
+    private int ChangeColor = 0;
+    //刷新颜色
+    public void setChangeColor(int changeColor) {
+        ChangeColor = changeColor;
+        notifyDataSetChanged();
+
+    }
 
     public void setBean(OneBean bean) {
         this.bean = bean;
@@ -54,8 +63,17 @@ public class LeftAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
 
-        viewHolder.textView.setText(bean.getData().getCategories().get(i).getName());
+        //判断是否在相同地方 设置字体颜色以及背景色
+        if (ChangeColor == i){
 
+            viewHolder.textView.setTextColor(Color.RED);
+            viewHolder.ll.setBackgroundColor(Color.WHITE);
+        }else{
+            viewHolder.textView.setTextColor(Color.BLACK);
+            viewHolder.ll.setBackgroundColor(Color.GRAY);
+
+        }
+        viewHolder.textView.setText(bean.getData().getCategories().get(i).getName());
 
         return view;
     }
@@ -63,9 +81,11 @@ public class LeftAdapter extends BaseAdapter {
     private class ViewHolder {
 
         private  TextView textView;
+        private LinearLayout ll;
 
         public ViewHolder(View view) {
             textView = (TextView) view.findViewById(R.id.one_text_left);
+            ll = (LinearLayout) view.findViewById(R.id.ll_left_one);
         }
     }
 }

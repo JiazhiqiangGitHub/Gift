@@ -20,14 +20,29 @@
         android:id="@+id/btn_guide_title_search"/>
 
 </RelativeLayout>
-
-    <android.support.design.widget.TabLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:orientation="horizontal">
+
+    <android.support.design.widget.TabLayout
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
         android:id="@+id/tb_guide_head">
+
     </android.support.design.widget.TabLayout>
 
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:text="↓"
+            android:textSize="30dp"
+            android:id="@+id/btn_guide_dialog"
+            />
+</RelativeLayout>
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
         android:layout_height="0dp"

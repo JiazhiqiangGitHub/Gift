@@ -17,6 +17,7 @@ public class CommonViewHolder extends RecyclerView.ViewHolder{
     //但是Key 固定是int类型
     //用它来存放所有的View,key就是View的id
     private SparseArray<View> views;
+    private Context context;
 
     private View itemView; //行布局
     public CommonViewHolder(View itemView) {
@@ -25,6 +26,9 @@ public class CommonViewHolder extends RecyclerView.ViewHolder{
         views = new SparseArray<>();
     }
 
+    public void setContext(Context context) {
+        this.context = context;
+    }
 
     //使用泛型来取消强转
     //通过View的id来获得指定的View 如果该View没有赋值,就先执行findViewByid
@@ -47,8 +51,10 @@ public class CommonViewHolder extends RecyclerView.ViewHolder{
         if (itemView == null){
             //获得对象
             Context context = parent.getContext();
+
             itemView = LayoutInflater.from(context).inflate(itemId,parent,false);
             viewHolder = new CommonViewHolder(itemView);
+            viewHolder.setContext(context);
             itemView.setTag(viewHolder);
         }else{
             viewHolder = (CommonViewHolder) itemView.getTag();

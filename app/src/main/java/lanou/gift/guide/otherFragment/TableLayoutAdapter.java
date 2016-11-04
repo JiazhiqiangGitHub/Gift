@@ -17,15 +17,14 @@ import lanou.gift.volley.CommonViewHolder;
 public class TableLayoutAdapter extends BaseAdapter{
     //listView的适配器
     private Context mContext;
-//    GuideGirlFriendBean bean;
-    GirlFriend bean;
 
-//    public void setBean(GuideGirlFriendBean bean) {
-//        this.bean = bean;
-//    }
+    private GirlFriend bean;
+
+
 
     public void setBean(GirlFriend bean) {
         this.bean = bean;
+
     }
 
     public TableLayoutAdapter(Context mContext) {
@@ -62,7 +61,7 @@ public class TableLayoutAdapter extends BaseAdapter{
                         (R.id.tv_guide_fragment_item_people, String.valueOf(bean.getData().getItems().get(i).getLikes_count())).
                 setImage
                         (R.id.iv_guide_fragment_item_picture, bean.getData().getItems().get(i).getCover_image_url()).
-                setText(R.id.tv_guide_fragment_item_class,bean.getData().getItems().get(i).getColumn().getTitle()).
+//                setText(R.id.tv_guide_fragment_item_class,bean.getData().getItems().get(i).getColumn().getTitle()).
                 setItemClick
                         (new View.OnClickListener() {
                             @Override

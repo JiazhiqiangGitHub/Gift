@@ -32,7 +32,7 @@ public class RaidersHeadAdapter extends RecyclerView.Adapter<CommonViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(CommonViewHolder holder, int position) {
+    public void onBindViewHolder(CommonViewHolder holder, final int position) {
         holder.setText(R.id.tv_raiders_head_title,bean.getData().getColumns().get(position).getTitle()).
                 setText(R.id.tv_raiders_head_author,bean.getData().getColumns().get(position).getAuthor()).setImage(
                 R.id.iv_raiders_head,bean.getData().getColumns().get(position).getBanner_image_url()
@@ -40,6 +40,7 @@ public class RaidersHeadAdapter extends RecyclerView.Adapter<CommonViewHolder>{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context,RaidersHeadActivity.class);
+//                intent.putExtra("secondRaidersHead",bean.getData().getColumns().get(position).);
                 context.startActivity(intent);
             }
         });

@@ -31,6 +31,8 @@ public class OneFragment extends BaseFragment {
     @Override
     protected void initDate() {
 
+
+
         //相同的url 一起请求
         GsonRequest<OneBean> gsonRequest =
                 new GsonRequest<OneBean>(OneBean.class,
@@ -42,10 +44,41 @@ public class OneFragment extends BaseFragment {
                         leftAdapter.setBean(response);
                         leftListView.setAdapter(leftAdapter);
 
+
                         rightAdapter = new RightAdapter(getActivity());
                         rightAdapter.setBody(response);
                         rightAdapter.setHead(response);
                         rightListView.setAdapter(rightAdapter);
+
+
+
+                        rightListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+                            @Override
+                            public void onScrollStateChanged(AbsListView absListView, int i) {
+
+                            }
+
+                            @Override
+                            public void onScroll(AbsListView absListView, int i, int i1, int i2) {
+                                //使左面listView的位置前移一位
+                                leftListView.smoothScrollToPositionFromTop(i - 1,0);
+                                //调用变色方法
+                                leftAdapter.setChangeColor(i);
+                            }
+                        });
+                        leftListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                rightListView.setSelection(i);
+                                leftAdapter.setChangeColor(i);
+
+
+                            }
+                        });
+
+
+
+
 
 
                     }
@@ -58,26 +91,10 @@ public class OneFragment extends BaseFragment {
         //发送网络请求
         VolleySingleton.getInstance().addRequest(gsonRequest);
 
-        leftListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                rightListView.setSelection(i);
 
 
-            }
-        });
 
-        rightListView.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView absListView, int i) {
 
-            }
-
-            @Override
-            public void onScroll(AbsListView absListView, int i, int i1, int i2) {
-                leftListView.smoothScrollToPositionFromTop(i,0);
-            }
-        });
 
 
     }

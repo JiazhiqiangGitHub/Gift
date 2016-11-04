@@ -1,6 +1,7 @@
 package lanou.gift.activity;
 
 import android.content.Intent;
+import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -26,8 +27,20 @@ public class HotActivity extends BaseActivity{
     protected void initData() {
         Intent intent = getIntent();
         //自适应
-        wv.getSettings().setJavaScriptEnabled(true);
-        wv.setWebViewClient(new WebViewClient());
+        wv.getSettings().setJavaScriptEnabled(false);
+        wv.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onLoadResource(WebView view, String url) {
+                url = url.trim();
+                Log.d("Sysout", url);
+                if(url.startsWith("http")&&!url.contains("Download")){
+                  //  view.loadUrl(url);
+                    super.onLoadResource(view, url);
+
+                }
+
+            }
+        });
         wv.loadUrl(intent.getStringExtra("secondHot"));
     }
 }

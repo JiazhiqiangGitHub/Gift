@@ -16,7 +16,7 @@ import lanou.gift.textbean.RaidersBean;
 /**
  * Created by dllo on 16/10/27.
  */
-public class RaidersAdapter extends BaseAdapter{
+public class RaidersAdapter extends BaseAdapter {
     private Context context;
     private RaidersBean bean;
     private RaidersItemAdapter adapter;
@@ -31,7 +31,7 @@ public class RaidersAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {
-        return bean == null?0:bean.getData().getChannel_groups().size();
+        return bean == null ? 0 : bean.getData().getChannel_groups().size();
     }
 
     @Override
@@ -47,19 +47,19 @@ public class RaidersAdapter extends BaseAdapter{
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder viewHolder = null;
-        if (view == null){
-            view = LayoutInflater.from(context).inflate(R.layout.raiders_item,null);
+        if (view == null) {
+            view = LayoutInflater.from(context).inflate(R.layout.raiders_item, null);
             viewHolder = new ViewHolder(view);
             view.setTag(viewHolder);
-        }else{
+        } else {
             viewHolder = (ViewHolder) view.getTag();
         }
-            //recyclerView创建适配器
-            viewHolder.title.setText(bean.getData().getChannel_groups().get(i).getName());
-            adapter = new RaidersItemAdapter(context,i);
-            viewHolder.rc.setAdapter(adapter);
-            adapter.setBean(bean);
-            return view;
+        //recyclerView创建适配器
+        viewHolder.title.setText(bean.getData().getChannel_groups().get(i).getName());
+        adapter = new RaidersItemAdapter(context, i);
+        viewHolder.rc.setAdapter(adapter);
+        adapter.setBean(bean);
+        return view;
     }
 
 
@@ -74,7 +74,7 @@ public class RaidersAdapter extends BaseAdapter{
             rc = (RecyclerView) view.findViewById(R.id.rc_raiders);
             //攻略listView的item 是recyclerView的网格布局
             //布局竖向拉 2行
-            RecyclerView.LayoutManager manager = new GridLayoutManager(context,2, LinearLayoutManager.VERTICAL,false);
+            RecyclerView.LayoutManager manager = new GridLayoutManager(context, 2, LinearLayoutManager.VERTICAL, false);
             rc.setLayoutManager(manager);
         }
     }
