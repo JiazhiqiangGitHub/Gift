@@ -14,7 +14,7 @@ import lanou.gift.volley.CommonViewHolder;
 /**
  * Created by dllo on 16/10/25.
  */
-//// TODO: 16/11/4 = =
+
 public class HotAdapter extends RecyclerView.Adapter<CommonViewHolder> {
     private TextHotBean bean;
     private Context mContext;

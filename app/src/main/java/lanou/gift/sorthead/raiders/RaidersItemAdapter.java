@@ -17,7 +17,7 @@ import lanou.gift.volley.CommonViewHolder;
 public class RaidersItemAdapter extends RecyclerView.Adapter<CommonViewHolder> {
     private Context context;
     private int i;
-    private RaidersBean bean;
+    private static RaidersBean bean;
     //一个item内还有多个时再找一层
     public RaidersItemAdapter(Context context, int i) {
         this.context = context;
@@ -34,17 +34,25 @@ public class RaidersItemAdapter extends RecyclerView.Adapter<CommonViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(CommonViewHolder holder, int position) {
+    public void onBindViewHolder(CommonViewHolder holder, final int position) {
         holder.setImage(R.id.iv_raiders_rc_picture,bean.getData().getChannel_groups().get(i).getChannels().
                 get(position).getCover_image_url()).setItemClick(new View.OnClickListener() {
             @Override
+            //// TODO: 16/11/5
+            //传值 传ID
             public void onClick(View view) {
+                int id = bean.getData().getChannel_groups().get(position).getId();
+                String strId = Integer.toString(id);
+                String title = bean.getData().getChannel_groups().get(position).getName();
                 Intent intent = new Intent(context,RaidersActivity.class);
-
+                intent.putExtra("id",strId);
+                intent.putExtra("name",title);
                 context.startActivity(intent);
+
             }
         });
     }
+
 
     @Override
     public int getItemCount() {

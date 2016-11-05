@@ -136,7 +136,7 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
                 break;
             case R.id.btn_guide_dialog:
             //点击按钮的时候判断点击的次数 奇数就显示pop 隐藏tablayout 显示文字 反之相反
-                //// TODO: 16/11/5 有个小bug 
+                //// TODO: 16/11/5 有个小bug
                 count++;
                 if(count%2 == 0){
 

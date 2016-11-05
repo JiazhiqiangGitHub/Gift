@@ -3,4 +3,38 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/one_title"
+            />
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:text="啦啦"
+            android:layout_centerInParent="true"
+            android:textColor="#FFFFFF"
+            android:id="@+id/tv_radiers_activity_head_title"
+            android:textSize="20dp"/>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/button_back_white"/>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/ic_menu_sort"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lv_raiders_activity">
+
+    </ListView>
+
+
+
 </LinearLayout>
