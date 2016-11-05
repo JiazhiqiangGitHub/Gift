@@ -12,7 +12,7 @@ import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
 import lanou.gift.textbean.OneBean;
 import lanou.gift.volley.GsonRequest;
-import lanou.gift.volley.Values;
+import lanou.gift.values.Values;
 import lanou.gift.volley.VolleySingleton;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 

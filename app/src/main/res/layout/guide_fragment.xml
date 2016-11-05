@@ -24,6 +24,13 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/tv_pop"
+            android:text="切换频道"
+            android:visibility="invisible"
+            android:gravity="center_vertical"/>
 
     <android.support.design.widget.TabLayout
         android:layout_width="320dp"
@@ -36,8 +43,7 @@
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:background="@null"
-            android:text="↓"
+            android:background="@drawable/ic_down"
             android:textSize="30dp"
             android:id="@+id/btn_guide_dialog"
             />

@@ -9,8 +9,9 @@ import com.android.volley.VolleyError;
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
 import lanou.gift.textbean.HotBean;
+import lanou.gift.values.Values;
 import lanou.gift.volley.GsonRequest;
-import lanou.gift.volley.Values;
+import lanou.gift.volley.VolleySingleton;
 
 /**
  * Created by dllo on 16/11/4.
@@ -37,6 +38,7 @@ public class HotFirstFragment extends BaseFragment {
 
             }
         });
+        VolleySingleton.getInstance().addRequest(gsonRequest);
     }
 
     @Override

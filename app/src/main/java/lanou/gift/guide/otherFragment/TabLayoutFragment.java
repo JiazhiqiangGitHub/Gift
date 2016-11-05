@@ -13,7 +13,7 @@ import lanou.gift.base.BaseFragment;
 import lanou.gift.guide.GuideAdapter;
 import lanou.gift.textbean.GirlFriend;
 import lanou.gift.volley.GsonRequest;
-import lanou.gift.volley.Values;
+import lanou.gift.values.Values;
 import lanou.gift.volley.VolleySingleton;
 
 

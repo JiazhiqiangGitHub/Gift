@@ -15,7 +15,7 @@ import lanou.gift.base.BaseFragment;
 import lanou.gift.hot.HotFirstAdapter;
 import lanou.gift.textbean.TextHotBean;
 import lanou.gift.volley.GsonRequest;
-import lanou.gift.volley.Values;
+import lanou.gift.values.Values;
 import lanou.gift.volley.VolleySingleton;
 
 /**
@@ -41,6 +41,24 @@ public class HotFragment extends BaseFragment {
     }
     @Override
     protected void initDate() {
+        switch (type){
+            case 0:
+                gsonHot();
+                break;
+            case 1:
+                gsonHot();
+                break;
+            case 2:
+                gsonHot();
+                break;
+            case 3:
+                gsonHot();
+                break;
+        }
+
+    }
+
+    private void gsonHot() {
 
         GsonRequest<TextHotBean> gsonRequest =
                 new GsonRequest<TextHotBean>(TextHotBean.class,
@@ -49,7 +67,7 @@ public class HotFragment extends BaseFragment {
                     @Override
                     public void onResponse(final TextHotBean response) {
                         Picasso.with(getActivity()).load(response.getData().getCover_image()).into(ivPicture);
-                    //请求成功的方法内 绑定布局
+                        //请求成功的方法内 绑定布局
                         adapter = new HotAdapter(getActivity());
                         adapter.setBean(response);
                         rc.setAdapter(adapter);
@@ -66,8 +84,8 @@ public class HotFragment extends BaseFragment {
 
                     }
                 });
-                //发送网络请求
-                VolleySingleton.getInstance().addRequest(gsonRequest);
+        //发送网络请求
+        VolleySingleton.getInstance().addRequest(gsonRequest);
 
 
     }
@@ -88,10 +106,10 @@ public class HotFragment extends BaseFragment {
         int position;
         Bundle args = getArguments();
         //获得传入Bunndle的位置信息 并取出
+        if (args != null) {
             position = args.getInt("hotPosition");
             return position;
-
-
+        }else return 0;
     }
 
 

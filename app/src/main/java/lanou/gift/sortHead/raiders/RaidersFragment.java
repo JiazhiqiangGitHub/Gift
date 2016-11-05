@@ -15,7 +15,7 @@ import lanou.gift.base.BaseFragment;
 import lanou.gift.textbean.RaidersBean;
 import lanou.gift.textbean.RaidersHeadBean;
 import lanou.gift.volley.GsonRequest;
-import lanou.gift.volley.Values;
+import lanou.gift.values.Values;
 import lanou.gift.volley.VolleySingleton;
 
 /**

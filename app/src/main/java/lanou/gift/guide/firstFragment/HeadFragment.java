@@ -22,8 +22,8 @@ import lanou.gift.guide.otherFragment.TableLayoutAdapter;
 import lanou.gift.textbean.GirlFriend;
 import lanou.gift.textbean.GuideBean;
 import lanou.gift.volley.GsonRequest;
-import lanou.gift.volley.Point1;
-import lanou.gift.volley.Values;
+import lanou.gift.values.Point1;
+import lanou.gift.values.Values;
 import lanou.gift.volley.VolleySingleton;
 
 /**

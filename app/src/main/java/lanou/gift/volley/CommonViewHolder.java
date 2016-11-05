@@ -105,4 +105,5 @@ public class CommonViewHolder extends RecyclerView.ViewHolder{
         return this;
     }
 
+
 }
