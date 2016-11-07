@@ -38,7 +38,6 @@ public class RaidersItemAdapter extends RecyclerView.Adapter<CommonViewHolder> {
         holder.setImage(R.id.iv_raiders_rc_picture,bean.getData().getChannel_groups().get(i).getChannels().
                 get(position).getCover_image_url()).setItemClick(new View.OnClickListener() {
             @Override
-            //// TODO: 16/11/5
             //传值 传ID
             public void onClick(View view) {
                 int id = bean.getData().getChannel_groups().get(position).getId();
@@ -52,8 +51,6 @@ public class RaidersItemAdapter extends RecyclerView.Adapter<CommonViewHolder> {
             }
         });
     }
-
-
     @Override
     public int getItemCount() {
         return bean.getData().getChannel_groups().get(i).getChannels().size();

@@ -19,7 +19,7 @@
         android:id="@+id/tv_start"
         android:text="广告"
         android:textSize="20dp"
-        android:layout_alignParentRight="true"/>
+        android:layout_centerHorizontal="true"/>
 
 
 
