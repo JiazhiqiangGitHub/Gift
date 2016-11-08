@@ -1,7 +1,6 @@
 package lanou.gift.hot.second;
 
 import android.content.Intent;
-import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -18,19 +17,7 @@ public class detailsFragment extends BaseFragment {
         Intent intent = getActivity().getIntent();
         //自适应
         wv.getSettings().setJavaScriptEnabled(false);
-        wv.setWebViewClient(new WebViewClient(){
-            @Override
-            public void onLoadResource(WebView view, String url) {
-                url = url.trim();
-                Log.d("Sysout", url);
-                if(url.startsWith("http")&&!url.contains("Download")){
-                  //  view.loadUrl(url);
-                    super.onLoadResource(view, url);
-
-                }
-
-            }
-        });
+        wv.setWebViewClient(new WebViewClient());
         wv.loadUrl(intent.getStringExtra("secondHot"));
     }
 

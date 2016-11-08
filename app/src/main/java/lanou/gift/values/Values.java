@@ -18,7 +18,7 @@ public final class Values {
     public static final String URL_HOT_B = "?limit=20&offset=0";
     public static final String URL_RAIDERS_A = "http://api.liwushuo.com/v2/channels/";
     public static final String URL_RAIDERS_B = "/items_v2?limit=20&gender=2&offset=0&generation=1&order_by=now";
-
-
+    public static final String URL_HOT_ONE_A = "http://api.liwushuo.com/v2/items/";
+    public static final String URL_HOT_ONE_B = "/recommend?num=20&post_num=5";
 
 }

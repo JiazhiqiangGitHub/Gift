@@ -12,7 +12,8 @@
     android:layout_height="30dp"
     android:layout_marginTop="5dp"
     android:src="@mipmap/button_back_white"
-    android:background="@null"/>
+    android:background="@null"
+    android:id="@+id/setting_back"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,19 +29,41 @@
     android:layout_marginTop="10dp"
     android:background="#FFFFFF"
     >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ll_setting">
     <ImageView
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginTop="7dp"
         android:src="@mipmap/icon_more_mine"/>
 <TextView
-    android:layout_marginLeft="40dp"
+    android:layout_marginLeft="20dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
     android:textSize="17dp"
     android:textColor="#000000"
     android:text="我的身份"/>
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="男生"
+        android:textSize="15dp"
+            android:id="@+id/tv_setting_sex"
+        android:layout_marginLeft="140dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_setting_job"
+            android:text="大学生"/>
+
+    </LinearLayout>
 </FrameLayout>
     <LinearLayout
         android:layout_width="match_parent"

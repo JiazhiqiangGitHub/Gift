@@ -1,11 +1,12 @@
 package lanou.gift.textbean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by dllo on 16/11/4.
  */
-public class TextHotBean {
+public class TextHotBean implements Serializable {
 
     /**
      * code : 200
@@ -50,7 +51,7 @@ public class TextHotBean {
         this.message = message;
     }
 
-    public static class DataBean {
+    public static class DataBean implements Serializable{
         private String cover_image;
         private String cover_url;
         private String cover_webp;
@@ -151,7 +152,7 @@ public class TextHotBean {
             }
         }
 
-        public static class ItemsBean {
+        public static class ItemsBean implements Serializable{
             private Object ad_monitors;
             private Object brand_id;
             private Object brand_order;

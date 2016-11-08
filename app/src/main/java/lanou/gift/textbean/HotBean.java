@@ -1,11 +1,12 @@
 package lanou.gift.textbean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by dllo on 16/11/4.
  */
-public class HotBean {
+public class HotBean implements Serializable {
 
     /**
      * code : 200

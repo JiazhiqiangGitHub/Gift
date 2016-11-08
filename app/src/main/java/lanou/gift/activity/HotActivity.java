@@ -1,5 +1,6 @@
 package lanou.gift.activity;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -11,6 +12,7 @@ import lanou.gift.base.BaseActivity;
 import lanou.gift.hot.second.commentFragment;
 import lanou.gift.hot.second.detailsFragment;
 import lanou.gift.hot.second.singleFragment;
+import lanou.gift.textbean.TextHotBean;
 
 /**
  * Created by dllo on 16/11/3.
@@ -38,6 +40,8 @@ public class HotActivity extends BaseActivity{
         fragments.add(new detailsFragment());
         fragments.add(new commentFragment());
 
+        Intent intent = this.getIntent();
+        TextHotBean.DataBean.ItemsBean itemsBean = (TextHotBean.DataBean.ItemsBean) intent.getSerializableExtra("single");
         HotSecondAdapter adapter = new HotSecondAdapter(getSupportFragmentManager());
         adapter.setFragments(fragments);
         vp.setAdapter(adapter);
@@ -49,27 +53,5 @@ public class HotActivity extends BaseActivity{
 
 
 
-
-
-
-
-
-//        Intent intent = getIntent();
-//        //自适应
-//        wv.getSettings().setJavaScriptEnabled(false);
-//        wv.setWebViewClient(new WebViewClient(){
-//            @Override
-//            public void onLoadResource(WebView view, String url) {
-//                url = url.trim();
-//                Log.d("Sysout", url);
-//                if(url.startsWith("http")&&!url.contains("Download")){
-//                  //  view.loadUrl(url);
-//                    super.onLoadResource(view, url);
-//
-//                }
-//
-//            }
-//        });
-//        wv.loadUrl(intent.getStringExtra("secondHot"));
     }
 }
