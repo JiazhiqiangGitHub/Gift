@@ -42,8 +42,13 @@ public class RightItemAdapter extends RecyclerView.Adapter<CommonViewHolder> {
                 get(position).getIcon_url()).setItemClick(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //传ID 强转
+                int id = bean.getData().getCategories().get(position).getSubcategories().get(position).getId();
+                String strId = Integer.toString(id);
+                String strTitle = bean.getData().getCategories().get(position).getSubcategories().get(position).getName();
                 Intent intent = new Intent(context,OneActivity.class);
-//                intent.putExtra("secondOne",bean.getData().getCategories().get(i))
+                intent.putExtra("strTitle",strTitle);
+                intent.putExtra("id",strId);
                 context.startActivity(intent);
 
             }
