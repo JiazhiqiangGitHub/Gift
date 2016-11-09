@@ -88,7 +88,7 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                vp.setCurrentItem(i);
+                vp.setCurrentItem(i,false);
                 tbHead.setVisibility(View.VISIBLE);
                 tvPop.setVisibility(View.INVISIBLE);
                 popupWindow.dismiss();

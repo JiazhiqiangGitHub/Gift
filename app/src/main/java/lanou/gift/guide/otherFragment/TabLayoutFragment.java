@@ -1,19 +1,17 @@
 package lanou.gift.guide.otherFragment;
 
 import android.os.Bundle;
-import android.widget.ListView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
 import lanou.gift.guide.GuideAdapter;
 import lanou.gift.textbean.GirlFriend;
-import lanou.gift.volley.GsonRequest;
 import lanou.gift.values.Values;
+import lanou.gift.volley.GsonRequest;
 import lanou.gift.volley.VolleySingleton;
 
 
@@ -40,19 +38,18 @@ public class TabLayoutFragment extends BaseFragment{
     @Override
     protected void initDate() {
         //刷新
-        lv.setMode(PullToRefreshBase.Mode.BOTH);
-        lv.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
-            @Override
-            public void onPullDownToRefresh(PullToRefreshBase<ListView> pullToRefreshBase) {
-                adapter.notifyDataSetChanged();
-                lv.onRefreshComplete();
-            }
-            @Override
-            public void onPullUpToRefresh(PullToRefreshBase<ListView> pullToRefreshBase) {
-                adapter.notifyDataSetChanged();
-                lv.onRefreshComplete();
-            }
-        });
+//        lv.setMode(PullToRefreshBase.Mode.BOTH);
+//        lv.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
+//            @Override
+//            public void onPullDownToRefresh(PullToRefreshBase<ListView> pullToRefreshBase) {
+//                adapter.notifyDataSetChanged();
+//                lv.onRefreshComplete();
+//            }
+//            @Override
+//            public void onPullUpToRefresh(PullToRefreshBase<ListView> pullToRefreshBase) {adapter.notifyDataSetChanged();
+//                lv.onRefreshComplete();
+//            }
+//        });
         //复用
         switch (type) {
             case 1:

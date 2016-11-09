@@ -1,7 +1,9 @@
 package lanou.gift.activity;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ListView;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseActivity;
@@ -11,6 +13,9 @@ import lanou.gift.base.BaseActivity;
  */
 public class SearchActivity extends BaseActivity implements View.OnClickListener {
     private ImageButton btnBack;
+    private ListView lv;
+    private RecyclerView rv;
+    private RecyclerViewSearchAdapter adapter;
     @Override
     protected int getLayout() {
         return R.layout.activity_search;
@@ -19,6 +24,8 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
     @Override
     protected void initViews() {
         btnBack = bindView(R.id.btn_search_title_back);
+        lv = bindView(R.id.lv_search);
+        rv = bindView(R.id.rv_search);
 
     }
 

@@ -22,4 +22,6 @@ public final class Values {
     public static final String URL_HOT_ONE_B = "/recommend?num=20&post_num=5";
     public static final String URL_ONE_ONE_A = "http://api.liwushuo.com/v2/item_subcategories/";
     public static final String URL_ONE_ONE_B = "/items?limit=20&offset=0";
+    public static final String URL_COMMENT_A ="http://api.liwushuo.com/v2/items/";
+    public static final String URL_COMMENT_B ="/comments?limit=20&offset=0";
 }

@@ -1,6 +1,5 @@
 package lanou.gift.hot.second;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
@@ -13,11 +12,6 @@ import lanou.gift.volley.CommonViewHolder;
  */
 public class HotThirdOneAdapter extends RecyclerView.Adapter<CommonViewHolder> {
     private static HotSecondOneBean bean;
-    private Context context;
-
-    public HotThirdOneAdapter(Context context) {
-        this.context = context;
-    }
 
 
     public static void setBean(HotSecondOneBean bean) {

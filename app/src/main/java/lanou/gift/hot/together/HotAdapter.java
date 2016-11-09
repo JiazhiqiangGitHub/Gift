@@ -44,15 +44,18 @@ public class HotAdapter extends RecyclerView.Adapter<CommonViewHolder> {
                     setItemClick(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            //把这个类传到2级界面 2级界面的3页都可以用
                             Intent intent = new Intent(mContext,HotActivity.class);
-//                            TextHotBean.DataBean.ItemsBean itemsBean = bean.getData().getItems().get(position);
-//                            Bundle bundle = new Bundle();
-                            //第二个参数是类
-//                            bundle.putSerializable("single", itemsBean);
+                            //第一页的ID
+                            int id = bean.getData().getItems().get(position).getId();
+                            //强转
+                            String strId = Integer.toString(id);
+                            intent.putExtra("id",strId);
+
+                            //第二页的webView
                             intent.putExtra("secondHot",bean.getData().getItems().get(position).getUrl());
-//                            intent.putExtras(bundle);
                             mContext.startActivity(intent);
+
+
                         }
                     });
 

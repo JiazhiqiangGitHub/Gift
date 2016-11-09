@@ -1,5 +1,6 @@
 package lanou.gift.hot.second;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -19,19 +20,22 @@ import lanou.gift.volley.VolleySingleton;
 public class singleFragment extends BaseFragment{
     private HotThirdOneAdapter adapter;
     private RecyclerView rv;
-    private HotSecondOneBean.DataBean.RecommendItemsBean bean;
 
-    //// TODO: 16/11/8 字符串拼接 
+
     @Override
     protected void initDate() {
-        bean = new HotSecondOneBean.DataBean.RecommendItemsBean();
+        adapter = new HotThirdOneAdapter();
+        Intent intent = getActivity().getIntent();
+        String str = intent.getStringExtra("id");
+        int id = Integer.parseInt(str);
+
         GsonRequest<HotSecondOneBean> gsonRequest = new GsonRequest<HotSecondOneBean>(HotSecondOneBean.class,
-                Values.URL_HOT_ONE_A + bean.getId() + Values.URL_HOT_ONE_B,
+                Values.URL_HOT_ONE_A + id + Values.URL_HOT_ONE_B,
                 new Response.Listener<HotSecondOneBean>() {
                     @Override
                     public void onResponse(HotSecondOneBean response) {
 
-                        adapter = new HotThirdOneAdapter(getActivity());
+                        adapter = new HotThirdOneAdapter();
                         adapter.setBean(response);
                         rv.setAdapter(adapter);
 
