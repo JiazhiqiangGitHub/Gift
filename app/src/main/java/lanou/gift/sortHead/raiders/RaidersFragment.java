@@ -1,10 +1,12 @@
 package lanou.gift.sorthead.raiders;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.android.volley.Response;
@@ -14,8 +16,8 @@ import lanou.gift.R;
 import lanou.gift.base.BaseFragment;
 import lanou.gift.textbean.RaidersBean;
 import lanou.gift.textbean.RaidersHeadBean;
-import lanou.gift.volley.GsonRequest;
 import lanou.gift.values.Values;
+import lanou.gift.volley.GsonRequest;
 import lanou.gift.volley.VolleySingleton;
 
 /**
@@ -29,9 +31,23 @@ public class RaidersFragment extends BaseFragment {
     private RecyclerView rc;
     private View headView;
     private String urlHead = Values.URL_RAIDERS_HEAD;
+    private Button btn;
+
+
 
     @Override
     protected void initDate() {
+        View v = LayoutInflater.from(getActivity()).inflate(R.layout.raiders_item,null);
+        btn = (Button) v.findViewById(R.id.tv_raiders_click);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO 跳转有问题
+                Intent intent = new Intent(getActivity(),RaidersAllActivity.class);
+                startActivity(intent);
+            }
+        });
+
     //listView 获取数据
         GsonRequest<RaidersBean> gsonRequest = new GsonRequest<RaidersBean>(RaidersBean.class, urlRaders,
                 new Response.Listener<RaidersBean>() {
@@ -75,7 +91,9 @@ public class RaidersFragment extends BaseFragment {
     @Override
     protected void initView() {
         headView = LayoutInflater.from(getActivity()).inflate(R.layout.raiders_head, null);
+
         rc = bindView(headView,R.id.rc_raiders_head);
+
         lv = bindView(R.id.lv_class_raiders);
         lv.addHeaderView(headView);
     }

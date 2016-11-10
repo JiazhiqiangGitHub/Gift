@@ -53,7 +53,7 @@ public class RaidersItemAdapter extends RecyclerView.Adapter<CommonViewHolder> {
     }
     @Override
     public int getItemCount() {
-        return bean.getData().getChannel_groups().get(i).getChannels().size();
+        return 6;
     }
 
 }

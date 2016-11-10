@@ -23,7 +23,7 @@ public class EnterActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     protected void initViews() {
-       btnBack = bindView(R.id.btn_enter_back);
+        btnBack = bindView(R.id.btn_enter_back);
         number = bindView(R.id.et_enter_number);
         password = bindView(R.id.et_enter_password);
     }
@@ -36,7 +36,7 @@ public class EnterActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btn_enter_back:
                 finish();
                 break;

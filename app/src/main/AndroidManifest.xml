@@ -30,6 +30,8 @@
         <activity android:name=".activity.OneActivity"/>
         <activity android:name=".activity.RaidersActivity"/>
         <activity android:name=".activity.RaidersHeadActivity"/>
+        <activity android:name=".sorthead.raiders.RaidersAllActivity"/>
+        <activity android:name=".activity.SearchSecondActivity"/>
     </application>
 
 </manifest>

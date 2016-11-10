@@ -12,6 +12,7 @@ import lanou.gift.base.BaseFragment;
  */
 public class detailsFragment extends BaseFragment {
     private WebView wv;
+
     @Override
     protected void initDate() {
         Intent intent = getActivity().getIntent();

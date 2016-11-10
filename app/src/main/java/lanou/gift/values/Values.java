@@ -24,4 +24,7 @@ public final class Values {
     public static final String URL_ONE_ONE_B = "/items?limit=20&offset=0";
     public static final String URL_COMMENT_A ="http://api.liwushuo.com/v2/items/";
     public static final String URL_COMMENT_B ="/comments?limit=20&offset=0";
+    public static final String URL_SEARCH_RV = "http://api.liwushuo.com/v2/search/hot_words";
+    public static final String URL_SEARCH_THREE_A ="http://api.liwushuo.com/v2/search/item?keyword=";
+    public static final String URL_SEARCH_THREE_B ="&limit=20&offset=0&sort=";
 }

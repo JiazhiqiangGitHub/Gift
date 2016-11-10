@@ -54,11 +54,16 @@ public class RaidersAdapter extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
+
+
+
         //recyclerView创建适配器
         viewHolder.title.setText(bean.getData().getChannel_groups().get(i).getName());
         adapter = new RaidersItemAdapter(context, i);
         viewHolder.rc.setAdapter(adapter);
         adapter.setBean(bean);
+
+
         return view;
     }
 
@@ -69,7 +74,9 @@ public class RaidersAdapter extends BaseAdapter {
         private RecyclerView rc;
         private TextView title;
 
+
         public ViewHolder(View view) {
+
             title = (TextView) view.findViewById(R.id.tv_raiders_title);
             rc = (RecyclerView) view.findViewById(R.id.rc_raiders);
             //攻略listView的item 是recyclerView的网格布局
