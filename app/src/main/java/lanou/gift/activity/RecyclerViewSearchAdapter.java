@@ -43,7 +43,7 @@ public class RecyclerViewSearchAdapter extends RecyclerView.Adapter<CommonViewHo
         holder.setItemClick(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //// TODO: 16/11/10 空指针
+
                 String str = bean.getData().getHot_words().get(position);
                 Intent intent = new Intent(context, SearchSecondActivity.class);
                 intent.putExtra("search", str);

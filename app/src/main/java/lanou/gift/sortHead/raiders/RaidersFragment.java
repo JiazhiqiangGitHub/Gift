@@ -1,6 +1,5 @@
 package lanou.gift.sorthead.raiders;
 
-import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -37,16 +36,6 @@ public class RaidersFragment extends BaseFragment {
 
     @Override
     protected void initDate() {
-        View v = LayoutInflater.from(getActivity()).inflate(R.layout.raiders_item,null);
-        btn = (Button) v.findViewById(R.id.tv_raiders_click);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //TODO 跳转有问题
-                Intent intent = new Intent(getActivity(),RaidersAllActivity.class);
-                startActivity(intent);
-            }
-        });
 
     //listView 获取数据
         GsonRequest<RaidersBean> gsonRequest = new GsonRequest<RaidersBean>(RaidersBean.class, urlRaders,

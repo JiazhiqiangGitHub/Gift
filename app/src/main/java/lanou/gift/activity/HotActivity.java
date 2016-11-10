@@ -18,7 +18,6 @@ import lanou.gift.hot.second.singleFragment;
  * Created by dllo on 16/11/3.
  */
 public class HotActivity extends BaseActivity{
-    //// TODO: 16/11/5 完成三页数据
     private TabLayout tb;
     private ArrayList<Fragment> fragments;
     private ViewPager vp;

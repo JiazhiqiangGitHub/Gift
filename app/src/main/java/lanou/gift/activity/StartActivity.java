@@ -38,6 +38,8 @@ public class StartActivity extends BaseActivity implements View.OnClickListener 
             if (message.what == 1){
                 Intent intent = new Intent(StartActivity.this,MainActivity.class);
                 startActivity(intent);
+                //跳转后结束这个activity
+                finish();
             }else{
                 TranslateAnimation down = new TranslateAnimation(0,0,-200,0);
                 //位置
@@ -78,6 +80,7 @@ public class StartActivity extends BaseActivity implements View.OnClickListener 
         if (!mFirst) {
             //空消息睡眠三秒
             handler.sendEmptyMessageDelayed(1, 3000);
+
         } else {
             //创造pop
             pop = creatPop();
@@ -118,7 +121,10 @@ public class StartActivity extends BaseActivity implements View.OnClickListener 
                 handler.sendEmptyMessageDelayed(1,3000);
                 break;
 
+
+
         }
 
     }
+
 }

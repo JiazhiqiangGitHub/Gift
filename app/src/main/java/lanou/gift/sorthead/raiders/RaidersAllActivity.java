@@ -19,9 +19,10 @@ import lanou.gift.volley.VolleySingleton;
  */
 public class RaidersAllActivity extends BaseActivity{
     private RecyclerView rv;
-    private ItemAdapter adapter;
+    private RaidersItemAdapter adapter;
     private String urlRaders = Values.URL_RAIDERS;
     private Context context;
+    private int i;
 
     @Override
     protected int getLayout() {
@@ -35,12 +36,13 @@ public class RaidersAllActivity extends BaseActivity{
 
     @Override
     protected void initData() {
-        adapter = new ItemAdapter();
+
+        //// TODO: 16/11/10  
         GsonRequest<RaidersBean> gsonRequest = new GsonRequest<RaidersBean>(RaidersBean.class, urlRaders,
                 new Response.Listener<RaidersBean>() {
                     @Override
                     public void onResponse(RaidersBean response) {
-
+                        adapter = new RaidersItemAdapter(context,i);
                         adapter.setBean(response);
                         rv.setAdapter(adapter);
                         GridLayoutManager manager = new GridLayoutManager(context,2);

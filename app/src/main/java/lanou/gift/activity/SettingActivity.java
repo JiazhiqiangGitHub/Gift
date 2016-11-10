@@ -46,7 +46,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         ll.setOnClickListener(this);
        pop = creatPop();
        popTwo = creatPopTwo();
-        //// TODO: 16/11/8
+
        shared = getPreferences(MODE_PRIVATE);
 
     }
