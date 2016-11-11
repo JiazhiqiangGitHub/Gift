@@ -60,8 +60,8 @@ public class TabLayoutFragment extends BaseFragment {
 
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> pullToRefreshBase) {
-                    //不需要判断 直接下拉到底下的时候加20页
-                    j = j + 20;
+                //不需要判断 直接下拉到底下的时候加20页
+                j = j + 20;
 
                 String url = urlA + GuideAdapter.getId(getPosition()) + urlBB + j;
                 GsonRequest<GirlFriend> request = new GsonRequest<GirlFriend>(GirlFriend.class,

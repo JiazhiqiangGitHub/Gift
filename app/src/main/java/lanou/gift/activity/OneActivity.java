@@ -45,7 +45,6 @@ public class OneActivity extends BaseActivity{
         String str = intent.getStringExtra("strTitle");
         tv.setText(str);
         int id = Integer.parseInt(strId);
-        //// TODO: 16/11/8 接口拼接有点问题
         GsonRequest<SingleActivityBean> gsonRequest = new GsonRequest<SingleActivityBean>(SingleActivityBean.class,
                 Values.URL_ONE_ONE_A + id + Values.URL_ONE_ONE_B, new Response.Listener<SingleActivityBean>() {
             @Override

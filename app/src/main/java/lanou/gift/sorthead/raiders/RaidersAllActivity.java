@@ -37,7 +37,6 @@ public class RaidersAllActivity extends BaseActivity{
     @Override
     protected void initData() {
 
-        //// TODO: 16/11/10  
         GsonRequest<RaidersBean> gsonRequest = new GsonRequest<RaidersBean>(RaidersBean.class, urlRaders,
                 new Response.Listener<RaidersBean>() {
                     @Override

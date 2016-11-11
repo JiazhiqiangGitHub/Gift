@@ -39,8 +39,7 @@ public class singleFragment extends BaseFragment{
                         adapter.setBean(response);
                         rv.setAdapter(adapter);
 
-                        GridLayoutManager m = new GridLayoutManager(getActivity(),2);
-                        rv.setLayoutManager(m);
+
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -54,6 +53,8 @@ public class singleFragment extends BaseFragment{
     @Override
     protected void initView() {
         rv = bindView(R.id.rv_hot_second);
+        GridLayoutManager m = new GridLayoutManager(getActivity(),2);
+        rv.setLayoutManager(m);
     }
 
     @Override

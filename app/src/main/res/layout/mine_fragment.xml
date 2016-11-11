@@ -56,15 +56,15 @@
     android:layout_centerInParent="true"
     android:id="@+id/iv_mine_boy"
     android:background="@null"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="未登录"
-        android:layout_below="@+id/iv_mine_boy"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="10dp"
-        android:textColor="#FFFFFF"
-        android:id="@+id/tv_mine"/>
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="未登录"-->
+        <!--android:layout_below="@+id/iv_mine_boy"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:textColor="#FFFFFF"-->
+        <!--android:id="@+id/tv_mine"/>-->
 </RelativeLayout>
 
     <LinearLayout

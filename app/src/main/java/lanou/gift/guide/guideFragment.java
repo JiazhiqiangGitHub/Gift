@@ -103,7 +103,14 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
         //这里必须是getContext 要不没法点按钮切换别的页面
          popupWindow = new PopupWindow(getContext());
         v = LayoutInflater.from(getContext()).inflate(R.layout.guide_pop,null);
-
+        //pop自带的监听 在这里让他们隐藏
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                tvPop.setVisibility(View.INVISIBLE);
+                tbHead.setVisibility(View.VISIBLE);
+            }
+        });
         gv = (GridView) v.findViewById(R.id.guide_pop_grid);
         popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
         popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -136,23 +143,14 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
                 break;
             case R.id.btn_guide_dialog:
             //点击按钮的时候判断点击的次数 奇数就显示pop 隐藏tablayout 显示文字 反之相反
-                //// TODO: 16/11/5 有个小bug
                 count++;
                 if(count%2 == 0){
-
                     tvPop.setVisibility(View.VISIBLE);
                     tbHead.setVisibility(View.INVISIBLE);
                     popupWindow.showAsDropDown(btnD,0,0);
-
-
                 }else{
-                    tvPop.setVisibility(View.INVISIBLE);
-                    tbHead.setVisibility(View.VISIBLE);
                     popupWindow.dismiss();
-
-
                 }
-
                 break;
         }
 

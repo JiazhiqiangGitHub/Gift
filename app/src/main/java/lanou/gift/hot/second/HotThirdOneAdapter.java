@@ -11,11 +11,11 @@ import lanou.gift.volley.CommonViewHolder;
  * Created by dllo on 16/11/7.
  */
 public class HotThirdOneAdapter extends RecyclerView.Adapter<CommonViewHolder> {
-    private static HotSecondOneBean bean;
+    private HotSecondOneBean bean;
 
 
-    public static void setBean(HotSecondOneBean bean) {
-        HotThirdOneAdapter.bean = bean;
+    public void setBean(HotSecondOneBean bean) {
+        this.bean = bean;
     }
 
     @Override

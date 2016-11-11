@@ -94,12 +94,6 @@ public class CommonViewHolder extends RecyclerView.ViewHolder{
                 (url,imageView);
         return this;
     }
-//    //// TODO: 16/11/10
-//    public CommonViewHolder setAdapter(int id, RecyclerView.Adapter adapter){
-//        RecyclerView recyclerView = getView(id);
-//        recyclerView.setAdapter(adapter);
-//        return this;
-//    }
 
     //一个item里对应的东西的点击事件
     public CommonViewHolder setViewClick(int id, View.OnClickListener listener){

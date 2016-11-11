@@ -52,7 +52,7 @@ public class RaidersAdapter extends BaseAdapter {
 
         ViewHolder viewHolder = null;
         if (view == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.raiders_item, null);
+            view = LayoutInflater.from(context).inflate(R.layout.raiders_item, viewGroup,false);
             viewHolder = new ViewHolder(view);
             view.setTag(viewHolder);
         } else {
@@ -66,7 +66,8 @@ public class RaidersAdapter extends BaseAdapter {
         adapter = new RaidersItemAdapter(context, i);
         viewHolder.rc.setAdapter(adapter);
         adapter.setBean(bean);
-
+//todo
+// 检测判断隐藏
 
         return view;
     }

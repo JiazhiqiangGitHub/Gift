@@ -45,7 +45,7 @@ public class RaidersActivity extends BaseActivity{
         String title = intent.getStringExtra("name");
         tv.setText(title);
         int id = Integer.parseInt(str);
-    //// TODO: 16/11/5  接口有问题
+
             GsonRequest<RaidersSecondBean> gsonRequest = new GsonRequest<RaidersSecondBean>(RaidersSecondBean.class,
                    urlA+id+urlB, new Response.Listener<RaidersSecondBean>() {
                 @Override
