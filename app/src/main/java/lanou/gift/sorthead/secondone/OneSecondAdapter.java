@@ -1,4 +1,4 @@
-package lanou.gift.activity;
+package lanou.gift.sorthead.secondone;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

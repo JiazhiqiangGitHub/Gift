@@ -1,4 +1,4 @@
-package lanou.gift.activity;
+package lanou.gift.hot.second;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,9 +10,6 @@ import java.util.ArrayList;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseActivity;
-import lanou.gift.hot.second.commentFragment;
-import lanou.gift.hot.second.detailsFragment;
-import lanou.gift.hot.second.singleFragment;
 
 /**
  * Created by dllo on 16/11/3.

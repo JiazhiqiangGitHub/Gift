@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import lanou.gift.R;
-import lanou.gift.activity.HotActivity;
+import lanou.gift.hot.second.HotActivity;
 import lanou.gift.textbean.TextHotBean;
 import lanou.gift.volley.CommonViewHolder;
 

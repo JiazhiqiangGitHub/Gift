@@ -1,4 +1,4 @@
-package lanou.gift.activity;
+package lanou.gift.sorthead.secondraiders;
 
 import android.content.Intent;
 import android.webkit.WebView;

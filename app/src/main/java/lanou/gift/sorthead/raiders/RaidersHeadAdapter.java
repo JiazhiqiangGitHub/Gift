@@ -7,14 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import lanou.gift.R;
-import lanou.gift.activity.RaidersHeadActivity;
+import lanou.gift.sorthead.secondraiders.RaidersHeadActivity;
 import lanou.gift.textbean.RaidersHeadBean;
 import lanou.gift.volley.CommonViewHolder;
 
 /**
  * Created by dllo on 16/11/1.
  */
-public class RaidersHeadAdapter extends RecyclerView.Adapter<CommonViewHolder>{
+public class RaidersHeadAdapter extends RecyclerView.Adapter<CommonViewHolder> {
     private Context context;
     private RaidersHeadBean bean;
 
@@ -24,11 +24,15 @@ public class RaidersHeadAdapter extends RecyclerView.Adapter<CommonViewHolder>{
 
     public void setBean(RaidersHeadBean bean) {
         this.bean = bean;
+        notifyDataSetChanged();
     }
 
     @Override
     public CommonViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return CommonViewHolder.getViewHolder(parent,R.layout.raiders_head_item);
+
+                return CommonViewHolder.getViewHolder(parent, R.layout.raiders_head_item);
+
+
     }
 
     @Override
@@ -45,9 +49,11 @@ public class RaidersHeadAdapter extends RecyclerView.Adapter<CommonViewHolder>{
         });
     }
 
+
     @Override
     public int getItemCount() {
-        return bean == null?0:bean.getData().getColumns().size();
+        return bean.getData().getColumns().size();
     }
+
 
 }

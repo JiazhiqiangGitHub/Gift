@@ -1,4 +1,4 @@
-package lanou.gift.activity;
+package lanou.gift.search.test;
 
 import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
@@ -7,10 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.io.UnsupportedEncodingException;
-
 import lanou.gift.R;
 import lanou.gift.base.BaseActivity;
+import lanou.gift.search.test.RecyclerViewTwoAdapter;
 import lanou.gift.textbean.SearchTwoBean;
 import lanou.gift.values.Values;
 import lanou.gift.volley.GsonRequest;
@@ -35,20 +34,13 @@ public class SearchSecondActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        Intent intent = getIntent();
-        String str = intent.getStringExtra("search");
-
-        String strUF8 = null;
-        try {
-            strUF8 = new String(str.getBytes(),"UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
 
 
-        //// TODO: 16/11/10 三级页面没数据 UFT-8转码
+            Intent intent = getIntent();
+            String str = intent.getStringExtra("search");
+
         GsonRequest<SearchTwoBean> gsonRequest = new GsonRequest<SearchTwoBean>(SearchTwoBean.class,
-                Values.URL_SEARCH_THREE_A + strUF8 + Values.URL_SEARCH_THREE_B, new Response.Listener<SearchTwoBean>() {
+                Values.URL_SEARCH_THREE_A + str + Values.URL_SEARCH_THREE_B, new Response.Listener<SearchTwoBean>() {
             @Override
             public void onResponse(SearchTwoBean response) {
                 adapter = new RecyclerViewTwoAdapter(getApplicationContext());
@@ -64,7 +56,6 @@ public class SearchSecondActivity extends BaseActivity {
             }
         });
         VolleySingleton.getInstance().addRequest(gsonRequest);
-
 
     }
 }

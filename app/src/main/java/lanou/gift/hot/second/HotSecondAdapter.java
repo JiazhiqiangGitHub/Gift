@@ -1,4 +1,4 @@
-package lanou.gift.activity;
+package lanou.gift.hot.second;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

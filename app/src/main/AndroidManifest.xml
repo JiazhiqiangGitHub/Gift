@@ -24,14 +24,14 @@
         <activity android:name=".activity.GuideActivity"/>
         <activity android:name=".activity.MainActivity"/>
         <activity android:name=".activity.EnterActivity"/>
-        <activity android:name=".activity.SearchActivity"/>
+        <activity android:name=".search.SearchActivity"/>
         <activity android:name=".activity.SettingActivity"/>
-        <activity android:name=".activity.HotActivity"/>
-        <activity android:name=".activity.OneActivity"/>
-        <activity android:name=".activity.RaidersActivity"/>
-        <activity android:name=".activity.RaidersHeadActivity"/>
+        <activity android:name=".hot.second.HotActivity"/>
+        <activity android:name=".sorthead.secondone.OneActivity"/>
+        <activity android:name=".sorthead.secondraiders.RaidersActivity"/>
+        <activity android:name=".sorthead.secondraiders.RaidersHeadActivity"/>
         <activity android:name=".sorthead.raiders.RaidersAllActivity"/>
-        <activity android:name=".activity.SearchSecondActivity"/>
+        <activity android:name=".search.test.SearchSecondActivity"/>
         <activity android:name=".activity.EnterTwoActivity"/>
     </application>
 

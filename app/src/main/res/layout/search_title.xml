@@ -16,13 +16,13 @@
         android:layout_height="wrap_content"
         android:layout_weight="5">
 
-    <EditText
+    <AutoCompleteTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/edit_text"
         android:layout_margin="4dp"
         android:hint="搜索单品、攻略"
-        android:id="@+id/et_search_title"/>
+        android:id="@+id/search_actv"/>
 
 </RelativeLayout>
     <Button

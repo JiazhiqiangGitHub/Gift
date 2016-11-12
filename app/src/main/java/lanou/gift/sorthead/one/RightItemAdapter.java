@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import lanou.gift.R;
-import lanou.gift.activity.OneActivity;
+import lanou.gift.sorthead.secondone.OneActivity;
 import lanou.gift.textbean.OneBean;
 import lanou.gift.volley.CommonViewHolder;
 

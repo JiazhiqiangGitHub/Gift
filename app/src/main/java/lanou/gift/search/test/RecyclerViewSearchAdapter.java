@@ -1,10 +1,13 @@
-package lanou.gift.activity;
+package lanou.gift.search.test;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 import lanou.gift.R;
 import lanou.gift.textbean.SearchTextBean;
@@ -45,9 +48,16 @@ public class RecyclerViewSearchAdapter extends RecyclerView.Adapter<CommonViewHo
             public void onClick(View view) {
 
                 String str = bean.getData().getHot_words().get(position);
+                //字符串UTF-8转码
+                try {
+                    str = URLEncoder.encode(str,"utf-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
                 Intent intent = new Intent(context, SearchSecondActivity.class);
                 intent.putExtra("search", str);
                 context.startActivity(intent);
+
 
             }
         });
