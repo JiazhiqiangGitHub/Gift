@@ -22,6 +22,7 @@ public class RaidersAdapter extends BaseAdapter {
     private Context context;
     private RaidersBean bean;
     private RaidersItemAdapter adapter;
+    private Button btn;
 
     public RaidersAdapter(Context context) {
         this.context = context;
@@ -51,14 +52,14 @@ public class RaidersAdapter extends BaseAdapter {
 
 
         ViewHolder viewHolder = null;
-        if (view == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.raiders_item, viewGroup,false);
-            viewHolder = new ViewHolder(view);
-            view.setTag(viewHolder);
-        } else {
-            viewHolder = (ViewHolder) view.getTag();
-        }
 
+            if (view == null) {
+                view = LayoutInflater.from(context).inflate(R.layout.raiders_item, viewGroup, false);
+                viewHolder = new ViewHolder(view);
+                view.setTag(viewHolder);
+            } else {
+                viewHolder = (ViewHolder) view.getTag();
+            }
 
 
         //recyclerView创建适配器
@@ -66,10 +67,10 @@ public class RaidersAdapter extends BaseAdapter {
         adapter = new RaidersItemAdapter(context, i);
         viewHolder.rc.setAdapter(adapter);
         adapter.setBean(bean);
-//todo
-// 检测判断隐藏
 
-        return view;
+
+            return view;
+
     }
 
 
@@ -90,6 +91,9 @@ public class RaidersAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context,RaidersAllActivity.class);
+                    int i = 0;
+                    String str = Integer.toString(i);
+                    intent.putExtra("viewType",str);
                     context.startActivity(intent);
                 }
             });

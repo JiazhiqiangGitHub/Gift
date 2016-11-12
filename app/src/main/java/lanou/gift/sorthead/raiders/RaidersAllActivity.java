@@ -1,6 +1,7 @@
 package lanou.gift.sorthead.raiders;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -22,7 +23,7 @@ public class RaidersAllActivity extends BaseActivity{
     private RaidersItemAdapter adapter;
     private String urlRaders = Values.URL_RAIDERS;
     private Context context;
-    private int i;
+    private int viewType;
 
     @Override
     protected int getLayout() {
@@ -36,12 +37,19 @@ public class RaidersAllActivity extends BaseActivity{
 
     @Override
     protected void initData() {
+        //// TODO: 16/11/12 1
+        Intent intent = getIntent();
+        String str = intent.getStringExtra("viewType");
+        viewType = Integer.parseInt(str);
+
+
+
 
         GsonRequest<RaidersBean> gsonRequest = new GsonRequest<RaidersBean>(RaidersBean.class, urlRaders,
                 new Response.Listener<RaidersBean>() {
                     @Override
                     public void onResponse(RaidersBean response) {
-                        adapter = new RaidersItemAdapter(context,i);
+                        adapter = new RaidersItemAdapter(context,viewType);
                         adapter.setBean(response);
                         rv.setAdapter(adapter);
                         GridLayoutManager manager = new GridLayoutManager(context,2);

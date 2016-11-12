@@ -40,7 +40,6 @@ public class RaidersHeadAdapter extends RecyclerView.Adapter<CommonViewHolder>{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context,RaidersHeadActivity.class);
-//                intent.putExtra("secondRaidersHead",bean.getData().getColumns().get(position).);
                 context.startActivity(intent);
             }
         });

@@ -43,11 +43,9 @@ public class EnterTwoActivity extends BaseActivity implements View.OnClickListen
                 String world = password.getText().toString();
                 if ((!tel.isEmpty())&&(!world.isEmpty())) {
                     Intent intent = new Intent();
-
                     intent.putExtra("name",tel);
                     intent.putExtra("world",world);
                     setResult(EnterActivity.ENTER_RESULT_CODE,intent);
-
                     finish();
                 }else{
                     Toast.makeText(this, "请注册", Toast.LENGTH_SHORT).show();
