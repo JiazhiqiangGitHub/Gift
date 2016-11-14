@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 
 import com.litesuits.orm.LiteOrm;
+import com.litesuits.orm.db.assit.WhereBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,30 +57,70 @@ public class DBTool {
             }
         });
     }
-    //连1
-    public void queryAllSearch(final OnQueryListener onQueryListener){
+    //LiteOrm 删除数据库全删方法
+
+    public void deleteAllData() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mLiteOrm.delete(Search.class);
+                // mLiteOrm.deleteDatabase();  //库文件一起干掉
+                // mLiteOrm.openOrCreateDatabase();  //重建一个数据库
+                // 这个方法当库里只有一个表的时候可以用但是如果表多的话会全删光的
+            }
+        }).start();
+    }
+    //LiteOrm 删除数据库定向删方法
+    public void deleteSpecifyData(final String search){
         mThreadPool.execute(new Runnable() {
             @Override
             public void run() {
-                final ArrayList<Search> query = mLiteOrm.query(Search.class);
-                //通过接口把值传出去 先建Handler
-                mHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        onQueryListener.onQuery(query);
-                    }
-                });
+                mLiteOrm.delete(new WhereBuilder(Search.class).where("things = ?",search));
             }
         });
     }
+//查询
+public void queryAllSearch(final OnQueryListener onQueryListener) {
+    mThreadPool.execute(new QueryRunnable(onQueryListener));
+}
 
+    class QueryRunnable implements Runnable {
+        private OnQueryListener mOnQueryListener;
 
-    //以为不知道谁要查询 弄个接口就不用考虑了
-    //返回查询结果
-    public interface OnQueryListener{
-        void onQuery(List<Search> persons);
-        //连1
+        public QueryRunnable(OnQueryListener mOnQueryListener) {
+            this.mOnQueryListener = mOnQueryListener;
+        }
+
+        @Override
+        public void run() {
+            ArrayList<Search> query  //查询
+                    = mLiteOrm.query(Search.class);
+            mHandler.post(new CallBackRunnable(mOnQueryListener,query));
+        }
     }
 
+    //Handler使用的 将查询的数据返回到主线程使用的Runnable
+    class CallBackRunnable implements Runnable {
+
+        private OnQueryListener mOnQueryListener;
+        private List<Search> mSearch;
+        public CallBackRunnable(OnQueryListener mOnQueryListener, List<Search> mSearch) {
+            this.mOnQueryListener = mOnQueryListener;
+            this.mSearch = mSearch;
+        }
+
+        @Override
+        public void run() {
+            mOnQueryListener.onQuery(mSearch);
+        }
+
+    }
+
+
+    //返回查询结果用的接口
+    //handler 主要用来做线程切换
+    public interface OnQueryListener {
+        void onQuery(List<Search> mSearch);
+    }
 
 }
