@@ -37,7 +37,8 @@ public class RaidersItemAdapter extends RecyclerView.Adapter<CommonViewHolder> {
     @Override
     public void onBindViewHolder(CommonViewHolder holder, final int position) {
         holder.setImage(R.id.iv_raiders_rc_picture,bean.getData().getChannel_groups().get(i).getChannels().
-                get(position).getCover_image_url()).setItemClick(new View.OnClickListener() {
+                get(position).getCover_image_url())
+                .setItemClick(new View.OnClickListener() {
 
 
 
@@ -51,14 +52,13 @@ public class RaidersItemAdapter extends RecyclerView.Adapter<CommonViewHolder> {
                 intent.putExtra("id",strId);
                 intent.putExtra("name",title);
                 context.startActivity(intent);
-
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return 6;
+        return bean.getData().getChannel_groups().get(i).getChannels().size();
     }
 
 }

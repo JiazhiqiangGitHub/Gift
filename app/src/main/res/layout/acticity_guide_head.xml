@@ -3,17 +3,24 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
     <include layout="@layout/acticity_raiders_head"/>
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/back"
+        android:background="@null"
+        android:id="@+id/btn_recycler_back"
+        />
+</RelativeLayout>
 
-
-
-<WebView
+<ImageView
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/wv_raiders_head">
-
-</WebView>
+    android:layout_height="match_parent"
+    android:src="@mipmap/picture111"
+    android:scaleType="fitXY"/>
 
 
 

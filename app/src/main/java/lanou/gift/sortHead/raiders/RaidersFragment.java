@@ -25,7 +25,7 @@ import lanou.gift.volley.VolleySingleton;
 public class RaidersFragment extends BaseFragment {
     private ListView lv;
     private RaidersAdapter adapter;
-    private RaidersHeadAdapter headAdapter;
+    private RaidersTopAdapter topAdapter;
     private String urlRaders = Values.URL_RAIDERS;
     private RecyclerView rc;
     private View headView;
@@ -60,9 +60,9 @@ public class RaidersFragment extends BaseFragment {
                 urlHead, new Response.Listener<RaidersHeadBean>() {
             @Override
             public void onResponse(RaidersHeadBean response) {
-                headAdapter = new RaidersHeadAdapter(getActivity());
-                headAdapter.setBean(response);
-                rc.setAdapter(headAdapter);
+                topAdapter = new RaidersTopAdapter(getActivity());
+                topAdapter.setBean(response);
+                rc.setAdapter(topAdapter);
                 RecyclerView.LayoutManager manager = new GridLayoutManager(getActivity(),3, LinearLayoutManager.HORIZONTAL,false);
                 rc.setLayoutManager(manager);
 

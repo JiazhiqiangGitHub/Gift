@@ -1,7 +1,6 @@
 package lanou.gift.sorthead.raiders;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
 import lanou.gift.R;
@@ -22,7 +20,6 @@ public class RaidersAdapter extends BaseAdapter {
     private Context context;
     private RaidersBean bean;
     private RaidersItemAdapter adapter;
-    private Button btn;
 
     public RaidersAdapter(Context context) {
         this.context = context;
@@ -53,13 +50,13 @@ public class RaidersAdapter extends BaseAdapter {
 
         ViewHolder viewHolder = null;
 
-            if (view == null) {
-                view = LayoutInflater.from(context).inflate(R.layout.raiders_item, viewGroup, false);
-                viewHolder = new ViewHolder(view);
-                view.setTag(viewHolder);
-            } else {
-                viewHolder = (ViewHolder) view.getTag();
-            }
+        if (view == null) {
+            view = LayoutInflater.from(context).inflate(R.layout.raiders_item, viewGroup, false);
+            viewHolder = new ViewHolder(view);
+            view.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) view.getTag();
+        }
 
 
         //recyclerView创建适配器
@@ -68,35 +65,16 @@ public class RaidersAdapter extends BaseAdapter {
         viewHolder.rc.setAdapter(adapter);
         adapter.setBean(bean);
 
-
-            return view;
+        return view;
 
     }
-
-
     private class ViewHolder {
-
-
         private RecyclerView rc;
         private TextView title;
-        private Button btn;
-
-
         public ViewHolder(View view) {
 
             title = (TextView) view.findViewById(R.id.tv_raiders_title);
             rc = (RecyclerView) view.findViewById(R.id.rc_raiders);
-            btn = (Button) view.findViewById(R.id.tv_raiders_click);
-            btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(context,RaidersAllActivity.class);
-                    int i = 0;
-                    String str = Integer.toString(i);
-                    intent.putExtra("viewType",str);
-                    context.startActivity(intent);
-                }
-            });
 
             //攻略listView的item 是recyclerView的网格布局
             //布局竖向拉 2行

@@ -1,8 +1,7 @@
 package lanou.gift.sorthead.secondraiders;
 
-import android.content.Intent;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.view.View;
+import android.widget.ImageButton;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseActivity;
@@ -10,8 +9,8 @@ import lanou.gift.base.BaseActivity;
 /**
  * Created by dllo on 16/11/3.
  */
-public class RaidersHeadActivity extends BaseActivity{
-    private WebView wv;
+public class RaidersHeadActivity extends BaseActivity {
+    private ImageButton btn;
 
     @Override
     protected int getLayout() {
@@ -20,14 +19,17 @@ public class RaidersHeadActivity extends BaseActivity{
 
     @Override
     protected void initViews() {
-        wv = bindView(R.id.wv_raiders_head);
+        btn = bindView(R.id.btn_recycler_back);
+
     }
 
     @Override
     protected void initData() {
-        Intent intent = getIntent();
-        wv.getSettings().setJavaScriptEnabled(true);
-        wv.setWebViewClient(new WebViewClient());
-        wv.loadUrl(intent.getStringExtra("secondRaidersHead"));
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }
