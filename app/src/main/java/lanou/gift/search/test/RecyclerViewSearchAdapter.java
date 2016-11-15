@@ -12,6 +12,8 @@ import java.net.URLEncoder;
 import lanou.gift.R;
 import lanou.gift.textbean.SearchTextBean;
 import lanou.gift.volley.CommonViewHolder;
+import lanou.gift.volley.DBTool;
+import lanou.gift.volley.Search;
 
 /**
  * Created by dllo on 16/11/9.
@@ -56,6 +58,9 @@ public class RecyclerViewSearchAdapter extends RecyclerView.Adapter<CommonViewHo
                 }
                 Intent intent = new Intent(context, SearchSecondActivity.class);
                 intent.putExtra("search", str);
+                Search search = new Search();
+                search.setThings(bean.getData().getHot_words().get(position));
+                DBTool.getInstance().insertSearch(search);
                 context.startActivity(intent);
 
 

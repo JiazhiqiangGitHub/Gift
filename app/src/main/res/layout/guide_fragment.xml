@@ -35,7 +35,8 @@
     <android.support.design.widget.TabLayout
         android:layout_width="320dp"
         android:layout_height="match_parent"
-        android:id="@+id/tb_guide_head">
+        android:id="@+id/tb_guide_head"
+        >
 
     </android.support.design.widget.TabLayout>
 
