@@ -20,6 +20,7 @@ public class commentFragment extends BaseFragment {
     private ListView lv;
     private CommentAdapter adapter;
 
+
     @Override
     protected void initDate() {
 
@@ -36,6 +37,8 @@ public class commentFragment extends BaseFragment {
                 adapter = new CommentAdapter();
                 adapter.setBean(response);
                 lv.setAdapter(adapter);
+
+
 
             }
         }, new Response.ErrorListener() {
@@ -54,6 +57,7 @@ public class commentFragment extends BaseFragment {
     @Override
     protected void initView() {
         lv = bindView(R.id.lv_comment);
+
 
     }
 

@@ -2,15 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
      android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#9EC85C">
+    android:background="#EA8DAD">
 
-    <ImageView
-        android:layout_width="130dp"
-        android:scaleType="fitXY"
-        android:layout_height="1dp"
-        android:src="@mipmap/abcline"
-        android:layout_toLeftOf="@+id/tv_head_one"
-        android:layout_alignBottom="@+id/tv_head_one"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,11 +15,5 @@
         android:layout_marginBottom="10dp"
         android:text="嘿嘿"
         />
-    <ImageView
-        android:layout_width="130dp"
-        android:scaleType="fitXY"
-        android:layout_height="1dp"
-        android:src="@mipmap/abcline"
-        android:layout_toRightOf="@+id/tv_head_one"
-        android:layout_alignBottom="@+id/tv_head_one"/>
+
 </RelativeLayout>

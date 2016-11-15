@@ -70,7 +70,7 @@ public class LeftAdapter extends BaseAdapter {
             viewHolder.ll.setBackgroundColor(Color.WHITE);
         }else{
             viewHolder.textView.setTextColor(Color.BLACK);
-            viewHolder.ll.setBackgroundColor(Color.GRAY);
+            viewHolder.ll.setBackgroundColor(0x808080);
 
         }
         viewHolder.textView.setText(bean.getData().getCategories().get(i).getName());

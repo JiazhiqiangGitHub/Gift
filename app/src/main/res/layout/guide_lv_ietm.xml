@@ -17,7 +17,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="37dp"
         android:text="你好"
         android:textSize="18dp"
         android:layout_margin="5dp"
@@ -25,8 +25,8 @@
         android:id="@+id/tv_guide_fragment_item_name"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="5dp"
+        android:layout_height="45dp"
+        android:layout_margin="3dp"
         android:id="@+id/tv_guide_fragment_item_body"
         android:text="oo"
         android:textSize="13dp"/>
@@ -82,13 +82,5 @@
 
 
     </RelativeLayout>
-
-    <!--<ImageView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:scaleType="fitXY"-->
-        <!--android:layout_height="10dp"-->
-        <!--android:src="@mipmap/abcline3"/>-->
-
-
 
 </LinearLayout>
