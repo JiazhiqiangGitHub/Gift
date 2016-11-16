@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
@@ -17,8 +18,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import lanou.gift.R;
-import lanou.gift.search.SearchActivity;
 import lanou.gift.base.BaseFragment;
+import lanou.gift.search.SearchActivity;
 import lanou.gift.textbean.TabLayoutBean;
 import lanou.gift.values.Values;
 import lanou.gift.volley.GsonRequest;
@@ -39,6 +40,7 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
     private GuideAdapter adapter;
     private GuidePopAdapter popAdapter;
     private TextView tvPop;
+    private LinearLayout ll;
     int count = 0;
 
     @Override
@@ -86,8 +88,10 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
     //pop中gridView的点击事件 页面跳转 文字隐藏 pop消失
     private void getCridViewOnClick() {
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            private TextView name;
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
                 vp.setCurrentItem(i,false);
                 tbHead.setVisibility(View.VISIBLE);
                 tvPop.setVisibility(View.INVISIBLE);
@@ -97,6 +101,8 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
 
 
     }
+
+
 
     //创建pop 宽高适应屏幕
     private PopupWindow createPop() {
@@ -148,6 +154,9 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
                     tvPop.setVisibility(View.VISIBLE);
                     tbHead.setVisibility(View.INVISIBLE);
                     popupWindow.showAsDropDown(btnD,0,0);
+
+                    popAdapter.setPositionA(vp.getCurrentItem());
+
                 }else{
                     popupWindow.dismiss();
                 }

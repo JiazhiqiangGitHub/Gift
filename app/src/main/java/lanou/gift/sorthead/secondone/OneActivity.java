@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.Response;
@@ -24,6 +26,7 @@ public class OneActivity extends BaseActivity{
     private TextView tv;
     private OneSecondAdapter adapter;
     private Context context;
+    private ImageView btn;
 
     @Override
     protected int getLayout() {
@@ -34,6 +37,7 @@ public class OneActivity extends BaseActivity{
     protected void initViews() {
         tv = bindView(R.id.tv_one_activity_main_title);
         rc = bindView(R.id.rc_activity_one);
+        btn = bindView(R.id.btn_back_one);
     }
 
     @Override
@@ -64,6 +68,11 @@ public class OneActivity extends BaseActivity{
             }
         });
         VolleySingleton.getInstance().addRequest(gsonRequest);
-
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }

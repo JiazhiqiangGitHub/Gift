@@ -9,21 +9,21 @@ import android.view.View;
 /**
  * Created by dllo on 16/10/28.
  */
-public class Point1 extends View {
+public class ViewPagerPoint extends View {
     //自定义view 选前三个
     //自定义宽高
     private int r = 8;
     //给钟状态 好变色 默认未选中的状态
     private boolean isSelected = false;
-    public Point1(Context context) {
+    public ViewPagerPoint(Context context) {
         super(context);
     }
 
-    public Point1(Context context, AttributeSet attrs) {
+    public ViewPagerPoint(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public Point1(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ViewPagerPoint(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
     //改变选中状态

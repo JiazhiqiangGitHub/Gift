@@ -22,7 +22,7 @@ import lanou.gift.guide.otherFragment.TableLayoutAdapter;
 import lanou.gift.textbean.GirlFriend;
 import lanou.gift.textbean.GuideBean;
 import lanou.gift.volley.GsonRequest;
-import lanou.gift.values.Point1;
+import lanou.gift.values.ViewPagerPoint;
 import lanou.gift.values.Values;
 import lanou.gift.volley.VolleySingleton;
 
@@ -38,7 +38,7 @@ public class HeadFragment extends BaseFragment {
     private View headView;
     private Handler mHandler;
     private HeadViewPagerAdapter headAdapter;
-    private List<Point1> points;
+    private List<ViewPagerPoint> points;
     private LinearLayout pointLayout;
 
     @Override
@@ -70,7 +70,7 @@ public class HeadFragment extends BaseFragment {
                 //当前显示的是第几页也就是第几张图
                 int currentPage = position % headAdapter.getImgCount();
 
-                for (Point1 point : points) {
+                for (ViewPagerPoint point : points) {
                     point.setSelected(false);//所有点弄成不选中
                 }
                 points.get(currentPage).setSelected(true);//再把当前页的选中
@@ -123,7 +123,7 @@ public class HeadFragment extends BaseFragment {
                         //把点加进去
                         points = new ArrayList<>();
                         for (int i = 0; i < urlSize; i++) {
-                            Point1 point =  new Point1(getContext());
+                            ViewPagerPoint point =  new ViewPagerPoint(getContext());
                             points.add(point);//加到集合里
                             //选线性布局里的那个
                             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(

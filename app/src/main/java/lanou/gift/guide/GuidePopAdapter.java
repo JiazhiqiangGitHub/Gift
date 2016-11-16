@@ -1,13 +1,15 @@
 package lanou.gift.guide;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import lanou.gift.R;
 import lanou.gift.textbean.TabLayoutBean;
-import lanou.gift.volley.CommonViewHolder;
 
 /**
  * Created by dllo on 16/11/4.
@@ -15,6 +17,14 @@ import lanou.gift.volley.CommonViewHolder;
 public class GuidePopAdapter extends BaseAdapter{
     private static  TabLayoutBean bean;
     private Context mContext;
+ private int PositionA;
+
+    //set一个方法 在fragment中拿到位置
+    public void setPositionA(int positionA) {
+        PositionA = positionA;
+    }
+
+
 
     public GuidePopAdapter(Context mContext) {
         this.mContext = mContext;
@@ -40,11 +50,37 @@ public class GuidePopAdapter extends BaseAdapter{
         return i;
     }
 
+
+
     @Override
     public View getView(final int i, View view, ViewGroup viewGroup) {
-        CommonViewHolder viewHolder =CommonViewHolder.getViewHolder(view,viewGroup,R.layout.pop_item);
-        viewHolder.setText(R.id.tv_guide_pop,bean.getData().getChannels().get(i).getName());
-        return viewHolder.getItemView();
+        ViewHolder viewHolder = null;
+        if (view == null){
+            view = LayoutInflater.from(mContext).inflate(R.layout.pop_item,viewGroup,false);
+            viewHolder = new ViewHolder(view);
+            view.setTag(viewHolder);
+        }else{
+            viewHolder = (ViewHolder) view.getTag();
+        }
+        viewHolder.tv.setText(bean.getData().getChannels().get(i).getName());
+        if (PositionA == i){
+            viewHolder.tv.setTextColor(Color.RED);
+        }else{
+            viewHolder.tv.setTextColor(Color.BLACK);
+        }
+
+        return view;
+    }
+
+    private class ViewHolder {
+
+        private TextView tv;
+
+        public ViewHolder(View view) {
+
+            tv = (TextView) view.findViewById(R.id.tv_guide_pop);
+
+        }
     }
 }
 

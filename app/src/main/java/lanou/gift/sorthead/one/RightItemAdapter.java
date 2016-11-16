@@ -43,9 +43,9 @@ public class RightItemAdapter extends RecyclerView.Adapter<CommonViewHolder> {
             @Override
             public void onClick(View view) {
                 //传ID 强转
-                int id = bean.getData().getCategories().get(position).getSubcategories().get(position).getId();
+                int id = bean.getData().getCategories().get(i).getSubcategories().get(position).getId();
                 String strId = Integer.toString(id);
-                String strTitle = bean.getData().getCategories().get(position).getSubcategories().get(position).getName();
+                String strTitle = bean.getData().getCategories().get(i).getSubcategories().get(position).getName();
                 Intent intent = new Intent(context,OneActivity.class);
                 intent.putExtra("strTitle",strTitle);
                 intent.putExtra("id",strId);

@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
@@ -42,8 +43,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initData() {
-        settingBack.setOnClickListener(this);
-        ll.setOnClickListener(this);
+       settingBack.setOnClickListener(this);
+       ll.setOnClickListener(this);
        pop = creatPop();
        popTwo = creatPopTwo();
 
@@ -54,8 +55,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     private PopupWindow creatPopTwo() {
         popTwo = new PopupWindow(this);
         View view = LayoutInflater.from(this).inflate(R.layout.pop_item_two,null);
-        popTwo.setWidth(430);
-        popTwo.setHeight(630);
+        popTwo.setWidth(WindowManager.LayoutParams.WRAP_CONTENT);
+        popTwo.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
         llTwo =llOne = (LinearLayout) view.findViewById(R.id.ll_pop_two);
         one = (ImageButton) view.findViewById(R.id.one);
         two = (ImageButton) view.findViewById(R.id.two);
@@ -93,8 +94,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         girl.setOnClickListener(this);
         next.setOnClickListener(this);
         close.setOnClickListener(this);
-        pop.setWidth(430);
-        pop.setHeight(630);
+        pop.setWidth(WindowManager.LayoutParams.WRAP_CONTENT);
+        pop.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
         pop.setContentView(view);
         pop.setFocusable(true);
         return pop;

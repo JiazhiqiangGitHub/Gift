@@ -20,7 +20,8 @@
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@mipmap/button_back_white"/>
+            android:src="@mipmap/button_back_white"
+            android:id="@+id/btn_back_one"/>
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
