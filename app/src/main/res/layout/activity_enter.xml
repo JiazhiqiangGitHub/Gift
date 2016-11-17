@@ -11,6 +11,11 @@
     android:id="@+id/btn_enter_back"
     android:src="@mipmap/backto"
     android:background="@null"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp">
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -74,6 +79,10 @@
         android:text="使用社交账号登录"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="130dp"/>
+
+
+</LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

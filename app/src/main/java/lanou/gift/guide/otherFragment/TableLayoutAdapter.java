@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import lanou.gift.R;
 import lanou.gift.activity.GuideActivity;
 import lanou.gift.textbean.GirlFriend;
-import lanou.gift.volley.CommonViewHolder;
+import lanou.gift.base.CommonViewHolder;
 
 /**
  * Created by dllo on 16/10/25.
@@ -72,7 +72,6 @@ public class TableLayoutAdapter extends BaseAdapter{
                         (R.id.tv_guide_fragment_item_people, String.valueOf(bean.getData().getItems().get(i).getLikes_count())).
                 setImage
                         (R.id.iv_guide_fragment_item_picture, bean.getData().getItems().get(i).getCover_image_url()).
-
                 setItemClick
                         (new View.OnClickListener() {
                             @Override
@@ -82,7 +81,11 @@ public class TableLayoutAdapter extends BaseAdapter{
                                 mContext.startActivity(intent);
                             }
                         });
-
+                String str = bean.getData().getItems().get(i).getIntroduction();
+                if (str.length() >= 45){
+                    String strTwo = str.substring(0,45);
+                    viewHolder.setText(R.id.tv_guide_fragment_item_body,strTwo+"...");
+                }
         return viewHolder.getItemView();
 
 

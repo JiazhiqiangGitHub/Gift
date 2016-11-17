@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -33,7 +32,7 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
     private ViewPager vp;
     private ImageButton btnSearch;
     private String urlHead = Values.URL_TABLAYOUT;
-    private Button btnD;
+    private ImageButton btnD;
     private PopupWindow popupWindow;
     private View v;
     private GridView gv;
@@ -154,7 +153,6 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
                     tvPop.setVisibility(View.VISIBLE);
                     tbHead.setVisibility(View.INVISIBLE);
                     popupWindow.showAsDropDown(btnD,0,0);
-
                     popAdapter.setPositionA(vp.getCurrentItem());
 
                 }else{

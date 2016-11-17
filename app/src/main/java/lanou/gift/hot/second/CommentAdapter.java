@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 
 import lanou.gift.R;
 import lanou.gift.textbean.CommentBean;
-import lanou.gift.volley.CommonViewHolder;
+import lanou.gift.base.CommonViewHolder;
 
 /**
  * Created by dllo on 16/11/9.
@@ -43,9 +43,12 @@ public class CommentAdapter extends BaseAdapter{
                 setImage(R.id.iv_comment_picture,bean.getData().getComments().get(i).getUser().getAvatar_url());
 
         //时间戳
-        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+        SimpleDateFormat format =
+                new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
         //系统时钟相当于1/1000的时间戳
-        String time = format.format(Long.valueOf(bean.getData().getComments().get(i).getCreated_at())*1000);
+        String time = format.format(
+                Long.valueOf(bean.getData().getComments()
+                        .get(i).getCreated_at())*1000);
         holder.setText(R.id.tv_comment_time,time);
 
 

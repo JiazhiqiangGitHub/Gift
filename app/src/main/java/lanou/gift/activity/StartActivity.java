@@ -88,7 +88,7 @@ public class StartActivity extends BaseActivity implements View.OnClickListener 
         }
         mFirst = false;
         SharedPreferences.Editor e = shared.edit();
-        e.putBoolean("1", false);
+        e.putBoolean("1", mFirst);
         e.commit();
 
     }

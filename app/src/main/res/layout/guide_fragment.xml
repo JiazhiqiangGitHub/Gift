@@ -33,18 +33,20 @@
             android:gravity="center_vertical"/>
 
     <android.support.design.widget.TabLayout
-        android:layout_width="320dp"
+        android:layout_width="340dp"
         android:layout_height="match_parent"
         android:id="@+id/tb_guide_head"
         >
 
     </android.support.design.widget.TabLayout>
 
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
+        <ImageButton
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
             android:layout_alignParentRight="true"
-            android:background="@drawable/ic_down"
+            android:background="@mipmap/arrow_grey_down"
             android:textSize="30dp"
             android:id="@+id/btn_guide_dialog"
             />

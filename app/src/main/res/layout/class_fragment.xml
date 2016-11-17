@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
 
         android:layout_height="wrap_content"
-        android:background="#ED1E2B">
+        android:background="#ED1E2B"
+        android:alpha="0.75">
     <android.support.design.widget.TabLayout
         android:layout_width="160dp"
         android:layout_marginLeft="110dp"
@@ -24,6 +25,7 @@
         android:text="选份走心好礼送给TA"
         android:id="@+id/btn_sort_search"
         android:background="#FFA336"
+        android:alpha="0.7"
         />
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"

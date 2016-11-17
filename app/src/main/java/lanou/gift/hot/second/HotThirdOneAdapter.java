@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 
 import lanou.gift.R;
 import lanou.gift.textbean.HotSecondOneBean;
-import lanou.gift.volley.CommonViewHolder;
+import lanou.gift.base.CommonViewHolder;
 
 /**
  * Created by dllo on 16/11/7.

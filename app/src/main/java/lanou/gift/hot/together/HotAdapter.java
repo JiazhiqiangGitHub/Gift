@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import lanou.gift.R;
 import lanou.gift.hot.second.HotActivity;
 import lanou.gift.textbean.TextHotBean;
-import lanou.gift.volley.CommonViewHolder;
+import lanou.gift.base.CommonViewHolder;
 
 /**
  * Created by dllo on 16/10/25.

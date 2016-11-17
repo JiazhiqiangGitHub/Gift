@@ -1,12 +1,15 @@
 package lanou.gift.activity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.TranslateAnimation;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -27,6 +30,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     private ImageButton one,two,three,four,five,enter,boy,girl,next,settingBack;
     private ImageView back,closeTwo,close;
     private LinearLayout llOne,llTwo;
+    private FrameLayout fl;
     @Override
     protected int getLayout() {
         return R.layout.activity_setting;
@@ -38,6 +42,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         tvSex = bindView(R.id.tv_setting_sex);
         tvJob = bindView(R.id.tv_setting_job);
         settingBack = bindView(R.id.setting_back);
+        fl = bindView(R.id.setting_fl_tel);
 
     }
 
@@ -47,7 +52,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
        ll.setOnClickListener(this);
        pop = creatPop();
        popTwo = creatPopTwo();
-
+        fl.setOnClickListener(this);
        shared = getPreferences(MODE_PRIVATE);
 
     }
@@ -208,6 +213,12 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 tvSex.setText(shared.getString("sex",""));
                 tvJob.setText(shared.getString("job",""));
                 popTwo.dismiss();
+                break;
+            case R.id.setting_fl_tel:
+                    Intent intent = new Intent();
+                    Uri dataU = Uri.parse("tel:4009992053");
+                    intent.setData(dataU);
+                    startActivity(intent);
                 break;
 
         }

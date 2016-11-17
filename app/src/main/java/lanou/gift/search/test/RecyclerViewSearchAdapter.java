@@ -11,7 +11,7 @@ import java.net.URLEncoder;
 
 import lanou.gift.R;
 import lanou.gift.textbean.SearchTextBean;
-import lanou.gift.volley.CommonViewHolder;
+import lanou.gift.base.CommonViewHolder;
 import lanou.gift.volley.DBTool;
 import lanou.gift.volley.Search;
 

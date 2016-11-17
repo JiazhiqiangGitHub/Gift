@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 
 import lanou.gift.R;
 import lanou.gift.textbean.RaidersSecondBean;
-import lanou.gift.volley.CommonViewHolder;
+import lanou.gift.base.CommonViewHolder;
 
 /**
  * Created by dllo on 16/11/5.

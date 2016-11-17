@@ -1,4 +1,4 @@
-package lanou.gift.volley;
+package lanou.gift.base;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import lanou.gift.volley.VolleySingleton;
 
 /**
  * Created by dllo on 16/10/31.
@@ -83,11 +85,7 @@ public class CommonViewHolder extends RecyclerView.ViewHolder{
         textView.setText(text);
         return this;
     }
-    public CommonViewHolder setImage(int id,int imgId){
-        ImageView imageView = getView(id);
-        imageView.setImageResource(imgId);
-        return this;
-    }
+
     public CommonViewHolder setImage(int id,String url){
         ImageView imageView = getView(id);
         VolleySingleton.getInstance().getImage
@@ -95,11 +93,6 @@ public class CommonViewHolder extends RecyclerView.ViewHolder{
         return this;
     }
 
-    //一个item里对应的东西的点击事件
-    public CommonViewHolder setViewClick(int id, View.OnClickListener listener){
-        getView(id).setOnClickListener(listener);
-        return this;
-    }
     //recyclerView的行布局点击
     public CommonViewHolder setItemClick(View.OnClickListener listener){
         itemView.setOnClickListener(listener);

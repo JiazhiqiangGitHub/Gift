@@ -56,7 +56,6 @@ public class EnterActivity extends BaseActivity implements View.OnClickListener 
         number.addTextChangedListener(new TextWatcher() {
 
 
-
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 

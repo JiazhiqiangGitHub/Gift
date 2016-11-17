@@ -4,11 +4,11 @@
     android:layout_height="match_parent"
     >
 
-<RelativeLayout
+    timp.png<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="3"
-    android:background="@mipmap/signin_bg_night">
+    android:background="@mipmap/timp">
     <ImageButton
         android:layout_width="20dp"
         android:layout_height="20dp"
