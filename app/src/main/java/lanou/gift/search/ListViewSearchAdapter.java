@@ -26,6 +26,7 @@ public class ListViewSearchAdapter extends BaseAdapter{
 
     public void setArrayList(ArrayList<String> arrayList) {
         this.arrayList = arrayList;
+        notifyDataSetChanged();
     }
 
     @Override

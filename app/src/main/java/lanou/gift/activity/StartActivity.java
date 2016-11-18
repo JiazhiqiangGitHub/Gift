@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import cn.bmob.v3.Bmob;
 import lanou.gift.R;
 import lanou.gift.base.BaseActivity;
 
@@ -35,20 +36,20 @@ public class StartActivity extends BaseActivity implements View.OnClickListener 
         @Override
         public boolean handleMessage(Message message) {
             //用what只存在一种值
-            if (message.what == 1){
-                Intent intent = new Intent(StartActivity.this,MainActivity.class);
+            if (message.what == 1) {
+                Intent intent = new Intent(StartActivity.this, MainActivity.class);
                 startActivity(intent);
                 //跳转后结束这个activity
                 finish();
-            }else{
-                TranslateAnimation down = new TranslateAnimation(0,0,-200,0);
+            } else {
+                TranslateAnimation down = new TranslateAnimation(0, 0, -200, 0);
                 //位置
                 down.setFillAfter(true);//让动画停在最后一帧
                 down.setInterpolator(new BounceInterpolator());//跳动
                 down.setDuration(3000);//时间
 
                 ll.startAnimation(down);
-                pop.showAsDropDown(tv,-200,200);
+                pop.showAsDropDown(tv, -200, 200);
 
 
             }
@@ -69,6 +70,9 @@ public class StartActivity extends BaseActivity implements View.OnClickListener 
     protected void initViews() {
         iv = bindView(R.id.iv_start);
         tv = bindView(R.id.tv_start);
+
+        //第一：默认初始化
+        Bmob.initialize(this, "2196c6c28364d3ecedbdff7563b32b0a");
 
     }
 
@@ -95,7 +99,7 @@ public class StartActivity extends BaseActivity implements View.OnClickListener 
 
     private PopupWindow creatPop() {
         pop = new PopupWindow(this);
-        View view = LayoutInflater.from(this).inflate(R.layout.start_pop,null);
+        View view = LayoutInflater.from(this).inflate(R.layout.start_pop, null);
         ll = (LinearLayout) view.findViewById(R.id.ll_pop_one);
         btnNext = (ImageButton) view.findViewById(R.id.popOne_next);
         btnClose = (ImageView) view.findViewById(R.id.img_close);
@@ -111,16 +115,15 @@ public class StartActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.popOne_next:
-                Intent intent = new Intent(this,MainActivity.class);
+                Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 break;
             case R.id.img_close:
                 pop.dismiss();
-                handler.sendEmptyMessageDelayed(1,3000);
+                handler.sendEmptyMessageDelayed(1, 3000);
                 break;
-
 
 
         }

@@ -29,6 +29,9 @@ private VolleySingleton(){
 
 
 }
+
+
+
 //A
 public static VolleySingleton getInstance(){
     if (volleySingleton == null){

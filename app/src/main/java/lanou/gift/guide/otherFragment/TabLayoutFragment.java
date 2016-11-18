@@ -1,9 +1,8 @@
 package lanou.gift.guide.otherFragment;
 
-import android.content.Context;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -33,7 +32,6 @@ public class TabLayoutFragment extends BaseFragment {
     private String urlA = Values.URL_TABLAYOUT_A;
     private String urlB = Values.URL_TABLAYOUT_B;
     private String urlBB = Values.URL_TABLAYOUT_BB;
-    private Context context;
     private int j;
     private ArrayList<String> urlList = new ArrayList<>();
 
@@ -53,9 +51,18 @@ public class TabLayoutFragment extends BaseFragment {
         lv.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<ListView> pullToRefreshBase) {
-                adapter.notifyDataSetChanged();
 
-                lv.onRefreshComplete();
+                CountDownTimer countDownTimer = new CountDownTimer(1000, 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        lv.onRefreshComplete();
+                    }
+                };
+                countDownTimer.start();
             }
 
             @Override
@@ -69,7 +76,7 @@ public class TabLayoutFragment extends BaseFragment {
                     @Override
                     public void onResponse(GirlFriend response) {
                         adapter.setBean(response, false);
-
+                        //不要在这刷新
                         adapter.notifyDataSetChanged();
                         lv.onRefreshComplete();
 
@@ -81,7 +88,6 @@ public class TabLayoutFragment extends BaseFragment {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(context, "网络不好", Toast.LENGTH_SHORT).show();
                     }
                 });
                 VolleySingleton.getInstance().addRequest(request);
@@ -135,6 +141,13 @@ public class TabLayoutFragment extends BaseFragment {
             case 14:
                 Gson();
                 break;
+            case 15:
+                Gson();
+                break;
+            case 16:
+                Gson();
+                break;
+
         }
 
 

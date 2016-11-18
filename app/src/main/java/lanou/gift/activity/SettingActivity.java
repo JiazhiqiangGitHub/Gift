@@ -24,13 +24,14 @@ import lanou.gift.base.BaseActivity;
  */
 public class SettingActivity extends BaseActivity implements View.OnClickListener {
     private LinearLayout ll;
-    private TextView tvSex,tvJob;
+    private TextView tvSex, tvJob;
     private SharedPreferences shared;
-    private PopupWindow pop,popTwo;
-    private ImageButton one,two,three,four,five,enter,boy,girl,next,settingBack;
-    private ImageView back,closeTwo,close;
-    private LinearLayout llOne,llTwo;
+    private PopupWindow pop, popTwo;
+    private ImageButton one, two, three, four, five, enter, boy, girl, next, settingBack;
+    private ImageView back, closeTwo, close;
+    private LinearLayout llOne, llTwo;
     private FrameLayout fl;
+
     @Override
     protected int getLayout() {
         return R.layout.activity_setting;
@@ -48,21 +49,21 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initData() {
-       settingBack.setOnClickListener(this);
-       ll.setOnClickListener(this);
-       pop = creatPop();
-       popTwo = creatPopTwo();
+        settingBack.setOnClickListener(this);
+        ll.setOnClickListener(this);
+        pop = creatPop();
+        popTwo = creatPopTwo();
         fl.setOnClickListener(this);
-       shared = getPreferences(MODE_PRIVATE);
+        shared = getPreferences(MODE_PRIVATE);
 
     }
 
     private PopupWindow creatPopTwo() {
         popTwo = new PopupWindow(this);
-        View view = LayoutInflater.from(this).inflate(R.layout.pop_item_two,null);
+        View view = LayoutInflater.from(this).inflate(R.layout.pop_item_two, null);
         popTwo.setWidth(WindowManager.LayoutParams.WRAP_CONTENT);
         popTwo.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
-        llTwo =llOne = (LinearLayout) view.findViewById(R.id.ll_pop_two);
+        llTwo = llOne = (LinearLayout) view.findViewById(R.id.ll_pop_two);
         one = (ImageButton) view.findViewById(R.id.one);
         two = (ImageButton) view.findViewById(R.id.two);
         three = (ImageButton) view.findViewById(R.id.three);
@@ -89,7 +90,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
     private PopupWindow creatPop() {
         pop = new PopupWindow(this);
-        View view = LayoutInflater.from(this).inflate(R.layout.start_pop,null);
+        View view = LayoutInflater.from(this).inflate(R.layout.start_pop, null);
         next = (ImageButton) view.findViewById(R.id.popOne_next);
         close = (ImageView) view.findViewById(R.id.img_close);
         llOne = (LinearLayout) view.findViewById(R.id.ll_pop_one);
@@ -115,30 +116,30 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         three.setSelected(false);
         four.setSelected(false);
         five.setSelected(false);
-        String str = shared.getString("sex","");
-        switch (view.getId()){
+        String str = shared.getString("sex", "");
+        switch (view.getId()) {
             case R.id.setting_back:
                 finish();
                 break;
             case R.id.ll_setting:
-                TranslateAnimation down = new TranslateAnimation(0,0,-200,0);
+                TranslateAnimation down = new TranslateAnimation(0, 0, -200, 0);
                 //位置
                 down.setFillAfter(true);//让动画停在最后一帧
                 down.setInterpolator(new BounceInterpolator());//跳动
                 down.setDuration(2000);//时间
                 llOne.startAnimation(down);
-                pop.showAtLocation(view, Gravity.CENTER,0,0);
+                pop.showAtLocation(view, Gravity.CENTER, 0, 0);
                 break;
             case R.id.popOne_next:
                 pop.dismiss();
-                popTwo.showAtLocation(view,Gravity.CENTER,0,0);
+                popTwo.showAtLocation(view, Gravity.CENTER, 0, 0);
                 break;
             case R.id.img_boy:
                 girl.setSelected(false);
                 boy.setSelected(true);
                 boy.setImageResource(R.drawable.selected_btn);
                 girl.setImageResource(R.drawable.unselect_btn);
-                editor.putString("sex","男孩");
+                editor.putString("sex", "男孩");
                 editor.apply();
                 break;
             case R.id.img_gril:
@@ -146,7 +147,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 boy.setSelected(false);
                 boy.setImageResource(R.drawable.unselect_btn);
                 girl.setImageResource(R.drawable.selected_btn);
-                editor.putString("sex","女孩");
+                editor.putString("sex", "女孩");
                 editor.apply();
                 break;
             case R.id.img_close:
@@ -154,7 +155,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.one:
                 one.setSelected(true);
-                editor.putString("job","初中生");
+                editor.putString("job", "初中生");
                 one.setImageResource(R.drawable.selected_btn);
                 two.setImageResource(R.drawable.unselect_btn);
                 three.setImageResource(R.drawable.unselect_btn);
@@ -164,7 +165,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.two:
                 one.setSelected(true);
-                editor.putString("job","高中生");
+                editor.putString("job", "高中生");
                 one.setImageResource(R.drawable.unselect_btn);
                 two.setImageResource(R.drawable.selected_btn);
                 three.setImageResource(R.drawable.unselect_btn);
@@ -174,7 +175,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.three:
                 one.setSelected(true);
-                editor.putString("job","大学生");
+                editor.putString("job", "大学生");
                 one.setImageResource(R.drawable.unselect_btn);
                 two.setImageResource(R.drawable.unselect_btn);
                 three.setImageResource(R.drawable.selected_btn);
@@ -184,7 +185,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.four:
                 one.setSelected(true);
-                editor.putString("job","职场新人");
+                editor.putString("job", "职场新人");
                 one.setImageResource(R.drawable.unselect_btn);
                 two.setImageResource(R.drawable.unselect_btn);
                 three.setImageResource(R.drawable.unselect_btn);
@@ -194,7 +195,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.five:
                 one.setSelected(true);
-                editor.putString("job","资深工作党");
+                editor.putString("job", "资深工作党");
                 one.setImageResource(R.drawable.unselect_btn);
                 two.setImageResource(R.drawable.unselect_btn);
                 three.setImageResource(R.drawable.unselect_btn);
@@ -207,18 +208,18 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.pop_two_back:
                 popTwo.dismiss();
-                pop.showAtLocation(view,Gravity.CENTER,0,0);
+                pop.showAtLocation(view, Gravity.CENTER, 0, 0);
                 break;
             case R.id.btn_enter_app:
-                tvSex.setText(shared.getString("sex",""));
-                tvJob.setText(shared.getString("job",""));
+                tvSex.setText(shared.getString("sex", ""));
+                tvJob.setText(shared.getString("job", ""));
                 popTwo.dismiss();
                 break;
             case R.id.setting_fl_tel:
-                    Intent intent = new Intent();
-                    Uri dataU = Uri.parse("tel:4009992053");
-                    intent.setData(dataU);
-                    startActivity(intent);
+                Intent intent = new Intent();
+                Uri dataU = Uri.parse("tel:4009992053");
+                intent.setData(dataU);
+                startActivity(intent);
                 break;
 
         }

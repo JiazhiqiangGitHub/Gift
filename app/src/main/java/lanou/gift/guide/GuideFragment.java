@@ -1,6 +1,7 @@
 package lanou.gift.guide;
 
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -105,8 +106,10 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
 
     //创建pop 宽高适应屏幕
     private PopupWindow createPop() {
+
         //这里必须是getContext 要不没法点按钮切换别的页面
          popupWindow = new PopupWindow(getContext());
+        popupWindow.setBackgroundDrawable(new BitmapDrawable());
         v = LayoutInflater.from(getContext()).inflate(R.layout.guide_pop,null);
         //pop自带的监听 在这里让他们隐藏
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
@@ -121,6 +124,10 @@ public class GuideFragment extends BaseFragment implements View.OnClickListener 
         popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
         popupWindow.setContentView(v);
         popupWindow.setFocusable(true);
+        //点击外部消失
+//        popupWindow.setOutsideTouchable(true);
+
+
         return popupWindow;
     }
 

@@ -12,12 +12,25 @@
         android:scaleType="fitXY"
         android:src="@mipmap/startpicture"/>
 
-
+<!--文字自带的省略-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tv_start"
-        android:text="广告"
+        android:text="这是一个广告"
+
+        android:maxLength="4"
+        android:ellipsize="end"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="这是一个广告"
+        android:layout_below="@+id/tv_start"
+        android:maxLength="4"
+        android:ellipsize="end"
         android:textSize="20dp"
         android:layout_centerHorizontal="true"/>
 

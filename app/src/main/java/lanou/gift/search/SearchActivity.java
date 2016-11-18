@@ -2,14 +2,14 @@ package lanou.gift.search;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -17,12 +17,12 @@ import com.litesuits.orm.LiteOrm;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 
 import lanou.gift.R;
 import lanou.gift.base.BaseActivity;
 import lanou.gift.search.test.RecyclerViewSearchAdapter;
+import lanou.gift.textbean.SearchBean;
 import lanou.gift.textbean.SearchTextBean;
 import lanou.gift.values.Values;
 import lanou.gift.volley.DBTool;
@@ -35,16 +35,17 @@ import lanou.gift.volley.VolleySingleton;
  */
 public class SearchActivity extends BaseActivity implements View.OnClickListener {
     private ImageButton btnBack;
-    private ListView lv;
+    private ListView lv,lvHint;
     private RecyclerView rv;
     private RecyclerViewSearchAdapter adapter;
-    private AutoCompleteTextView actv;
-    private ArrayList<HashMap<String,String>> list = new ArrayList<>();
+    private HintListViewAdapter hintAdapter;
+    private EditText editText;
     private Button btnSearch;
     private ListViewSearchAdapter lvAdapter;
-    private ArrayList<String> arrayList;
-    private LiteOrm mLiteOrm;
     private Search search;
+    private ArrayList<String> arrayList;
+    private ArrayList<SearchBean.DataBean.WordsBean> hintArrayList;
+    private List<SearchBean.DataBean.WordsBean> words;
 
     @Override
     protected int getLayout() {
@@ -56,15 +57,25 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         btnBack = bindView(R.id.btn_search_title_back);
         lv = bindView(R.id.lv_search);
         rv = bindView(R.id.rv_search);
-        actv = bindView(R.id.search_actv);
+        editText = bindView(R.id.search_actv);
         btnSearch = bindView(R.id.btn_search_title_search);
+        lvHint = bindView(R.id.lv_hint);
+
+        //点击之后显示
+        lvHint.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                editText.setText(words.get(i).getWord().toString());
+                lvHint.setVisibility(View.INVISIBLE);
+            }
+        });
 
     }
 
    @Override
     protected void initData() {
 
-        mLiteOrm = LiteOrm.newSingleInstance(this,"myDB.db");
+       LiteOrm mLiteOrm = LiteOrm.newSingleInstance(this,"myDB.db");
 
 
         arrayList = new ArrayList<>();
@@ -94,27 +105,73 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         VolleySingleton.getInstance().addRequest(gsonRequest);
 
 
-        //检索条
-        SimpleAdapter notes = new SimpleAdapter(this,list,R.layout.second,
-                new String[]{"brandSearchText","brandName"},
-                new int[]{R.id.searchText,R.id.brandName});
-        addItem();
-        actv.setAdapter(notes);
-        //输入一个就显示
-        actv.setThreshold(1);
-        actv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                TextView tv = (TextView) view.findViewById(R.id.brandName);
-                actv.setText(tv.getText().toString()+"");
-                actv.setSelection(actv.getText().toString().length());
-            }
-        });
+            //检索条
+            hintAdapter = new HintListViewAdapter(this);
+             hintArrayList = new ArrayList<>();
+            editText.addTextChangedListener(watcher);
+
+
             //查询
             querySearch();
-    }
-    private void querySearch() {
 
+    }
+    //item的点击
+
+
+
+
+
+
+    //检索条更改变化
+        private TextWatcher watcher = new TextWatcher() {
+
+
+
+        @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                String content = editText.getText().toString();
+                String url = Values.QUERY_SEARCH + content;
+                GsonRequest<SearchBean> searchGsonRequest = new GsonRequest<SearchBean>(
+                        SearchBean.class, url, new Response.Listener<SearchBean>() {
+                    @Override
+                    public void onResponse(final SearchBean response) {
+                        words = response.getData().getWords();
+                        hintAdapter.setArrayList(words);
+                        lvHint.setAdapter(hintAdapter);
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+                VolleySingleton.getInstance().addRequest(searchGsonRequest);
+
+                //如果是空 隐藏
+                if (editText.getText().length() == 0){
+                 lvHint.setVisibility(View.INVISIBLE);
+                }else{
+                    lvHint.setVisibility(View.VISIBLE);
+                }
+
+
+            }
+        };
+
+   private void querySearch() {
+        //把查询的结果显示在listView上
         DBTool.getInstance().queryAllSearch(new DBTool.OnQueryListener() {
             @Override
             public void onQuery(List<Search> mSearch) {
@@ -125,28 +182,10 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 }
                 Collections.reverse(arrayList);//集合倒置
                 lvAdapter.setArrayList(arrayList);
-                lvAdapter.notifyDataSetChanged();
                 lv.setAdapter(lvAdapter);
+
             }
         });
-    }
-    //搜索内容
-    private void addItem() {
-        HashMap<String,String> item;
-        item = new HashMap<>();
-        item.put("brandSearchText","s");
-        item.put("brandName","水杯");
-        list.add(item);
-
-        item = new HashMap<>();
-        item.put("brandSearchText","s");
-        item.put("brandName","水果");
-        list.add(item);
-
-        item = new HashMap<>();
-        item.put("brandSearchText","s");
-        item.put("brandName","水晶项链");
-        list.add(item);
     }
 
 
@@ -157,9 +196,9 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 finish();
                 break;
             case R.id.btn_search_title_search:
-                String str = actv.getText().toString();
+                String str = editText.getText().toString();
                 search = new Search();
-                search.setThings(actv.getText().toString());
+                search.setThings(editText.getText().toString());
                 arrayList.add(str);
                 lvAdapter.setArrayList(arrayList);
                 lv.setAdapter(lvAdapter);
@@ -168,5 +207,6 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
         }
     }
+
 
 }

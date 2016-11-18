@@ -4,7 +4,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.Window;
-import android.widget.PopupWindow;
 import android.widget.RadioButton;
 
 import lanou.gift.R;
@@ -22,7 +21,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private RadioButton btnMine;
     private FragmentManager manager;
     private FragmentTransaction transaction;
-    private PopupWindow popupWindow;
+
+
     //导包
     @Override
     protected int getLayout() {
@@ -32,6 +32,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         return R.layout.activity_main;
     }
+
     @Override
     protected void initViews() {
         btnGuide = bindView(R.id.btn_main_guide);
@@ -39,6 +40,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         btnClass = bindView(R.id.btn_main_class);
         btnMine = bindView(R.id.btn_main_mine);
     }
+
     @Override
     protected void initData() {
         //第一次打开界面,首页显示的内容 在onCreate中替换一次
@@ -53,26 +55,27 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         btnClass.setOnClickListener(this);
         btnMine.setOnClickListener(this);
     }
+
     @Override
     public void onClick(View view) {
         manager = getSupportFragmentManager();
         transaction = manager.beginTransaction();
-            switch (view.getId()) {
-                case R.id.btn_main_guide:
-                    transaction.replace(R.id.lb_main, new GuideFragment());
-                    break;
-                case R.id.btn_main_hot:
-                    transaction.replace(R.id.lb_main, new HotFirstFragment());
-                    break;
-                case R.id.btn_main_class:
-                    transaction.replace(R.id.lb_main, new ClassFragment());
-                    break;
-                case R.id.btn_main_mine:
-                    transaction.replace(R.id.lb_main, new MineFragment());
-                    break;
+        switch (view.getId()) {
+            case R.id.btn_main_guide:
+                transaction.replace(R.id.lb_main, new GuideFragment());
+                break;
+            case R.id.btn_main_hot:
+                transaction.replace(R.id.lb_main, new HotFirstFragment());
+                break;
+            case R.id.btn_main_class:
+                transaction.replace(R.id.lb_main, new ClassFragment());
+                break;
+            case R.id.btn_main_mine:
+                transaction.replace(R.id.lb_main, new MineFragment());
+                break;
 
-            }
-            transaction.commit();
+        }
+        transaction.commit();
 
     }
 

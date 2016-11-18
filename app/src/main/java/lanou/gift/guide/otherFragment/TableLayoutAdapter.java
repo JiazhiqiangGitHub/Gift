@@ -14,12 +14,11 @@ import lanou.gift.base.CommonViewHolder;
 /**
  * Created by dllo on 16/10/25.
  */
-public class TableLayoutAdapter extends BaseAdapter{
+public class TableLayoutAdapter extends BaseAdapter {
     //listView的适配器
     private Context mContext;
 
     private GirlFriend bean;
-
 
 
     public void setBean(GirlFriend bean) {
@@ -29,10 +28,10 @@ public class TableLayoutAdapter extends BaseAdapter{
     }
 
     //刷新
-    public void setBean(GirlFriend arrayList,boolean isRefresh){
-        if (bean == null || isRefresh){
+    public void setBean(GirlFriend arrayList, boolean isRefresh) {
+        if (bean == null || isRefresh) {
             setBean(arrayList);
-        }else{
+        } else {
             bean.getData().getItems().addAll(arrayList.getData().getItems());
             notifyDataSetChanged();
         }
@@ -76,16 +75,16 @@ public class TableLayoutAdapter extends BaseAdapter{
                         (new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Intent intent = new Intent(mContext,GuideActivity.class);
-                                intent.putExtra("second",bean.getData().getItems().get(i).getUrl());
+                                Intent intent = new Intent(mContext, GuideActivity.class);
+                                intent.putExtra("second", bean.getData().getItems().get(i).getUrl());
                                 mContext.startActivity(intent);
                             }
                         });
-                String str = bean.getData().getItems().get(i).getIntroduction();
-                if (str.length() >= 45){
-                    String strTwo = str.substring(0,45);
-                    viewHolder.setText(R.id.tv_guide_fragment_item_body,strTwo+"...");
-                }
+        String str = bean.getData().getItems().get(i).getIntroduction();
+        if (str.length() >= 45) {
+            String strTwo = str.substring(0, 45);
+            viewHolder.setText(R.id.tv_guide_fragment_item_body, strTwo + "...");
+        }
         return viewHolder.getItemView();
 
 

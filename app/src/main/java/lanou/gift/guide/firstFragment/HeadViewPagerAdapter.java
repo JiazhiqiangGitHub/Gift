@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Created by dllo on 16/10/28.
  */
-public class HeadViewPagerAdapter extends PagerAdapter{
+public class HeadViewPagerAdapter extends PagerAdapter {
 
 
     ArrayList<String> urls;
@@ -25,14 +25,13 @@ public class HeadViewPagerAdapter extends PagerAdapter{
     //把轮播图设置的数量无限
     @Override
     public int getCount() {
-        return urls == null?0:Integer.MAX_VALUE;
+        return urls == null ? 0 : Integer.MAX_VALUE;
     }
+
     //获得图片的数量
-    public int getImgCount(){
+    public int getImgCount() {
         return urls.size();
     }
-
-
 
 
     @Override
@@ -45,14 +44,14 @@ public class HeadViewPagerAdapter extends PagerAdapter{
         ImageView imageView = new ImageView(container.getContext());
         //.fit让图片适应imagive的大小
         Picasso.with(container.getContext()).load(urls.get(position % urls.size())).fit().into(imageView);
-        container.addView(imageView, ViewPager.LayoutParams.MATCH_PARENT,ViewPager.LayoutParams.MATCH_PARENT);
+        container.addView(imageView, ViewPager.LayoutParams.MATCH_PARENT, ViewPager.LayoutParams.MATCH_PARENT);
         return imageView;
     }
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         //滑动超过会销毁这一页
-        if (container.getChildAt(position) == object){
+        if (container.getChildAt(position) == object) {
             container.removeViewAt(position);
         }
     }

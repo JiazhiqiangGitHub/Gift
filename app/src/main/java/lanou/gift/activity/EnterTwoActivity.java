@@ -6,6 +6,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
 import lanou.gift.R;
 import lanou.gift.base.BaseActivity;
 
@@ -16,6 +19,9 @@ public class EnterTwoActivity extends BaseActivity implements View.OnClickListen
     private Button btnBuild;
     private EditText number;
     private EditText password;
+    private String tel;
+    private String world;
+
     @Override
     protected int getLayout() {
         return R.layout.activity_two_enter;
@@ -37,19 +43,32 @@ public class EnterTwoActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btn_enter_two_enter:
-                String tel = number.getText().toString();
-                String world = password.getText().toString();
-                if ((!tel.isEmpty())&&(!world.isEmpty())) {
-                    Intent intent = new Intent();
-                    intent.putExtra("name",tel);
-                    intent.putExtra("world",world);
-                    setResult(EnterActivity.ENTER_RESULT_CODE,intent);
-                    finish();
-                }else{
-                    Toast.makeText(this, "请注册", Toast.LENGTH_SHORT).show();
+                tel = number.getText().toString();
+                world = password.getText().toString();
+                if ((!tel.isEmpty()) && (!world.isEmpty())) {
+                    BmobUser bmobUser = new BmobUser();
+                    bmobUser.setUsername(tel);
+                    bmobUser.setPassword(world);
+                    bmobUser.signUp(new SaveListener<BmobUser>() {
+                        @Override
+                        public void done(BmobUser bmobUser, BmobException e) {
+                            if (e == null){
+                                Toast.makeText(EnterTwoActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent();
+                                intent.putExtra("name", tel);
+                                intent.putExtra("world", world);
+                                setResult(EnterActivity.ENTER_RESULT_CODE, intent);
+                                finish();
+                            }
+                        }
+                    });
+
+                } else {
+                    Toast.makeText(this, "请完善注册", Toast.LENGTH_SHORT).show();
                 }
+
                 break;
         }
     }

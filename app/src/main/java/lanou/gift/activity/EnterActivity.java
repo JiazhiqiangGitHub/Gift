@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
 import lanou.gift.R;
 import lanou.gift.base.BaseActivity;
 
@@ -17,7 +20,7 @@ import lanou.gift.base.BaseActivity;
  * Created by dllo on 16/10/24.
  */
 public class EnterActivity extends BaseActivity implements View.OnClickListener {
-    private Button btnBuild,btnEnter;
+    private Button btnBuild, btnEnter;
     private ImageButton btnBack;
     private EditText number;
     private EditText password;
@@ -50,6 +53,7 @@ public class EnterActivity extends BaseActivity implements View.OnClickListener 
 
 
     }
+
     //手机号为11位的时候,才可以点击 变色
     //要现在布局里设置Button 的enabled为false属性
     private void EditTextChangeColor() {
@@ -64,14 +68,15 @@ public class EnterActivity extends BaseActivity implements View.OnClickListener 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 tel = number.getText().toString().trim();
-                if (tel.length() == 11){
+                if (tel.length() == 11) {
                     btnEnter.setEnabled(true);
                     btnEnter.setBackgroundColor(Color.RED);
-                }else{
+                } else {
                     btnEnter.setEnabled(false);
                     btnEnter.setBackgroundColor(Color.GRAY);
                 }
             }
+
             @Override
             public void afterTextChanged(Editable editable) {
             }
@@ -87,29 +92,49 @@ public class EnterActivity extends BaseActivity implements View.OnClickListener 
                 finish();
                 break;
             case R.id.btn_enter_test:
-                Intent intent = new Intent(EnterActivity.this,EnterTwoActivity.class);
-                startActivityForResult(intent,ENTER_REQUEST_CODE);
+                Intent intent = new Intent(EnterActivity.this, EnterTwoActivity.class);
+                startActivityForResult(intent, ENTER_REQUEST_CODE);
                 break;
             case R.id.btn_enter_enter:
-                    finish();
-                    Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
+                String Tel = number.getText().toString();
+                String mima = password.getText().toString();
+                BmobUser myUser = new BmobUser();
+                myUser.setUsername(Tel);
+                myUser.setPassword(mima);
+                myUser.login(new SaveListener<BmobUser>() {
+                    @Override
+                    public void done(BmobUser bmobUser, BmobException e) {
+                        if (e == null){
+                            finish();
+                            Toast.makeText(EnterActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(EnterActivity.this, "密码或账号错误", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+
+
+
+
                 break;
         }
     }
+
     //传值带的方法
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ENTER_REQUEST_CODE && resultCode == ENTER_RESULT_CODE){
-           if (data != null){
-               //接收注册界面的返回值
-               name = data.getStringExtra("name");
-               world = data.getStringExtra("world");
-               if ((!name.isEmpty())&&(!world.isEmpty())){
-                   number.setText(name);
-                   password.setText(world);
-               }
-           }
+        if (requestCode == ENTER_REQUEST_CODE && resultCode == ENTER_RESULT_CODE) {
+            if (data != null) {
+                //接收注册界面的返回值
+                name = data.getStringExtra("name");
+                world = data.getStringExtra("world");
+                if ((!name.isEmpty()) && (!world.isEmpty())) {
+                    number.setText(name);
+                    password.setText(world);
+                }
+            }
         }
     }
 }

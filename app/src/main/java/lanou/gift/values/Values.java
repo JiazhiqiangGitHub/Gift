@@ -28,4 +28,7 @@ public final class Values {
     public static final String URL_SEARCH_RV = "http://api.liwushuo.com/v2/search/hot_words";
     public static final String URL_SEARCH_THREE_A ="http://api.liwushuo.com/v2/search/item?keyword=";
     public static final String URL_SEARCH_THREE_B ="&limit=20&offset=0&sort=";
+
+    public static final String QUERY_SEARCH = "http://api.liwushuo.com/v2/search/word_completed_with_rst_cnt?keyword=";
+
 }

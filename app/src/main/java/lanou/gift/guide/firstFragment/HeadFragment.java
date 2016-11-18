@@ -43,19 +43,20 @@ public class HeadFragment extends BaseFragment {
 
     @Override
     protected void initDate() {
+
         //解析轮播图的网址
         initGson();
         //自动的方法
-        mHandler = new Handler(){
+        mHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
                 //执行回调的地方
-                if (vp != null&& msg.what==1){
-                    vp.setCurrentItem(vp.getCurrentItem()+1);
+                if (vp != null && msg.what == 1) {
+                    vp.setCurrentItem(vp.getCurrentItem() + 1);
                 }
                 //再走两秒回调
-                mHandler.sendEmptyMessageDelayed(1,2000);
+                mHandler.sendEmptyMessageDelayed(1, 2000);
             }
         };
         //让点跟着一起动
@@ -64,6 +65,7 @@ public class HeadFragment extends BaseFragment {
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
             }
+
             //当前选中的是哪一个
             @Override
             public void onPageSelected(int position) {
@@ -123,13 +125,13 @@ public class HeadFragment extends BaseFragment {
                         //把点加进去
                         points = new ArrayList<>();
                         for (int i = 0; i < urlSize; i++) {
-                            ViewPagerPoint point =  new ViewPagerPoint(getContext());
+                            ViewPagerPoint point = new ViewPagerPoint(getContext());
                             points.add(point);//加到集合里
                             //选线性布局里的那个
                             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                                    0, ViewGroup.LayoutParams.MATCH_PARENT,1
+                                    0, ViewGroup.LayoutParams.MATCH_PARENT, 1
                             );//宽,高,权重
-                            pointLayout.addView(point,layoutParams);
+                            pointLayout.addView(point, layoutParams);
                         }
 
 
@@ -137,7 +139,6 @@ public class HeadFragment extends BaseFragment {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
 
 
             }
@@ -154,17 +155,18 @@ public class HeadFragment extends BaseFragment {
 
         lv = bindView(R.id.lv_guide_head);
         //这里是要从fragment中找ID 但是viewpager所在的布局不在fragment中 所以要把相应的布局传到下面
-        vp = bindView(headView,R.id.vp_guide_head);
+        vp = bindView(headView, R.id.vp_guide_head);
         //吧布局设置成头布局
         lv.addHeaderView(headView);
         //点的ID 是个线性布局
-        pointLayout = bindView(headView,R.id.guide_point);
+        pointLayout = bindView(headView, R.id.guide_point);
     }
 
     @Override
     protected int getLayout() {
         return R.layout.guide_head_fragment;
     }
+
     @Override
     public void onStop() {
         super.onStop();
@@ -176,12 +178,13 @@ public class HeadFragment extends BaseFragment {
     public void onStart() {
         super.onStart();
         //开始轮播 延时发送一个空的消息 只执行一次回到回调的下面
-        mHandler.sendEmptyMessageDelayed(1,2000);
+        mHandler.sendEmptyMessageDelayed(1, 2000);
     }
+
     //实现Fragment的复用
-    public static HeadFragment newInstance(int position){
+    public static HeadFragment newInstance(int position) {
         Bundle args = new Bundle();
-        args.putInt("position",position);
+        args.putInt("position", position);
         HeadFragment fragment = new HeadFragment();
         fragment.setArguments(args);
         return fragment;
